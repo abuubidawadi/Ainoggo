@@ -1,0 +1,52 @@
+.hyperlink {
+    -fx-underline: false;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.hyperlink:hover {
+    -fx-underline: false;
+    -fx-text-fill: #000000;
+}
+
+.hyperlink:focused {
+    -fx-border-color: transparent;
+    -fx-underline: false;
+}
+.login-button{
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;    
+    -fx-border-radius: 5px;
+}
+.login-button:hover{
+    -fx-background-radius: 5px;
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFFFFF;
+}
+.register-button{
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+.register-button:hover{
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-width: 2px;    
+    -fx-border-radius: 5px;
+}
+
+.header{
+    -fx-background-color: linear-gradient(to top, #ebebeb, #FFFFFF);
+}
+.right{
+    -fx-background-color: #FFFFFF;
+}
+.left{
+    -fx-background-color: #000000;
+}
