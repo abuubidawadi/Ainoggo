@@ -1,4 +1,6 @@
 
+import javax.swing.Action;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -12,7 +14,16 @@ import javafx.scene.text.Text;
 public class MainSceneController {
 
     @FXML
-    private Text ainoggo_home;
+    private ImageView ainoggo_home_logo_log;
+
+    @FXML
+    private ImageView ainoggo_home_logo_reg;
+
+    @FXML
+    private Text ainoggo_home_text_log;
+
+    @FXML
+    private Text ainoggo_home_text_reg;
 
     @FXML
     private Button login_button;
@@ -22,6 +33,9 @@ public class MainSceneController {
 
     @FXML
     private Hyperlink login_forgot_password;
+
+    @FXML
+    private AnchorPane login_page;
 
     @FXML
     private AnchorPane login_page_form;
@@ -51,6 +65,9 @@ public class MainSceneController {
     private TextField reg_name;
 
     @FXML
+    private AnchorPane reg_page;
+
+    @FXML
     private AnchorPane reg_page_form;
 
     @FXML
@@ -74,7 +91,17 @@ public class MainSceneController {
     @FXML
     private Hyperlink switch_to_lawyer_reg;
 
+    public void switchbetweenloginandreg(ActionEvent event) {
 
+        if(event.getSource() == login_button_reg_page) {
+            login_page.setVisible(true);
+            reg_page.setVisible(false);
+        }
+        else if(event.getSource() == reg_button_log_page) {
+            login_page.setVisible(false);
+            reg_page.setVisible(true);
+        }
+    }
 
 }
 
