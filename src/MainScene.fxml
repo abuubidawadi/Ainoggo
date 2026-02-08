@@ -15,16 +15,16 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
          <children>
-            <AnchorPane prefHeight="80.0" prefWidth="1000.0" styleClass="header">
+            <AnchorPane fx:id="login_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
-                  <ImageView fx:id="ainoggo_home" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ainoggo_home_logo_log" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@main/resources/images/logo_black_icon.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="ainoggo_home" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                  <Text fx:id="ainoggo_home_text_log" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
@@ -36,7 +36,7 @@
                   </Hyperlink>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="left">
+            <AnchorPane fx:id="login_page_img" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="left">
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -50,7 +50,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="500.0" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="right">
+            <AnchorPane fx:id="login_page_form" layoutX="500.0" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="right">
                <children>
                   <Label layoutX="75.0" layoutY="123.0" text="Log into Your Account">
                      <font>
@@ -81,16 +81,16 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
+      <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
          <children>
             <AnchorPane fx:id="reg_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
-                  <ImageView fx:id="ainoggo_home" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ainoggo_home_logo_reg" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@main/resources/images/logo_black_icon.png" />
                      </image>
                   </ImageView>
-                  <Text fx:id="ainoggo_home1" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                  <Text fx:id="ainoggo_home_text_reg" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
