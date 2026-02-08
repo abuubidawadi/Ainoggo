@@ -15,7 +15,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
          <children>
             <AnchorPane prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
@@ -67,7 +67,7 @@
                         <Font name="Inter 24pt Medium" size="15.0" />
                      </font>
                   </Hyperlink>
-                  <Button fx:id="login_button" layoutX="173.0" layoutY="354.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="155.0" styleClass="login-button" text="LogIn" textAlignment="CENTER">
+                  <Button fx:id="login_button" layoutX="173.0" layoutY="354.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="155.0" styleClass="login-button" text="Login" textAlignment="CENTER">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
@@ -81,9 +81,9 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
+      <AnchorPane layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
          <children>
-            <AnchorPane prefHeight="80.0" prefWidth="1000.0" styleClass="header">
+            <AnchorPane fx:id="reg_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
                   <ImageView fx:id="ainoggo_home" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -95,65 +95,65 @@
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Text>
-                  <Hyperlink fx:id="switch_to_lawyer_login1" layoutX="806.0" layoutY="23.0" text="I'm a lawyer">
+                  <Hyperlink fx:id="switch_to_lawyer_reg" layoutX="806.0" layoutY="23.0" text="I'm a lawyer">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
                   </Hyperlink>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="500.0" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="left">
+            <AnchorPane fx:id="reg_page_header" layoutX="500.0" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="left">
                <children>
-                  <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="reg_page_img" fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%202.png" />
+                        <Image url="@main/resources/images/lawyer%203.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="reg_button_log_page1" layoutX="152.0" layoutY="398.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Register Now" textAlignment="CENTER">
+                  <Button fx:id="login_button_reg_page" layoutX="152.0" layoutY="398.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Login" textAlignment="CENTER">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="right">
+            <AnchorPane fx:id="reg_page_form" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="right">
                <children>
                   <Label layoutX="75.0" layoutY="54.0" text="Register for Ainoggo">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="login_username1" layoutX="75.0" layoutY="130.0" prefHeight="38.0" prefWidth="350.0" promptText="Full Name">
+                  <TextField fx:id="reg_name" layoutX="75.0" layoutY="130.0" prefHeight="38.0" prefWidth="350.0" promptText="Full Name">
                      <font>
                         <Font name="Inter 24pt Medium" size="17.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="login_password1" layoutX="75.0" layoutY="184.0" prefHeight="38.0" prefWidth="350.0" promptText="Username">
+                  <TextField fx:id="reg_username" layoutX="75.0" layoutY="184.0" prefHeight="38.0" prefWidth="350.0" promptText="Username">
                      <font>
                         <Font name="Inter 24pt Medium" size="17.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="login_button1" layoutX="173.0" layoutY="475.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="155.0" styleClass="login-button" text="Register" textAlignment="CENTER">
+                  <Button fx:id="register_button" layoutX="173.0" layoutY="475.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="155.0" styleClass="login-button" text="Register" textAlignment="CENTER">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="login_password11" layoutX="75.0" layoutY="238.0" prefHeight="38.0" prefWidth="350.0" promptText="Email">
+                  <TextField fx:id="reg_email" layoutX="75.0" layoutY="238.0" prefHeight="38.0" prefWidth="350.0" promptText="Email">
                      <font>
                         <Font name="Inter 24pt Medium" size="17.0" />
                      </font>
                   </TextField>
-                  <PasswordField layoutX="75.0" layoutY="292.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="350.0" promptText="Password">
+                  <PasswordField fx:id="reg_pass" layoutX="75.0" layoutY="292.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="350.0" promptText="Password">
                      <font>
                         <Font name="Inter 24pt Medium" size="17.0" />
                      </font>
                   </PasswordField>
-                  <PasswordField layoutX="75.0" layoutY="346.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="350.0" promptText="Confirm Password">
+                  <PasswordField fx:id="reg_conf_pass" layoutX="75.0" layoutY="346.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="38.0" prefWidth="350.0" promptText="Confirm Password">
                      <font>
                         <Font name="Inter 24pt Medium" size="17.0" />
                      </font>
                   </PasswordField>
-                  <CheckBox layoutX="75.0" layoutY="400.0" mnemonicParsing="false" text="I agree to the Terms &amp; Conditions">
+                  <CheckBox fx:id="reg_checkbox" layoutX="75.0" layoutY="400.0" mnemonicParsing="false" text="I agree to the Terms &amp; Conditions">
                      <font>
                         <Font name="Inter 24pt Medium" size="15.0" />
                      </font>
