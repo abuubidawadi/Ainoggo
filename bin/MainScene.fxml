@@ -43,7 +43,7 @@
                         <Image url="@main/resources/images/lawyer%202.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="reg_button_log_page" layoutX="152.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Register Now" textAlignment="CENTER">
+                  <Button fx:id="reg_button_log_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Register Now" textAlignment="CENTER">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
@@ -109,7 +109,7 @@
                         <Image url="@main/resources/images/lawyer%203.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="login_button_reg_page" layoutX="152.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Login" textAlignment="CENTER">
+                  <Button fx:id="login_button_reg_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Login" textAlignment="CENTER">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
