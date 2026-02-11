@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import javax.swing.Action;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Hyperlink;
@@ -98,6 +99,89 @@ public class MainSceneController {
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
+
+    private Alert alert;
+
+    public void registration(){
+        if(reg_name.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your name");
+            alert.showAndWait();
+        }
+        else if(reg_email.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your email");
+            alert.showAndWait();
+        }
+         else if(reg_username.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your username");
+            alert.showAndWait();
+        }
+         else if(reg_pass.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your password");
+            alert.showAndWait();
+        }
+         else if(reg_conf_pass.getText().isEmpty()){
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please confirm your password");
+            alert.showAndWait();
+        }
+         else if(!reg_pass.getText().equals(reg_conf_pass.getText())){
+             alert = new Alert(Alert.AlertType.ERROR);
+             alert.setTitle("Error Message");
+             alert.setHeaderText(null);
+             alert.setContentText("Password does not match");
+             alert.showAndWait();
+         }
+         else if(!reg_checkbox.isSelected()){
+             alert = new Alert(Alert.AlertType.ERROR);
+             alert.setTitle("Error Message");
+             alert.setHeaderText(null);
+             alert.setContentText("Please accept the terms and conditions");
+             alert.showAndWait();
+        }
+        else{
+            connect = database.connectDB();
+            String sql = "INSERT INTO users(name, email, username, password) VALUES(?,?,?,?)";
+            try{
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1, reg_name.getText());
+                prepare.setString(2, reg_email.getText());
+                prepare.setString(3, reg_username.getText());
+                prepare.setString(4, reg_pass.getText());
+                prepare.executeUpdate();
+
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registration Successful");
+                alert.setHeaderText(null);
+                alert.setContentText("You have successfully registered");
+                alert.showAndWait();
+
+                reg_username.setText("");
+                reg_name.setText("");
+                reg_email.setText("");
+                reg_pass.setText("");
+
+                login_page.setVisible(true);
+                reg_page.setVisible(false);
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+    }
 
     public void switchbetweenloginandreg(ActionEvent event) {
 
