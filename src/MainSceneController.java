@@ -1,4 +1,8 @@
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
 import javax.swing.Action;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -90,6 +94,10 @@ public class MainSceneController {
 
     @FXML
     private Hyperlink switch_to_lawyer_reg;
+
+    private Connection connect;
+    private PreparedStatement prepare;
+    private ResultSet result;
 
     public void switchbetweenloginandreg(ActionEvent event) {
 
