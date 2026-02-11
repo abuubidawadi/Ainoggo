@@ -50,3 +50,14 @@
 .left{
     -fx-background-color: #000000;
 }
+.forgot-password{
+    -fx-underline: false;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+.forgot-password:hover{
+    -fx-underline: false;
+    -fx-text-fill: #636363;
+}

@@ -299,6 +299,15 @@ public class MainSceneController {
         }
     }
 
+    public void forgotPassword(ActionEvent event) {
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Forgot Password");
+        alert.setHeaderText(null);
+        alert.setContentText("Forgot password feature is not available yet.");
+        alert.showAndWait();
+    }
+
     public void switchbetweenloginandreg(ActionEvent event) {
 
         if (event.getSource() == login_button_reg_page) {
