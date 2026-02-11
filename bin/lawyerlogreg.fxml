@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -10,6 +11,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -29,7 +31,7 @@
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Text>
-                  <Hyperlink fx:id="switch_to_lawyer_login" layoutX="806.0" layoutY="23.0" text="I'm a lawyer">
+                  <Hyperlink fx:id="switch_to_client_login1" layoutX="806.0" layoutY="23.0" text="I'm a client">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
@@ -40,7 +42,7 @@
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%202.png" />
+                        <Image url="@main/resources/images/lawyer%205.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="reg_button_log_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Register Now" textAlignment="CENTER">
@@ -95,7 +97,7 @@
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Text>
-                  <Hyperlink fx:id="switch_to_lawyer_reg" layoutX="806.0" layoutY="23.0" text="I'm a lawyer">
+                  <Hyperlink fx:id="switch_to_client_reg" layoutX="806.0" layoutY="23.0" text="I'm a client">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
@@ -106,7 +108,7 @@
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%203.png" />
+                        <Image url="@main/resources/images/lawyer%204.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="login_button_reg_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Login" textAlignment="CENTER">
@@ -158,6 +160,85 @@
                         <Font name="Inter 24pt Medium" size="15.0" />
                      </font>
                   </CheckBox>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="reg_page1" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
+         <children>
+            <AnchorPane fx:id="second_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
+               <children>
+                  <ImageView fx:id="ainoggo_home_logo_2nd_page" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@main/resources/images/logo_black_icon.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="ainoggo_home_text_2nd_page" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="30.0" />
+                     </font>
+                  </Text>
+                  <Hyperlink fx:id="switch_to_client_reg2" layoutX="806.0" layoutY="23.0" text="I'm a client">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="20.0" />
+                     </font>
+                  </Hyperlink>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="second_page_form" layoutY="80.0" prefHeight="570.0" prefWidth="1000.0" styleClass="right">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" layoutX="497.5" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="5.0" />
+                  <Text layoutX="114.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload Your Photo">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="30.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="uploaded_img" fitHeight="200.0" fitWidth="200.0" layoutX="148.75" layoutY="167.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@main/resources/images/anonymous%20image.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="upload_button" layoutX="148.75" layoutY="392.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Upload">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="20.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="620.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lawyer Information">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="30.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="bar_reg_no" layoutX="577.5" layoutY="124.0" prefHeight="38.0" prefWidth="350.0" promptText="Bar Council Registration Number">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="exp_yr" layoutX="577.5" layoutY="178.0" prefHeight="38.0" prefWidth="350.0" promptText="Years of Experience">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="17.0" />
+                     </font>
+                  </TextField>
+                  <ComboBox fx:id="spec_area" layoutX="577.5" layoutY="232.0" prefHeight="38.0" prefWidth="350.0" promptText="Area of Specialization" styleClass="dropdown" />
+                  <TextField fx:id="law_firm" layoutX="577.5" layoutY="286.0" prefHeight="38.0" prefWidth="350.0" promptText="Current Law Firm (optional)">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="office_address" layoutX="577.5" layoutY="340.0" prefHeight="38.0" prefWidth="350.0" promptText="Office Address">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="consult_fee" layoutX="577.5" layoutY="394.0" prefHeight="38.0" prefWidth="350.0" promptText="Consultation Fee (per session)">
+                     <font>
+                        <Font name="Inter 24pt Medium" size="17.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="proceed_button" layoutX="648.75" layoutY="458.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="200.0" text="Proceed">
+                     <font>
+                        <Font name="Inter 24pt SemiBold" size="20.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

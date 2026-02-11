@@ -6,10 +6,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Ainoggo_87c6fcdb"
+        },
+        {
+            "type": "java",
             "name": "Launch Java Program",
             "request": "launch",
             "mainClass": "App",
             "vmArgs": "--module-path \"D:\\javafx\\Ainoggo\\Ainoggo\\lib\" --add-modules javafx.controls,javafx.fxml -Djava.library.path=\"D:\\javafx\\Ainoggo\\Ainoggo\\bin\""
-        },
+        }
     ]
 }
