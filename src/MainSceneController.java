@@ -54,6 +54,9 @@ public class MainSceneController {
     private TextField login_username;
 
     @FXML
+    private PasswordField login_pass;
+
+    @FXML
     private Button reg_button_log_page;
 
     @FXML
@@ -103,80 +106,197 @@ public class MainSceneController {
 
     public void registration(ActionEvent event) {
 
-    if (reg_name.getText().isEmpty()) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Please enter your name");
-    alert.showAndWait();
-    } else if (reg_email.getText().isEmpty()) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Please enter your email");
-    alert.showAndWait();
-    } else if (reg_username.getText().isEmpty()) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Please enter your username");
-    alert.showAndWait();
-    } else if (reg_pass.getText().isEmpty()) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Please enter your password");
-    alert.showAndWait();
-    } else if (reg_conf_pass.getText().isEmpty()) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Please confirm your password");
-    alert.showAndWait();
-    } else if (!reg_pass.getText().equals(reg_conf_pass.getText())) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Password does not match");
-    alert.showAndWait();
-    } else if (!reg_checkbox.isSelected()) {
-    alert = new Alert(Alert.AlertType.ERROR);
-    alert.setTitle("Error Message");
-    alert.setHeaderText(null);
-    alert.setContentText("Please accept the terms and conditions");
-    alert.showAndWait();
-    } else {
-    connect = database.connectDB();
-    String sql = "INSERT INTO users (name, username, email, password, agreed) VALUES (?, ?, ?, ?, ?)";
-    try {
-    prepare = connect.prepareStatement(sql);
-    prepare.setString(1, reg_name.getText());
-    prepare.setString(2, reg_email.getText());
-    prepare.setString(3, reg_username.getText());
-    prepare.setString(4, reg_pass.getText());
-    prepare.setBoolean(5, reg_checkbox.isSelected());
-    prepare.executeUpdate();
+        String checkUsername = "SELECT * FROM users WHERE username = ?";
+        try {
+            connect = database.connectDB();
+            prepare = connect.prepareStatement(checkUsername);
+            prepare.setString(1, reg_username.getText());
+            result = prepare.executeQuery();
 
-    alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Registration Successful");
-    alert.setHeaderText(null);
-    alert.setContentText("You have successfully registered");
-    alert.showAndWait();
+            if (result.next()) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error Message");
+                alert.setHeaderText(null);
+                alert.setContentText("Username already exists");
+                alert.showAndWait();
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-    reg_username.setText("");
-    reg_name.setText("");
-    reg_email.setText("");
-    reg_pass.setText("");
-    reg_conf_pass.setText("");
-    reg_checkbox.setSelected(false);
+        if (reg_name.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your name");
+            alert.showAndWait();
+        } else if (reg_email.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your email");
+            alert.showAndWait();
+        } else if (reg_username.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your username");
+            alert.showAndWait();
+        } else if (reg_pass.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your password");
+            alert.showAndWait();
+        } else if (reg_conf_pass.getText().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please confirm your password");
+            alert.showAndWait();
+        } else if (!reg_pass.getText().equals(reg_conf_pass.getText())) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Password does not match");
+            alert.showAndWait();
+        } else if (!reg_checkbox.isSelected()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please accept the terms and conditions");
+            alert.showAndWait();
+        } else if (reg_pass.getText().length() < 8) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Password must be at least 8 characters long");
+            alert.showAndWait();
+        } else {
+            connect = database.connectDB();
+            String sql = "INSERT INTO users (name, username, email, password, agreed) VALUES (?, ?, ?, ?, ?)";
+            try {
+                prepare = connect.prepareStatement(sql);
+                prepare.setString(1, reg_name.getText());
+                prepare.setString(2, reg_username.getText());
+                prepare.setString(3, reg_email.getText());
+                prepare.setString(4, reg_pass.getText());
+                prepare.setBoolean(5, reg_checkbox.isSelected());
+                prepare.executeUpdate();
 
-    login_page.setVisible(true);
-    reg_page.setVisible(false);
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Registration Successful");
+                alert.setHeaderText(null);
+                alert.setContentText("You have successfully registered");
+                alert.showAndWait();
 
-    } catch (Exception e) {
-    e.printStackTrace();
+                reg_username.setText("");
+                reg_name.setText("");
+                reg_email.setText("");
+                reg_pass.setText("");
+                reg_conf_pass.setText("");
+                reg_checkbox.setSelected(false);
+
+                login_page.setVisible(true);
+                reg_page.setVisible(false);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
-    }
+
+    public void login(ActionEvent event) {
+
+        if (event.getSource() != login_button)
+            return;
+
+        String userInput = login_username.getText();
+        String passInput = login_pass.getText();
+
+        if (userInput == null || userInput.trim().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your username or email");
+            alert.showAndWait();
+            return;
+        }
+
+        if (passInput == null || passInput.trim().isEmpty()) {
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter your password");
+            alert.showAndWait();
+            return;
+        }
+
+        String sql = "SELECT * FROM users WHERE (username = ? OR email = ?) AND password = ?";
+
+        try {
+            connect = database.connectDB();
+
+            if (connect == null) {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Database Error");
+                alert.setHeaderText(null);
+                alert.setContentText("Cannot connect to database.");
+                alert.showAndWait();
+                return;
+            }
+
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, userInput.trim());
+            prepare.setString(2, userInput.trim());
+            prepare.setString(3, passInput);
+
+            result = prepare.executeQuery();
+
+            if (result.next()) {
+                alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Login Successful");
+                alert.setHeaderText(null);
+                alert.setContentText("Welcome, " + result.getString("name") + "!");
+                alert.showAndWait();
+
+                login_username.setText("");
+                login_pass.setText("");
+
+                // ekhane dashboard e jaoar code lekhum
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Login Failed");
+                alert.setHeaderText(null);
+                alert.setContentText("Invalid username/email or password.");
+                alert.showAndWait();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("Something went wrong. Check the terminal.");
+            alert.showAndWait();
+        } finally {
+            try {
+                if (result != null)
+                    result.close();
+            } catch (Exception ignored) {
+            }
+            try {
+                if (prepare != null)
+                    prepare.close();
+            } catch (Exception ignored) {
+            }
+            try {
+                if (connect != null)
+                    connect.close();
+            } catch (Exception ignored) {
+            }
+        }
     }
 
     public void switchbetweenloginandreg(ActionEvent event) {
