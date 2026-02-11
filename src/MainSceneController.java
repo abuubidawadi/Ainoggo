@@ -103,77 +103,80 @@ public class MainSceneController {
 
     public void registration(ActionEvent event) {
 
-        if (reg_name.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter your name");
-            alert.showAndWait();
-        } else if (reg_email.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter your email");
-            alert.showAndWait();
-        } else if (reg_username.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter your username");
-            alert.showAndWait();
-        } else if (reg_pass.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please enter your password");
-            alert.showAndWait();
-        } else if (reg_conf_pass.getText().isEmpty()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please confirm your password");
-            alert.showAndWait();
-        } else if (!reg_pass.getText().equals(reg_conf_pass.getText())) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Password does not match");
-            alert.showAndWait();
-        } else if (!reg_checkbox.isSelected()) {
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error Message");
-            alert.setHeaderText(null);
-            alert.setContentText("Please accept the terms and conditions");
-            alert.showAndWait();
-        } else {
-            connect = database.connectDB();
-            String sql = "INSERT INTO users(name, email, username, password) VALUES(?,?,?,?)";
-            try {
-                prepare = connect.prepareStatement(sql);
-                prepare.setString(1, reg_name.getText());
-                prepare.setString(2, reg_email.getText());
-                prepare.setString(3, reg_username.getText());
-                prepare.setString(4, reg_pass.getText());
-                prepare.executeUpdate();
+    if (reg_name.getText().isEmpty()) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Please enter your name");
+    alert.showAndWait();
+    } else if (reg_email.getText().isEmpty()) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Please enter your email");
+    alert.showAndWait();
+    } else if (reg_username.getText().isEmpty()) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Please enter your username");
+    alert.showAndWait();
+    } else if (reg_pass.getText().isEmpty()) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Please enter your password");
+    alert.showAndWait();
+    } else if (reg_conf_pass.getText().isEmpty()) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Please confirm your password");
+    alert.showAndWait();
+    } else if (!reg_pass.getText().equals(reg_conf_pass.getText())) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Password does not match");
+    alert.showAndWait();
+    } else if (!reg_checkbox.isSelected()) {
+    alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Error Message");
+    alert.setHeaderText(null);
+    alert.setContentText("Please accept the terms and conditions");
+    alert.showAndWait();
+    } else {
+    connect = database.connectDB();
+    String sql = "INSERT INTO users (name, username, email, password, agreed) VALUES (?, ?, ?, ?, ?)";
+    try {
+    prepare = connect.prepareStatement(sql);
+    prepare.setString(1, reg_name.getText());
+    prepare.setString(2, reg_email.getText());
+    prepare.setString(3, reg_username.getText());
+    prepare.setString(4, reg_pass.getText());
+    prepare.setBoolean(5, reg_checkbox.isSelected());
+    prepare.executeUpdate();
 
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Registration Successful");
-                alert.setHeaderText(null);
-                alert.setContentText("You have successfully registered");
-                alert.showAndWait();
+    alert = new Alert(Alert.AlertType.INFORMATION);
+    alert.setTitle("Registration Successful");
+    alert.setHeaderText(null);
+    alert.setContentText("You have successfully registered");
+    alert.showAndWait();
 
-                reg_username.setText("");
-                reg_name.setText("");
-                reg_email.setText("");
-                reg_pass.setText("");
+    reg_username.setText("");
+    reg_name.setText("");
+    reg_email.setText("");
+    reg_pass.setText("");
+    reg_conf_pass.setText("");
+    reg_checkbox.setSelected(false);
 
-                login_page.setVisible(true);
-                reg_page.setVisible(false);
+    login_page.setVisible(true);
+    reg_page.setVisible(false);
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    } catch (Exception e) {
+    e.printStackTrace();
+    }
+    }
     }
 
     public void switchbetweenloginandreg(ActionEvent event) {
@@ -185,6 +188,11 @@ public class MainSceneController {
             login_page.setVisible(false);
             reg_page.setVisible(true);
         }
+    }
+
+    public void initialize() {
+        login_page.setVisible(true);
+        reg_page.setVisible(false);
     }
 
 }
