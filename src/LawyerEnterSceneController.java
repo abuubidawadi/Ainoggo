@@ -521,42 +521,6 @@ public class LawyerEnterSceneController {
     }
 
     @FXML
-    private void switchToClientLogin(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
-            Parent root = loader.load();
-
-            LawyerEnterSceneController controller = loader.getController();
-            controller.showLoginPage();
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void switchToClientRegister(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
-            Parent root = loader.load();
-
-            LawyerEnterSceneController controller = loader.getController();
-            controller.showRegisterPage(); // force register page visible
-
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
     void switchbetweenloginandreg(ActionEvent event) {
         try {
             if (event.getSource() == reg_button_log_page) {
@@ -572,6 +536,40 @@ public class LawyerEnterSceneController {
         } catch (Exception e) {
             e.printStackTrace();
             showError("Navigation error.");
+        }
+    }
+
+    @FXML
+    private void switchToClientLogin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
+            Parent root = loader.load();
+
+            MainSceneController controller = loader.getController();
+            controller.showLoginPage();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void switchToClientRegister(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
+            Parent root = loader.load();
+
+            MainSceneController controller = loader.getController();
+            controller.showRegisterPage();
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

@@ -109,6 +109,15 @@ public class MainSceneController {
 
     private Alert alert;
 
+    public void showLoginPage() {
+        login_page.setVisible(true);
+        reg_page.setVisible(false);
+    }
+
+    public void showRegisterPage() {
+        login_page.setVisible(false);
+        reg_page.setVisible(true);
+    }
 
     public void registration(ActionEvent event) {
 
