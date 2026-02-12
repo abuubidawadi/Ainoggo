@@ -29,7 +29,7 @@
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Text>
-                  <Hyperlink fx:id="switch_to_lawyer_login" layoutX="806.0" layoutY="23.0" text="I'm a lawyer">
+                  <Hyperlink fx:id="switch_to_lawyer_login" layoutX="806.0" layoutY="23.0" onAction="#switchToLawyerLogin" text="I'm a lawyer">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
@@ -81,7 +81,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="reg_page" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
+      <AnchorPane fx:id="reg_page" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
          <children>
             <AnchorPane fx:id="reg_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
@@ -95,7 +95,7 @@
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Text>
-                  <Hyperlink fx:id="switch_to_lawyer_reg" layoutX="806.0" layoutY="23.0" text="I'm a lawyer">
+                  <Hyperlink fx:id="switch_to_lawyer_reg" layoutX="806.0" layoutY="23.0" onAction="#switchToLawyerRegister" text="I'm a lawyer">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>

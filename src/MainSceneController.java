@@ -5,6 +5,10 @@ import java.sql.ResultSet;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -14,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class MainSceneController {
 
@@ -103,6 +108,7 @@ public class MainSceneController {
     private ResultSet result;
 
     private Alert alert;
+
 
     public void registration(ActionEvent event) {
 
@@ -316,6 +322,42 @@ public class MainSceneController {
         } else if (event.getSource() == reg_button_log_page) {
             login_page.setVisible(false);
             reg_page.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void switchToLawyerLogin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("lawyerlogreg.fxml"));
+            Parent root = loader.load();
+
+            LawyerEnterSceneController controller = loader.getController();
+            controller.showLoginPage(); // force login page visible
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void switchToLawyerRegister(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("lawyerlogreg.fxml"));
+            Parent root = loader.load();
+
+            LawyerEnterSceneController controller = loader.getController();
+            controller.showRegisterPage(); // force register page visible
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
