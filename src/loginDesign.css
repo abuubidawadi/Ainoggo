@@ -62,7 +62,7 @@
     -fx-text-fill: #636363;
 }
 
-.dropdown{
+.combo-box{
     -fx-text-fill: #000000;
-    -fx-text-size: 17px;
+    -fx-font-size: 17px;
 }

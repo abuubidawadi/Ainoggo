@@ -165,7 +165,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="reg_page1" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
+      <AnchorPane fx:id="reg_page1" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
          <children>
             <AnchorPane fx:id="second_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
@@ -219,7 +219,7 @@
                         <Font name="Inter 24pt Medium" size="17.0" />
                      </font>
                   </TextField>
-                  <ComboBox fx:id="spec_area" layoutX="577.5" layoutY="225.0" prefHeight="38.0" prefWidth="350.0" promptText="Area of Specialization" styleClass="dropdown" />
+                  <ComboBox fx:id="spec_area" layoutX="577.5" layoutY="225.0" prefHeight="38.0" prefWidth="350.0" promptText="Area of Specialization" styleClass="combo-box" />
                   <TextField fx:id="law_firm" layoutX="577.5" layoutY="279.0" prefHeight="38.0" prefWidth="350.0" promptText="Current Law Firm (optional)">
                      <font>
                         <Font name="Inter 24pt Medium" size="17.0" />
