@@ -52,7 +52,7 @@
             </AnchorPane>
             <AnchorPane fx:id="login_page_form" layoutX="500.0" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="right">
                <children>
-                  <Label layoutX="75.0" layoutY="123.0" text="Log into Your Account">
+                  <Label layoutX="75.0" layoutY="123.0" text="Client Login">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
@@ -81,7 +81,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="reg_page" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
+      <AnchorPane fx:id="reg_page" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
          <children>
             <AnchorPane fx:id="reg_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
                <children>
@@ -118,7 +118,7 @@
             </AnchorPane>
             <AnchorPane fx:id="reg_page_form" layoutY="80.0" prefHeight="570.0" prefWidth="500.0" styleClass="right">
                <children>
-                  <Label layoutX="75.0" layoutY="54.0" text="Register for Ainoggo">
+                  <Label layoutX="75.0" layoutY="54.0" text="Register as a Client">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
