@@ -24,7 +24,10 @@
                <children>
                   <ImageView fx:id="ainoggo_home_logo_log" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/logo_black_icon.png" />
+                        <!-- <Image url="@main/resources/images/logo_black_icon.png" /> -->
+                        <Image url="@images/logo_black_icon.png" />
+
+
                      </image>
                   </ImageView>
                   <Text fx:id="ainoggo_home_text_log" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
@@ -43,8 +46,11 @@
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%205.png" />
-                     </image>
+                        <!-- <Image url="@main/resources/images/lawyer%205.png" /> -->
+                     
+                     <Image url="@images/lawyer%205.png" />
+
+</image>
                   </ImageView>
                   <Button fx:id="reg_button_log_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Register Now" textAlignment="CENTER">
                      <font>
@@ -90,7 +96,8 @@
                <children>
                   <ImageView fx:id="ainoggo_home_logo_reg" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/logo_black_icon.png" />
+                       
+                        <Image url="@images/logo_black_icon.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="ainoggo_home_text_reg" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
@@ -109,7 +116,8 @@
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%204.png" />
+                        <!-- <Image url="@main/resources/images/lawyer%204.png" /> -->
+                        <Image url="@images/lawyer%204.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="login_button_reg_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Login" textAlignment="CENTER">
@@ -171,8 +179,9 @@
                <children>
                   <ImageView fx:id="ainoggo_home_logo_2nd_page" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/logo_black_icon.png" />
-                     </image>
+                        <!-- <Image url="@main/resources/images/logo_black_icon.png" /> -->
+                 <Image url="@images/logo_black_icon.png" />
+                                      </image>
                   </ImageView>
                   <Text fx:id="ainoggo_home_text_2nd_page" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
                      <font>
@@ -196,8 +205,9 @@
                   </Text>
                   <ImageView fx:id="uploaded_img" fitHeight="170.0" fitWidth="170.0" layoutX="163.75" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/anonymous.png" />
-                     </image>
+                        <!-- <Image url="@main/resources/images/anonymous.png" /> -->
+
+<Image url="@images/anonymous.png" />                     </image>
                   </ImageView>
                   <Button fx:id="upload_button" layoutX="163.75" layoutY="293.0" mnemonicParsing="false" onAction="#uploadPhoto" prefHeight="41.0" prefWidth="170.0" text="Upload">
                      <font>

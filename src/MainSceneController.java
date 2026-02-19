@@ -280,7 +280,13 @@ public class MainSceneController {
                 login_pass.setText("");
 
                 // ekhane dashboard e jaoar code lekhum
-            } else {
+                 Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    stage.setScene(new Scene(root));
+    stage.show();
+            } 
+   
+    else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Failed");
                 alert.setHeaderText(null);

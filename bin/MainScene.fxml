@@ -21,8 +21,9 @@
                <children>
                   <ImageView fx:id="ainoggo_home_logo_log" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/logo_black_icon.png" />
-                     </image>
+                        <!-- <Image url="@main/resources/images/logo_black_icon.png" /> -->
+
+<Image url="@images/logo_black_icon.png" />                     </image>
                   </ImageView>
                   <Text fx:id="ainoggo_home_text_log" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
                      <font>
@@ -40,8 +41,9 @@
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%202.png" />
-                     </image>
+                        <!-- <Image url="@main/resources/images/lawyer%202.png" /> -->
+ 
+ <Image url="@images/lawyer%202.png" />                    </image>
                   </ImageView>
                   <Button fx:id="reg_button_log_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Register Now" textAlignment="CENTER">
                      <font>
@@ -87,7 +89,8 @@
                <children>
                   <ImageView fx:id="ainoggo_home_logo_reg" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/logo_black_icon.png" />
+                        <!-- <Image url="@main/resources/images/logo_black_icon.png" /> -->
+                        <Image url="@images/logo_black_icon.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="ainoggo_home_text_reg" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
@@ -106,7 +109,8 @@
                <children>
                   <ImageView fitHeight="570.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@main/resources/images/lawyer%203.png" />
+                        <!-- <Image url="@main/resources/images/lawyer%203.png" /> -->
+                        <Image url="@images/lawyer%203.png" />
                      </image>
                   </ImageView>
                   <Button fx:id="login_button_reg_page" layoutX="141.0" layoutY="398.0" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="47.0" prefWidth="218.0" styleClass="register-button" text="Login" textAlignment="CENTER">
