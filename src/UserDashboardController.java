@@ -24,7 +24,7 @@ public class UserDashboardController {
     private void loadLawyers(String nameQuery) {
         lawyerListBox.getChildren().clear();
 
-        String sql = "SELECT name, email, phone, photo FROM lawyers ";
+        String sql = "SELECT name,specialization, email, phone, fee,photo FROM lawyers ";
         if (nameQuery != null && !nameQuery.trim().isEmpty()) {
             sql += "WHERE name LIKE ? ";
         }
@@ -39,9 +39,12 @@ public class UserDashboardController {
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
+                    
                     String name = rs.getString("name");
+                    String specialization = rs.getString("specialization");
                     String email = rs.getString("email");
                     String phone = rs.getString("phone");
+                    double fee = rs.getDouble("fee");
                     String photo = rs.getString("photo"); // example l1.jpg
 
                     // CARD UI
@@ -60,15 +63,19 @@ public class UserDashboardController {
                     VBox info = new VBox(6);
                     Label nameLb = new Label(name);
                     nameLb.getStyleClass().add("name");
-
+                    Label specLb = new Label("Specialization: " + specialization);
+                   specLb.getStyleClass().add("sub");
                     Label emailLb = new Label(email);
                     emailLb.getStyleClass().add("sub");
 
                     Label phoneLb = new Label(phone);
                     phoneLb.getStyleClass().add("sub");
+                    Label feeLb = new Label("Fee: ৳" + fee);
+                    feeLb.getStyleClass().add("sub");
 
-                    info.getChildren().addAll(nameLb, emailLb, phoneLb);
-
+                    //info.getChildren().addAll(nameLb, emailLb, phoneLb);
+                     
+                    info.getChildren().addAll(nameLb, specLb, emailLb, phoneLb, feeLb);  
                     card.getChildren().addAll(iv, info);
                     lawyerListBox.getChildren().add(card);
                 }
