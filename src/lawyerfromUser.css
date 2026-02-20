@@ -1,80 +1,81 @@
-/* =========================
-   Global (Page)
-   ========================= */
-
-.root, .stack-pane, .anchor-pane {
+.root,
+.stack-pane,
+.anchor-pane {
     -fx-background-color: #ffffff;
-    -fx-font-family: "Inter", "Segoe UI", "Arial";
 }
 
 #login_page {
     -fx-background-color: #ffffff;
 }
 
-/* Give the whole content area a clean “card” feel */
-#login_page > .anchor-pane {
+#login_page>.anchor-pane {
     -fx-background-color: #ffffff;
 }
 
-/* =========================
-   Header
-   ========================= */
+
 
 .header {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #000000;
-    -fx-border-width: 0 0 2 0; /* bottom border only */
-    -fx-padding: 10 20 10 20;
+    -fx-background-color: linear-gradient(to top, #ebebeb, #FFFFFF);
 }
 
-/* Ainoggo text */
 #ainoggo_home_text_log {
     -fx-fill: #000000;
 }
 
-/* =========================
-   Buttons (Dashboard / Logout)
-   ========================= */
 
 .button {
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-cursor: hand;
-    -fx-font-weight: 700;
-    -fx-padding: 8 14;
-}
-
-/* Default top buttons = white with black border */
-#dashboard_btn, #logout {
-    -fx-background-color: #ffffff;
+    -fx-background-color: transparent;
     -fx-text-fill: #000000;
+    -fx-cursor: hand;
     -fx-border-color: #000000;
-    -fx-border-width: 2;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    x-font-weight: 700;
+
 }
 
-#dashboard_btn:hover, #logout:hover {
+.button:hover {
+    -fx-background-radius: 5px;
     -fx-background-color: #000000;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #FFFFFF;
 }
 
-#dashboard_btn:pressed, #logout:pressed {
+
+#dashboard_btn,
+#logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+#dashboard_btn:hover,
+#logout:hover {
+    -fx-background-radius: 5px;
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFFFFF;
+}
+
+#dashboard_btn:pressed,
+#logout:pressed {
     -fx-background-color: #111111;
     -fx-text-fill: #ffffff;
 }
 
-/* Book button = black filled */
 #book_btn {
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
-    -fx-border-color: #000000;
-    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
 }
 
 #book_btn:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
 }
 
 #book_btn:pressed {
@@ -82,79 +83,51 @@
     -fx-text-fill: #ffffff;
 }
 
-/* =========================
-   Lawyer Image (make it look like a profile card)
-   ========================= */
+
 
 #lawyer_img {
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.18), 18, 0, 0, 6);
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 18, 0, 0, 6);
     -fx-border-color: #000000;
     -fx-border-width: 2;
     -fx-border-radius: 14;
     -fx-background-radius: 14;
 }
 
-/* =========================
-   Typography (Texts)
-   ========================= */
 
-/* All Text in scene should be black by default */
-.text {
-    -fx-fill: #000000;
-}
 
-/* Main name */
-#lawyer_name {
-    -fx-fill: #000000;
-}
-
-/* Bio paragraph */
-#bio {
-    -fx-fill: #000000;
-    -fx-line-spacing: 2px;
-}
-
-/* Email styling (subtle underline effect) */
 #mail {
     -fx-fill: #000000;
     -fx-underline: true;
 }
 
-/* Fee amount stronger */
 #fee {
     -fx-fill: #000000;
 }
 
-/* =========================
-   Appointment Section Inputs
-   ========================= */
 
-.date-picker, .combo-box {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #000000;
-    -fx-border-width: 2;
-    -fx-background-radius: 10;
-    -fx-border-radius: 10;
+
+.date-picker,
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: rgba(0, 0, 0, 0.50);
+    -fx-border-width: 1;
 }
 
-/* Input text color */
 .date-picker .text-field,
 .combo-box .text-field {
     -fx-background-color: #ffffff;
     -fx-text-fill: #000000;
-    -fx-prompt-text-fill: rgba(0,0,0,0.55);
+    -fx-prompt-text-fill: rgba(0, 0, 0, 0.55);
     -fx-background-insets: 0;
     -fx-border-width: 0;
 }
 
-/* Arrow button area */
 .combo-box .arrow-button,
 .date-picker .arrow-button {
     -fx-background-color: #ffffff;
     -fx-border-color: transparent;
 }
 
-/* Dropdown list */
 .combo-box-popup .list-view {
     -fx-background-color: #ffffff;
     -fx-border-color: #000000;
@@ -171,24 +144,19 @@
     -fx-text-fill: #ffffff;
 }
 
-/* DatePicker popup calendar */
 .date-picker-popup {
     -fx-background-color: #ffffff;
     -fx-border-color: #000000;
     -fx-border-width: 2;
 }
 
-/* =========================
-   Optional: Section dividers / subtle card effect
-   ========================= */
 
-/* If you later wrap sections in panes and add styleClass="card" */
-.card {
+/* .card {
     -fx-background-color: #ffffff;
     -fx-border-color: #000000;
     -fx-border-width: 2;
     -fx-border-radius: 16;
     -fx-background-radius: 16;
     -fx-padding: 16;
-    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.10), 18, 0, 0, 6);
-}
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.10), 18, 0, 0, 6);
+} */

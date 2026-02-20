@@ -33,7 +33,7 @@
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="dashboard_btn" layoutX="724.0" layoutY="20.0" onAction="#showProfile" prefHeight="36" prefWidth="100" text="Dashboard">
+                  <Button fx:id="dashboard_btn" layoutX="724.0" layoutY="20.0" onAction="#showProfile" prefHeight="36" prefWidth="100.0" text="Dashboard">
                      <font>
                         <Font name="Inter 24pt SemiBold" size="20.0" />
                      </font>
@@ -133,9 +133,12 @@
                         <Font name="Inter 24pt SemiBold" size="30.0" />
                      </font>
                   </Text>
-                  <DatePicker fx:id="date_picker" layoutX="387.0" layoutY="433.0" prefHeight="30.0" prefWidth="200.0" />
+                  <DatePicker fx:id="date_picker" layoutX="387.0" layoutY="433.0" prefHeight="36.0" prefWidth="200.0" />
                   <ComboBox fx:id="time_picker" layoutX="617.0" layoutY="433.0" prefHeight="30.0" prefWidth="150.0" promptText="Time" />
-                  <Button fx:id="book_btn" layoutX="805.0" layoutY="433.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="138.0" text="Book Now" textFill="WHITE" />
+                  <Button fx:id="book_btn" layoutX="804.0" layoutY="433.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="138.0" text="Book Now" textFill="WHITE">
+                     <font>
+                        <Font name="Inter 18pt SemiBold" size="15.0" />
+                     </font></Button>
                   <Text layoutX="50.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before booking an appointment, You can contact with the lawyer by sending a mail to:">
                      <font>
                         <Font name="Inter 24pt Medium" size="15.0" />
