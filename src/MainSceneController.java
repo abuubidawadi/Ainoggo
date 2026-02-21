@@ -279,11 +279,30 @@ public class MainSceneController {
                 login_username.setText("");
                 login_pass.setText("");
 
-                // ekhane dashboard e jaoar code lekhum
-                 Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
+                //ekhane dashboard e jaoar code lekhum
+    //              Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
+    // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    // stage.setScene(new Scene(root));
+    // stage.show();
+    try {
+    String loggedUsername = result.getString("username");
+    String loggedName = result.getString("name");
+    String loggedEmail = result.getString("email");
+
+    FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
+    Parent root = loader.load();
+
+    UserDashboardController controller = loader.getController();
+    controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
+
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     stage.setScene(new Scene(root));
+    stage.setTitle("Ainoggo - Dashboard");
     stage.show();
+
+} catch (Exception e) {
+    e.printStackTrace();
+}
             } 
    
     else {

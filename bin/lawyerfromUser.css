@@ -1,0 +1,162 @@
+.root,
+.stack-pane,
+.anchor-pane {
+    -fx-background-color: #ffffff;
+}
+
+#login_page {
+    -fx-background-color: #ffffff;
+}
+
+#login_page>.anchor-pane {
+    -fx-background-color: #ffffff;
+}
+
+
+
+.header {
+    -fx-background-color: linear-gradient(to top, #ebebeb, #FFFFFF);
+}
+
+#ainoggo_home_text_log {
+    -fx-fill: #000000;
+}
+
+
+.button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    x-font-weight: 700;
+
+}
+
+.button:hover {
+    -fx-background-radius: 5px;
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+#dashboard_btn,
+#logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+#dashboard_btn:hover,
+#logout:hover {
+    -fx-background-radius: 5px;
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFFFFF;
+}
+
+#dashboard_btn:pressed,
+#logout:pressed {
+    -fx-background-color: #111111;
+    -fx-text-fill: #ffffff;
+}
+
+#book_btn {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-background-radius: 5px;
+}
+
+#book_btn:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+#book_btn:pressed {
+    -fx-background-color: #111111;
+    -fx-text-fill: #ffffff;
+}
+
+
+
+#lawyer_img {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.3), 18, 0, 0, 6);
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-border-radius: 14;
+    -fx-background-radius: 14;
+}
+
+
+
+#mail {
+    -fx-fill: #000000;
+    -fx-underline: true;
+}
+
+#fee {
+    -fx-fill: #000000;
+}
+
+
+
+.date-picker,
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: rgba(0, 0, 0, 0.50);
+    -fx-border-width: 1;
+}
+
+.date-picker .text-field,
+.combo-box .text-field {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-prompt-text-fill: rgba(0, 0, 0, 0.55);
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+}
+
+.combo-box .arrow-button,
+.date-picker .arrow-button {
+    -fx-background-color: #ffffff;
+    -fx-border-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+}
+
+.date-picker-popup {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+}
+
+
+/* .card {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-border-radius: 16;
+    -fx-background-radius: 16;
+    -fx-padding: 16;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.10), 18, 0, 0, 6);
+} */
