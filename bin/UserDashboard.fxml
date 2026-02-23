@@ -49,7 +49,6 @@
                 onAction="#searchLawyer"
                 styleClass="btn"/>
 
-        <!-- Profile circle button (Search এর পাশে) -->
         <Button onAction="#showProfile" styleClass="profileBtn">
             <graphic>
                 <ImageView fx:id="profileAvatar"

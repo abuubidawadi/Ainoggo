@@ -279,11 +279,7 @@ public class MainSceneController {
                 login_username.setText("");
                 login_pass.setText("");
 
-                //ekhane dashboard e jaoar code lekhum
-    //              Parent root = FXMLLoader.load(getClass().getResource("UserDashboard.fxml"));
-    // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    // stage.setScene(new Scene(root));
-    // stage.show();
+                
     try {
     String loggedUsername = result.getString("username");
     String loggedName = result.getString("name");

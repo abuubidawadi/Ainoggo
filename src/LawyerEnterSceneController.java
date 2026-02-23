@@ -190,7 +190,7 @@ public class LawyerEnterSceneController {
         if (second_page_form != null)
             second_page_form.setVisible(true);
         if (reg_page1 != null)
-            reg_page1.setVisible(true); // if your second page is this pane
+            reg_page1.setVisible(true); 
     }
 
     private void showError(String msg) {
@@ -310,7 +310,7 @@ public class LawyerEnterSceneController {
                     currentLawyerUsername = dbUsername;
                     showInfo("Login successful!");
 
-                    // ekhane lawyer dashboard er scene load er code lekha lagbe
+                    
                 } else {
                     showError("Wrong password.");
                 }
