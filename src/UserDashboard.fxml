@@ -39,6 +39,7 @@
         <Text text="Ainoggo" styleClass="titleText"/>
 
         <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Back" onAction="#backToAllLawyers" />
 
         <!-- Search -->
         <TextField fx:id="searchField"

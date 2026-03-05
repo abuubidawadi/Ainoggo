@@ -270,20 +270,16 @@ public class MainSceneController {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Login Successful");
-                alert.setHeaderText(null);
-                alert.setContentText("Welcome, " + result.getString("name") + "!");
-                alert.showAndWait();
+                   String loggedUsername = result.getString("username");
+                 String loggedName = result.getString("name");
+                 String loggedEmail = result.getString("email");
 
+               
                 login_username.setText("");
                 login_pass.setText("");
 
                 
     try {
-    String loggedUsername = result.getString("username");
-    String loggedName = result.getString("name");
-    String loggedEmail = result.getString("email");
 
     FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
     Parent root = loader.load();

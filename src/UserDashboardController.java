@@ -54,21 +54,87 @@ public class UserDashboardController {
     }
 
     
-    // My Profile (avatar button)
     
     @FXML
-    private void showProfile(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
+private void showProfile(ActionEvent event) {
+
+    
+    if (loggedUsername == null || loggedUsername.trim().isEmpty()) {
+        Alert a = new Alert(Alert.AlertType.ERROR);
         a.setTitle("My Profile");
-
-        String msg =
-            "Full Name: " + (loggedName == null ? "-" : loggedName) + "\n" +
-            "Username: " + (loggedUsername == null ? "-" : loggedUsername) + "\n" +
-            "Email: " + (loggedEmail == null ? "-" : loggedEmail);
-
-        a.setContentText(msg);
+        a.setHeaderText(null);
+        a.setContentText("User not found. Please login again.");
         a.showAndWait();
+        return;
     }
+
+    StringBuilder sb = new StringBuilder();
+
+    // ---------- USER INFO ----------
+    sb.append("Full Name: ").append(loggedName == null ? "-" : loggedName).append("\n");
+    sb.append("Username: ").append(loggedUsername).append("\n");
+    sb.append("Email: ").append(loggedEmail == null ? "-" : loggedEmail).append("\n\n");
+
+    // ---------- APPOINTMENTS ----------
+    sb.append("===== My Appointments (Past + Future) =====\n\n");
+
+    String sql =
+        "SELECT a.id, a.`date`, a.`time`, l.name AS lawyer_name, l.specialization, l.law_firm " +
+        "FROM appointments a " +
+        "JOIN lawyers l ON l.id = a.lawyer_id " +
+        "WHERE a.user_username = ? " +
+        "ORDER BY a.`date` DESC, a.`time` DESC";
+
+    try (Connection con = database.connectDB();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, loggedUsername);
+
+        try (ResultSet rs = ps.executeQuery()) {
+
+            int count = 0;
+            while (rs.next()) {
+                count++;
+
+                int apptId = rs.getInt("id");
+                String date = rs.getString("date");
+                String time = rs.getString("time");
+                String lawyerName = rs.getString("lawyer_name");
+                String spec = rs.getString("specialization");
+                String firm = rs.getString("law_firm");
+
+                sb.append(count).append(") ")
+                  .append(date).append("  ").append(time)
+                  .append("  | Lawyer: ").append(lawyerName)
+                  .append("  | ").append(spec == null ? "-" : spec)
+                  .append("  | ").append(firm == null ? "-" : firm)
+                  .append("  | (Appointment ID: ").append(apptId).append(")")
+                  .append("\n");
+            }
+
+            if (count == 0) {
+                sb.append("No appointments found.\n");
+            }
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        sb.append("\n[Could not load appointments. Check terminal.]\n");
+    }
+
+    
+    javafx.scene.control.TextArea area = new javafx.scene.control.TextArea(sb.toString());
+    area.setEditable(false);
+    area.setWrapText(true);
+    area.setPrefWidth(520);
+    area.setPrefHeight(380);
+
+    Alert a = new Alert(Alert.AlertType.INFORMATION);
+    a.setTitle("My Profile");
+    a.setHeaderText(null);
+    a.getDialogPane().setContent(area);
+    a.showAndWait();
+}
 
     private void loadProfileAvatar() {
         InputStream is = getClass().getResourceAsStream("/images/anonymous.png");
@@ -76,6 +142,11 @@ public class UserDashboardController {
             profileAvatar.setImage(new Image(is));
         }
     }
+    @FXML
+private void backToAllLawyers() {
+    searchField.setText("");   // search box empty
+    loadLawyers(null);         // show all again
+}
 
    
     @FXML
@@ -219,6 +290,7 @@ public class UserDashboardController {
    
     
     private void openLawyerProfile(int lawyerId) {
+        SelectedLawyer.id = lawyerId;
     try {
         File fxmlFile = new File("src/lawyerProfilefromUser.fxml");
         URL url = fxmlFile.toURI().toURL();
@@ -228,6 +300,7 @@ public class UserDashboardController {
 
         //  pass id and load DB data
         lawyerProfileUser controller = loader.getController();
+         controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
         controller.loadLawyerById(lawyerId);
 
         Stage stage = (Stage) lawyerListBox.getScene().getWindow();

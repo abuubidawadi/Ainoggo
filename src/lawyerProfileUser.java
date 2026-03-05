@@ -13,13 +13,19 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class lawyerProfileUser {
+  @FXML
+private DatePicker date_picker;
 
+@FXML
+private ComboBox<String> time_picker;
     @FXML
     private ImageView lawyer_img;
     @FXML
@@ -91,19 +97,35 @@ public class lawyerProfileUser {
         }
     }
 
+    
     @FXML
-    private void logout(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setTitle("Logout");
-        a.setHeaderText(null);
-        a.setContentText("Logout clicked!");
-        a.showAndWait();
+private void logout(ActionEvent event) {
+    try {
+        File fxmlFile = new File("src/MainScene.fxml");
+        URL url = fxmlFile.toURI().toURL();
+
+        FXMLLoader loader = new FXMLLoader(url);
+        Parent root = loader.load();
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.setTitle("Ainoggo");
+        stage.show();
+
+        loggedUsername = null;
+        loggedName = null;
+        loggedEmail = null;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        showError("Could not logout. Check terminal.");
     }
+}
 
     @FXML
     private void godashboard(ActionEvent event) {
         try {
-            File fxmlFile = new File("UserDashboard.fxml");
+            File fxmlFile = new File("src/UserDashboard.fxml");
             URL url = fxmlFile.toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
@@ -161,4 +183,53 @@ public class lawyerProfileUser {
         a.setContentText(msg);
         a.showAndWait();
     }
+    @FXML
+public void initialize() {
+
+    time_picker.getItems().addAll(
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00"
+    );
+
+}
+@FXML
+private void bookAppointment(ActionEvent event) {
+
+    if(date_picker.getValue() == null || time_picker.getValue() == null){
+        showError("Please select date and time");
+        return;
+    }
+
+    String sql = "INSERT INTO appointments(user_username, lawyer_id, date, time) VALUES(?,?,?,?)";
+
+    try(Connection con = database.connectDB();
+        PreparedStatement ps = con.prepareStatement(sql)){
+
+        ps.setString(1, loggedUsername);
+        ps.setInt(2, SelectedLawyer.id);
+        ps.setString(3, date_picker.getValue().toString());
+        ps.setString(4, time_picker.getValue());
+
+        ps.executeUpdate();
+
+        Alert a = new Alert(Alert.AlertType.INFORMATION);
+        a.setHeaderText(null);
+        a.setContentText("Appointment booked successfully");
+        a.showAndWait();
+
+    }
+    catch(Exception e){
+        e.printStackTrace();
+        showError("Could not book appointment");
+    }
+}
 }
