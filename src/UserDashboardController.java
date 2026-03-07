@@ -79,7 +79,7 @@ private void showProfile(ActionEvent event) {
     sb.append("===== My Appointments (Past + Future) =====\n\n");
 
     String sql =
-        "SELECT a.id, a.`date`, a.`time`, l.name AS lawyer_name, l.specialization, l.law_firm " +
+        "SELECT a.id, a.`date`, a.`time`,a.status, l.name AS lawyer_name, l.specialization, l.law_firm " +
         "FROM appointments a " +
         "JOIN lawyers l ON l.id = a.lawyer_id " +
         "WHERE a.user_username = ? " +
@@ -99,6 +99,7 @@ private void showProfile(ActionEvent event) {
                 int apptId = rs.getInt("id");
                 String date = rs.getString("date");
                 String time = rs.getString("time");
+                String status = rs.getString("status");
                 String lawyerName = rs.getString("lawyer_name");
                 String spec = rs.getString("specialization");
                 String firm = rs.getString("law_firm");
@@ -108,6 +109,7 @@ private void showProfile(ActionEvent event) {
                   .append("  | Lawyer: ").append(lawyerName)
                   .append("  | ").append(spec == null ? "-" : spec)
                   .append("  | ").append(firm == null ? "-" : firm)
+                   .append(" | Status: ").append(status == null ? "Pending" : status)
                   .append("  | (Appointment ID: ").append(apptId).append(")")
                   .append("\n");
             }
