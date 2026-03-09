@@ -1,3 +1,4 @@
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -8,9 +9,9 @@ public class database {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/ainoggo?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true",
+                "jdbc:mysql://shortline.proxy.rlwy.net:29795/railway?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true",
                 "root",
-                "PaSsforAiNogGo"
+                "BXKpsykeNGzLyiyYxNyqEQGwOtgLACeW"
             );
 
         } catch (Exception e) {
