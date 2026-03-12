@@ -306,7 +306,8 @@ private void backToAllLawyers() {
         controller.loadLawyerById(lawyerId);
 
         Stage stage = (Stage) lawyerListBox.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,1000,650));
+        stage.setResizable(false);
         stage.show();
 
     } catch (Exception e) {

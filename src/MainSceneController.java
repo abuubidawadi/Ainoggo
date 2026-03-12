@@ -288,7 +288,8 @@ public class MainSceneController {
     controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
 
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(new Scene(root));
+    stage.setScene(new Scene(root,1000,650));
+    stage.setResizable(false);
     stage.setTitle("Ainoggo - Dashboard");
     stage.show();
 
@@ -361,7 +362,8 @@ public class MainSceneController {
             controller.showLoginPage(); // force login page visible
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root,1000,650));
+            stage.setResizable(false);
             stage.show();
 
         } catch (Exception e) {
@@ -379,7 +381,8 @@ public class MainSceneController {
             controller.showRegisterPage(); // force register page visible
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
+            stage.setScene(new Scene(root,1000,650));
+            stage.setResizable(false);
             stage.show();
 
         } catch (Exception e) {

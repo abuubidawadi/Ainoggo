@@ -10,9 +10,10 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         
         Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root,1000,650);
         stage.setScene(scene);
         stage.setTitle("Ainoggo");
+        stage.setResizable(false);
         stage.show();
 
     }
