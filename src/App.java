@@ -9,7 +9,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         
-        Parent root = FXMLLoader.load(getClass().getResource("MainScene_responsive.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
         Scene scene = new Scene(root,1000,650);
         stage.setScene(scene);
         stage.setTitle("Ainoggo");
