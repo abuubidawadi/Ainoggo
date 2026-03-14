@@ -32,7 +32,7 @@
   
   .login-hero {
     -fx-background-color: transparent;
-    -fx-background-image: url("../images/lawyer_2.png");
+    -fx-background-image: url("../images/login_bg.png");
     -fx-background-size: cover;
     -fx-background-position: center center;
     -fx-background-repeat: no-repeat;
@@ -70,17 +70,17 @@
 
 .floating-form-wrapper {
     -fx-padding: 40 70 40 40;
-    -fx-alignment: center-right;
+    -fx-alignment: center;
 }
 
 .floating-form-left-wrapper {
-    -fx-padding: 40 40 40 70;
-    -fx-alignment: center-left;
+    -fx-padding: 40 40 40 40;
+    -fx-alignment: center;
 }
 
 .floating-right-text-wrapper {
-    -fx-padding: 40 70 40 40;
-    -fx-alignment: center-right;
+    -fx-padding: 40 40 40 40;
+    -fx-alignment: center;
 }
 
 /* ---------------- FORM CARD ---------------- */
@@ -138,6 +138,8 @@
 .login-button:hover {
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
 }
 
 .register-button {
@@ -146,19 +148,33 @@
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
     -fx-cursor: hand;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
+
     -fx-font-size: 18px;
     -fx-font-weight: 700;
     -fx-padding: 10 20 10 20;
+
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
 }
 
 .register-button:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #000000;
+
     -fx-border-color: #000000;
-    -fx-border-width: 2px;
-    -fx-border-radius: 8px;
+    -fx-border-width: 2;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 8;
+
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
 }
 
 /* ---------------- LINKS ---------------- */
