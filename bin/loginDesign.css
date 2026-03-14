@@ -28,9 +28,17 @@
     -fx-background-position: center center;
 }
 
-.login-hero {
-    -fx-background-image: url("images/login_bg.jpg");
+
+  
+  .login-hero {
+    -fx-background-color: transparent;
+    -fx-background-image: url("../images/lawyer_2.png");
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+    -fx-background-repeat: no-repeat;
 }
+
+ 
 
 .register-hero {
     -fx-background-image: url("images/register_bg.jpg");

@@ -396,6 +396,22 @@ public class MainSceneController {
         login_page.setManaged(true);
         reg_page.setVisible(false);
         reg_page.setManaged(false);
-    }
+        String imagePath = getClass().getResource("/images/lawyer_2.png").toExternalForm();
 
+    login_page_img.setStyle(
+        "-fx-background-image: url('" + imagePath + "');" +
+        "-fx-background-size: contain;" +
+        "-fx-background-position: center center;" +
+        "-fx-background-repeat: no-repeat;"
+    );
+    
+      String imagePath2 = getClass().getResource("/images/lawyer_3.png").toExternalForm();
+
+    reg_page_img.setStyle(
+        "-fx-background-image: url('" + imagePath2 + "');" +
+        "-fx-background-size: 100% 100%;" +
+        "-fx-background-position: center center;" +
+        "-fx-background-repeat: no-repeat;"
+    );
+    }
 }

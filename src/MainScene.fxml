@@ -18,7 +18,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainSceneController">
+<StackPane prefHeight="720.0" prefWidth="1200.0"
+           xmlns="http://javafx.com/javafx/25"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="MainSceneController">
 
     <children>
 
@@ -64,14 +67,31 @@
                         <!-- LEFT SIDE -->
                         <StackPane fx:id="login_page_img" styleClass="auth-hero login-hero" HBox.hgrow="ALWAYS">
                             <children>
-                                <VBox alignment="CENTER" maxWidth="420.0" prefHeight="639.0" prefWidth="720.0" spacing="28.0" styleClass="hero-text-box">
+                                <VBox alignment="BOTTOM_CENTER"
+                                      maxWidth="420.0"
+                                      prefHeight="639.0"
+                                      prefWidth="720.0"
+                                      spacing="28.0"
+                                      styleClass="hero-text-box">
                                     <children>
-                                        <Label styleClass="overlay-title" text="What! You haven’t Registered yet?" textAlignment="CENTER" wrapText="true" />
-                                        <Button fx:id="reg_button_log_page" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Register Now" />
+                                        <Button fx:id="reg_button_log_page"
+                                                alignment="CENTER"
+                                                contentDisplay="CENTER"
+                                                mnemonicParsing="false"
+                                                onAction="#switchbetweenloginandreg"
+                                                prefHeight="48.0"
+                                                prefWidth="220.0"
+                                                styleClass="register-button"
+                                                text="Register Now" />
                                     </children>
+                                    <padding>
+                                        <Insets bottom="25.0" />
+                                    </padding>
                                 </VBox>
                             </children>
-                        </StackPane>
+                        </StackPane> 
+             
+
 
                         <!-- RIGHT SIDE -->
                         <StackPane fx:id="login_page_form" styleClass="floating-form-wrapper" HBox.hgrow="ALWAYS">
@@ -104,7 +124,6 @@
                 </HBox>
             </center>
         </BorderPane>
-
 
         <!-- REGISTER PAGE -->
         <BorderPane fx:id="reg_page" styleClass="page-root" stylesheets="@loginDesign.css">
@@ -206,7 +225,7 @@
                             <children>
                                 <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="hero-text-right-box">
                                     <children>
-                                        <Label styleClass="overlay-title" text="Already have an account?" wrapText="true" />
+                                       
                                         <Button fx:id="login_button_reg_page" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Login" />
                                     </children>
                                 </VBox>
