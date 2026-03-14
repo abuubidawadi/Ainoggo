@@ -23,7 +23,7 @@
     <children>
 
         <!-- LOGIN PAGE -->
-        <BorderPane fx:id="login_page" styleClass="page-root" stylesheets="@loginDesign.css">
+        <BorderPane fx:id="login_page" styleClass="page-root" stylesheets="@loginDesign.css" visible="false">
             <top>
                 <HBox fx:id="login_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                     <children>
@@ -107,7 +107,7 @@
 
 
         <!-- REGISTER PAGE -->
-        <BorderPane fx:id="reg_page" styleClass="page-root" stylesheets="@loginDesign.css" visible="false">
+        <BorderPane fx:id="reg_page" styleClass="page-root" stylesheets="@loginDesign.css">
             <top>
                 <HBox fx:id="reg_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                     <children>
@@ -129,7 +129,7 @@
 
                         <Region HBox.hgrow="ALWAYS" />
 
-                        <Hyperlink fx:id="switch_to_lawyer_reg" onAction="#switchToLawyerRegister" text="I'm a lawyer">
+                        <Hyperlink fx:id="switch_to_lawyer_reg" onAction="#switchToLawyerRegister" styleClass="go-to-other" text="Go to Lawyer Registration">
                             <font>
                                 <Font size="20.0" />
                             </font>
