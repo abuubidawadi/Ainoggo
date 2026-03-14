@@ -13,7 +13,9 @@ public class App extends Application {
         Scene scene = new Scene(root,1000,650);
         stage.setScene(scene);
         stage.setTitle("Ainoggo");
-        stage.setResizable(false);
+        stage.setMinWidth(1000);
+        stage.setMinHeight(650);
+        stage.setResizable(true);
         stage.show();
 
     }

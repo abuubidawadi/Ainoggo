@@ -16,7 +16,9 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -44,22 +46,22 @@ public class MainSceneController {
     private Hyperlink login_forgot_password;
 
     @FXML
-    private AnchorPane login_page;
+    private BorderPane login_page;
 
     @FXML
-    private AnchorPane login_page_form;
+    private StackPane login_page_form;
 
     @FXML
-    private AnchorPane login_page_header;
+    private HBox login_page_header;
 
     @FXML
-    private AnchorPane login_page_img;
-
-    @FXML
-    private TextField login_username;
+    private StackPane login_page_img;
 
     @FXML
     private PasswordField login_pass;
+
+    @FXML
+    private TextField login_username;
 
     @FXML
     private Button reg_button_log_page;
@@ -77,16 +79,16 @@ public class MainSceneController {
     private TextField reg_name;
 
     @FXML
-    private AnchorPane reg_page;
+    private BorderPane reg_page;
 
     @FXML
-    private AnchorPane reg_page_form;
+    private StackPane reg_page_form;
 
     @FXML
-    private AnchorPane reg_page_header;
+    private HBox reg_page_header;
 
     @FXML
-    private AnchorPane reg_page_img;
+    private StackPane reg_page_img;
 
     @FXML
     private PasswordField reg_pass;
@@ -111,12 +113,16 @@ public class MainSceneController {
 
     public void showLoginPage() {
         login_page.setVisible(true);
+        login_page.setManaged(true);
         reg_page.setVisible(false);
+        reg_page.setManaged(false);
     }
 
     public void showRegisterPage() {
         login_page.setVisible(false);
+        login_page.setManaged(false);
         reg_page.setVisible(true);
+        reg_page.setManaged(true);
     }
 
     public void registration(ActionEvent event) {
@@ -270,35 +276,33 @@ public class MainSceneController {
             result = prepare.executeQuery();
 
             if (result.next()) {
-                   String loggedUsername = result.getString("username");
-                 String loggedName = result.getString("name");
-                 String loggedEmail = result.getString("email");
+                String loggedUsername = result.getString("username");
+                String loggedName = result.getString("name");
+                String loggedEmail = result.getString("email");
 
-               
                 login_username.setText("");
                 login_pass.setText("");
 
-                
-    try {
+                try {
 
-    FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
-    Parent root = loader.load();
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
+                    Parent root = loader.load();
 
-    UserDashboardController controller = loader.getController();
-    controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
+                    UserDashboardController controller = loader.getController();
+                    controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
 
-    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-    stage.setScene(new Scene(root,1000,650));
-    stage.setResizable(false);
-    stage.setTitle("Ainoggo - Dashboard");
-    stage.show();
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root, 1000, 650));
+                    stage.setResizable(false);
+                    stage.setTitle("Ainoggo - Dashboard");
+                    stage.show();
 
-} catch (Exception e) {
-    e.printStackTrace();
-}
-            } 
-   
-    else {
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            else {
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Login Failed");
                 alert.setHeaderText(null);
@@ -362,7 +366,7 @@ public class MainSceneController {
             controller.showLoginPage(); // force login page visible
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root,1000,650));
+            stage.setScene(new Scene(root, 1000, 650));
             stage.setResizable(false);
             stage.show();
 
@@ -381,7 +385,7 @@ public class MainSceneController {
             controller.showRegisterPage(); // force register page visible
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root,1000,650));
+            stage.setScene(new Scene(root, 1000, 650));
             stage.setResizable(false);
             stage.show();
 
@@ -392,7 +396,9 @@ public class MainSceneController {
 
     public void initialize() {
         login_page.setVisible(true);
+        login_page.setManaged(true);
         reg_page.setVisible(false);
+        reg_page.setManaged(false);
     }
 
 }

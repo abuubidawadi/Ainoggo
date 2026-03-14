@@ -1,3 +1,152 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* ---------------- PAGE ---------------- */
+
+.page-root {
+    -fx-background-color: #f7f7f7;
+}
+
+.header {
+    -fx-background-color: linear-gradient(to top, #ebebeb, #ffffff);
+    -fx-border-color: transparent transparent #d9d9d9 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ---------------- FULL BACKGROUND HERO ---------------- */
+
+.auth-hero {
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+.login-hero {
+    -fx-background-image: url("images/login_bg.jpg");
+}
+
+.register-hero {
+    -fx-background-image: url("images/register_bg.jpg");
+}
+
+/* ---------------- HERO TEXT ---------------- */
+
+.hero-text-box {
+    -fx-alignment: center-left;
+    -fx-padding: 60 40 60 70;
+    -fx-max-width: 520;
+}
+
+.hero-text-right-box {
+    -fx-alignment: center;
+    -fx-padding: 60 70 60 40;
+    -fx-max-width: 500;
+}
+
+.overlay-title {
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+/* ---------------- FLOATING FORM WRAPPERS ---------------- */
+
+.floating-form-wrapper {
+    -fx-padding: 40 70 40 40;
+    -fx-alignment: center-right;
+}
+
+.floating-form-left-wrapper {
+    -fx-padding: 40 40 40 70;
+    -fx-alignment: center-left;
+}
+
+.floating-right-text-wrapper {
+    -fx-padding: 40 70 40 40;
+    -fx-alignment: center-right;
+}
+
+/* ---------------- FORM CARD ---------------- */
+
+.form-card {
+    -fx-background-color: rgba(255, 255, 255, 0.96);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-padding: 36;
+    -fx-spacing: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 28, 0.18, 0, 8);
+}
+
+.form-title {
+    -fx-text-fill: #1f1f1f;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-padding: 0 0 12 0;
+}
+
+/* ---------------- INPUTS ---------------- */
+
+.auth-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 0 14 0 14;
+}
+
+.auth-input:focused {
+    -fx-border-color: #000000;
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.login-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 20 10 20;
+}
+
+.login-button:hover {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+}
+
+.register-button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 20 10 20;
+}
+
+.register-button:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+}
+
+/* ---------------- LINKS ---------------- */
+
 .hyperlink {
     -fx-underline: false;
     -fx-text-fill: #000000;
@@ -8,61 +157,81 @@
 
 .hyperlink:hover {
     -fx-underline: false;
-    -fx-text-fill: #000000;
+    -fx-text-fill: #303030;
 }
 
 .hyperlink:focused {
     -fx-border-color: transparent;
     -fx-underline: false;
 }
-.login-button{
-    -fx-background-color: transparent;
-    -fx-text-fill: #000000;
-    -fx-cursor: hand;
-    -fx-border-color: #000000;
-    -fx-border-width: 2px;    
-    -fx-border-radius: 5px;
-}
-.login-button:hover{
-    -fx-background-radius: 5px;
-    -fx-background-color: #000000;
-    -fx-text-fill: #FFFFFF;
-}
-.register-button{
-    -fx-background-color: #000000;
-    -fx-text-fill: #ffffff;
-    -fx-cursor: hand;
-    -fx-background-radius: 5px;
-}
-.register-button:hover{
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #000000;
-    -fx-border-width: 2px;    
-    -fx-border-radius: 5px;
-}
 
-.header{
-    -fx-background-color: linear-gradient(to top, #ebebeb, #FFFFFF);
-}
-.right{
-    -fx-background-color: #FFFFFF;
-}
-.left{
-    -fx-background-color: #000000;
-}
-.forgot-password{
+.forgot-password {
     -fx-underline: false;
     -fx-text-fill: #000000;
     -fx-border-color: transparent;
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
+    -fx-padding: 0;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
 }
-.forgot-password:hover{
-    -fx-underline: false;
+
+.forgot-password:hover {
     -fx-text-fill: #636363;
 }
 
-.combo-box{
+/* ---------------- CHECKBOX ---------------- */
+
+.terms-check {
+    -fx-text-fill: #222222;
+    -fx-font-size: 15px;
+}
+
+.terms-check .box {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #bfbfbf;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.terms-check:selected .mark {
+    -fx-background-color: #000000;
+}
+
+/* ---------------- SCROLLPANE ---------------- */
+
+.form-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 0;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.form-scroll .increment-button,
+.form-scroll .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* ---------------- SAFE OLD CLASSES ---------------- */
+
+.right {
+    -fx-background-color: #ffffff;
+}
+
+.left {
+    -fx-background-color: #000000;
+}
+
+.combo-box {
     -fx-text-fill: #000000;
     -fx-font-size: 17px;
 }
