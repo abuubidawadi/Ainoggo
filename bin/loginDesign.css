@@ -16,6 +16,12 @@
 
 /* ---------------- FULL BACKGROUND HERO ---------------- */
 
+.auth-body {
+    -fx-alignment: center;
+    -fx-spacing: 0;
+    -fx-fill-height: true;
+}
+
 .auth-hero {
     -fx-background-size: cover;
     -fx-background-repeat: no-repeat;
@@ -33,7 +39,7 @@
 /* ---------------- HERO TEXT ---------------- */
 
 .hero-text-box {
-    -fx-alignment: center-left;
+    -fx-alignment: center;
     -fx-padding: 60 40 60 70;
     -fx-max-width: 520;
 }
@@ -127,6 +133,8 @@
 }
 
 .register-button {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
     -fx-cursor: hand;
@@ -203,8 +211,7 @@
 .form-scroll {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-    -fx-background: transparent;
-    -fx-padding: 0;
+    -fx-fit-to-width: true;
 }
 
 .form-scroll > .viewport {
@@ -234,4 +241,15 @@
 .combo-box {
     -fx-text-fill: #000000;
     -fx-font-size: 17px;
+}
+
+.go-to-other {
+    
+}
+.go-to-other:hover{
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
 }

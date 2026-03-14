@@ -45,7 +45,7 @@
 
                         <Region HBox.hgrow="ALWAYS" />
 
-                        <Hyperlink fx:id="switch_to_lawyer_login" onAction="#switchToLawyerLogin" text="I'm a lawyer">
+                        <Hyperlink fx:id="switch_to_lawyer_login" onAction="#switchToLawyerLogin" styleClass="go-to-other" text="Go to Lawyer Login">
                             <font>
                                 <Font size="20.0" />
                             </font>
@@ -64,17 +64,17 @@
                         <!-- LEFT SIDE -->
                         <StackPane fx:id="login_page_img" styleClass="auth-hero login-hero" HBox.hgrow="ALWAYS">
                             <children>
-                                <VBox alignment="CENTER" maxWidth="420.0" prefHeight="639.0" prefWidth="720.0" spacing="28.0" styleClass="overlay-content">
+                                <VBox alignment="CENTER" maxWidth="420.0" prefHeight="639.0" prefWidth="720.0" spacing="28.0" styleClass="hero-text-box">
                                     <children>
                                         <Label styleClass="overlay-title" text="What! You haven’t Registered yet?" textAlignment="CENTER" wrapText="true" />
-                                        <Button fx:id="reg_button_log_page" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Register Now" />
+                                        <Button fx:id="reg_button_log_page" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Register Now" />
                                     </children>
                                 </VBox>
                             </children>
                         </StackPane>
 
                         <!-- RIGHT SIDE -->
-                        <StackPane fx:id="login_page_form" styleClass="auth-panel form-panel" HBox.hgrow="ALWAYS">
+                        <StackPane fx:id="login_page_form" styleClass="floating-form-wrapper" HBox.hgrow="ALWAYS">
                             <children>
                                 <VBox maxWidth="420.0" prefWidth="380.0" spacing="18.0" styleClass="form-card">
                                     <children>
@@ -98,9 +98,6 @@
                                     </children>
                                 </VBox>
                             </children>
-                            <padding>
-                                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-                            </padding>
                         </StackPane>
 
                     </children>
@@ -149,7 +146,7 @@
                     <children>
 
                         <!-- LEFT SIDE FORM -->
-                        <StackPane fx:id="reg_page_form" styleClass="auth-panel form-panel" HBox.hgrow="ALWAYS">
+                        <StackPane fx:id="reg_page_form" styleClass="floating-form-left-wrapper" HBox.hgrow="ALWAYS">
                             <children>
                                 <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="form-scroll">
                                     <content>
@@ -207,7 +204,7 @@
                         <!-- RIGHT SIDE IMAGE -->
                         <StackPane fx:id="reg_page_img" styleClass="auth-hero register-hero" HBox.hgrow="ALWAYS">
                             <children>
-                                <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="overlay-content">
+                                <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="hero-text-right-box">
                                     <children>
                                         <Label styleClass="overlay-title" text="Already have an account?" wrapText="true" />
                                         <Button fx:id="login_button_reg_page" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Login" />

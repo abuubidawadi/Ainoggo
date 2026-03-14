@@ -219,8 +219,7 @@ public class MainSceneController {
                 reg_conf_pass.setText("");
                 reg_checkbox.setSelected(false);
 
-                login_page.setVisible(true);
-                reg_page.setVisible(false);
+                showLoginPage();
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -348,11 +347,9 @@ public class MainSceneController {
     public void switchbetweenloginandreg(ActionEvent event) {
 
         if (event.getSource() == login_button_reg_page) {
-            login_page.setVisible(true);
-            reg_page.setVisible(false);
+            showLoginPage();
         } else if (event.getSource() == reg_button_log_page) {
-            login_page.setVisible(false);
-            reg_page.setVisible(true);
+            showRegisterPage();
         }
     }
 
