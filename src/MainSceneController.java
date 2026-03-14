@@ -400,7 +400,7 @@ public class MainSceneController {
 
     login_page_img.setStyle(
         "-fx-background-image: url('" + imagePath + "');" +
-        "-fx-background-size: contain;" +
+        "-fx-background-size: cover;" +
         "-fx-background-position: center center;" +
         "-fx-background-repeat: no-repeat;"
     );
