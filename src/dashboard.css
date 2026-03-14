@@ -14,14 +14,20 @@
 }
 
 .btn {
-    -fx-background-color: #000000;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
     -fx-cursor: hand;
     -fx-background-radius: 6px;
+     -fx-border-color: #000000;
+    -fx-border-width: 1px;
 }
-
+.btn:pressed {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+}
 .btn:hover {
     -fx-background-color: #222222;
+      -fx-text-fill: #ffffff;
 }
 
 .profileBtn {
@@ -46,4 +52,20 @@
 .sub {
     -fx-font-size: 14px;
     -fx-text-fill: #333333;
+}
+.bookBtn {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 6px;
+}
+
+.bookBtn:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+    -fx-border-color: #000000;
+}
+
+.bookBtn:pressed {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
 }
