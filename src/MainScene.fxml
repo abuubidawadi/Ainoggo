@@ -62,7 +62,7 @@
                     <children>
 
                         <!-- LEFT SIDE -->
-                        <StackPane fx:id="login_page_img" styleClass="auth-panel image-panel login-image-panel" HBox.hgrow="ALWAYS">
+                        <StackPane fx:id="login_page_img" styleClass="auth-hero login-hero" HBox.hgrow="ALWAYS">
                             <children>
                                 <VBox alignment="CENTER" maxWidth="420.0" prefHeight="639.0" prefWidth="720.0" spacing="28.0" styleClass="overlay-content">
                                     <children>
@@ -205,7 +205,7 @@
                         </StackPane>
 
                         <!-- RIGHT SIDE IMAGE -->
-                        <StackPane fx:id="reg_page_img" styleClass="auth-panel image-panel register-image-panel" HBox.hgrow="ALWAYS">
+                        <StackPane fx:id="reg_page_img" styleClass="auth-hero register-hero" HBox.hgrow="ALWAYS">
                             <children>
                                 <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="overlay-content">
                                     <children>
