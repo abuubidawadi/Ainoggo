@@ -105,6 +105,18 @@ public class MainSceneController {
     @FXML
     private Hyperlink switch_to_lawyer_reg;
 
+@FXML
+private Button theme_toggle_button_login;
+
+@FXML
+private Button theme_toggle_button_reg;
+
+@FXML
+private ImageView theme_toggle_icon_login;
+
+@FXML
+private ImageView theme_toggle_icon_reg;
+
     private Connection connect;
     private PreparedStatement prepare;
     private ResultSet result;
@@ -414,4 +426,54 @@ public class MainSceneController {
         "-fx-background-repeat: no-repeat;"
     );
     }
+
+    private boolean darkMode = false;
+
+private final String LIGHT_CSS = getClass().getResource("loginDesign.css").toExternalForm();
+private final String DARK_CSS = getClass().getResource("darklogindesign.css").toExternalForm();
+
+private final String DARK_ICON = getClass().getResource("/images/dark.png").toExternalForm();
+private final String LIGHT_ICON = getClass().getResource("/images/white.png").toExternalForm();
+
+private final String LOGO_BLACK = getClass().getResource("/images/logo_black_icon.png").toExternalForm();
+private final String LOGO_WHITE = getClass().getResource("/images/logo_white_icon.png").toExternalForm();
+
+@FXML
+private void toggleTheme(ActionEvent event) {
+    Scene scene = ((Node) event.getSource()).getScene();
+
+    scene.getStylesheets().clear();
+
+    if (darkMode) {
+        scene.getStylesheets().add(LIGHT_CSS);
+
+        ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+        ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+
+        if (theme_toggle_icon_login != null) {
+            theme_toggle_icon_login.setImage(new javafx.scene.image.Image(DARK_ICON));
+        }
+
+        if (theme_toggle_icon_reg != null) {
+            theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
+        }
+
+        darkMode = false;
+    } else {
+        scene.getStylesheets().add(DARK_CSS);
+
+        ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+        ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+
+        if (theme_toggle_icon_login != null) {
+            theme_toggle_icon_login.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+        }
+
+        if (theme_toggle_icon_reg != null) {
+            theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+        }
+
+        darkMode = true;
+    }
+}
 }

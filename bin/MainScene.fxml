@@ -26,7 +26,7 @@
     <children>
 
         <!-- LOGIN PAGE -->
-        <BorderPane fx:id="login_page" styleClass="page-root" stylesheets="@loginDesign.css" visible="false">
+        <BorderPane fx:id="login_page" styleClass="page-root" visible="false">
             <top>
                 <HBox fx:id="login_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                     <children>
@@ -53,6 +53,24 @@
                                 <Font size="20.0" />
                             </font>
                         </Hyperlink>
+
+                        <Button fx:id="theme_toggle_button_login"
+        onAction="#toggleTheme"
+        mnemonicParsing="false"
+        styleClass="theme-button">
+    <graphic>
+        <ImageView fx:id="theme_toggle_icon_login"
+                   fitHeight="22.0"
+                   fitWidth="22.0"
+                   pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@images/dark.png" />
+            </image>
+        </ImageView>
+    </graphic>
+</Button>
+
                     </children>
                     <padding>
                         <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
@@ -127,7 +145,7 @@
         </BorderPane>
 
         <!-- REGISTER PAGE -->
-        <BorderPane fx:id="reg_page" styleClass="page-root" stylesheets="@loginDesign.css">
+        <BorderPane fx:id="reg_page" styleClass="page-root">
             <top>
                 <HBox fx:id="reg_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                     <children>
@@ -154,6 +172,24 @@
                                 <Font size="20.0" />
                             </font>
                         </Hyperlink>
+
+                        <Button fx:id="theme_toggle_button_reg"
+        onAction="#toggleTheme"
+        mnemonicParsing="false"
+        styleClass="theme-button">
+    <graphic>
+        <ImageView fx:id="theme_toggle_icon_reg"
+                   fitHeight="22.0"
+                   fitWidth="22.0"
+                   pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@images/dark.png" />
+            </image>
+        </ImageView>
+    </graphic>
+</Button>
+
                     </children>
                     <padding>
                         <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />

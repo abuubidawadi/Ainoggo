@@ -11,6 +11,7 @@ public class App extends Application {
         
         Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
         Scene scene = new Scene(root,1000,650);
+        scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("Aino");
         stage.setMinWidth(1000);
