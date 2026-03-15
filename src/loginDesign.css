@@ -304,6 +304,7 @@
     -fx-border-radius: 50;
     -fx-cursor: hand;
     -fx-padding: 6;
+    -fx-translate-x: 8;
 }
 
 .theme-button:hover {
