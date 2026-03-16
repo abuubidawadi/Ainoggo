@@ -267,11 +267,11 @@ public class LawyerEnterSceneController {
 
     // @FXML
     // void proceed(ActionEvent event) {
-    //     Alert a = new Alert(Alert.AlertType.INFORMATION);
-    //     a.setTitle("Proceed");
-    //     a.setHeaderText(null);
-    //     a.setContentText("Proceed clicked (feature will be added later).");
-    //     a.showAndWait();
+    // Alert a = new Alert(Alert.AlertType.INFORMATION);
+    // a.setTitle("Proceed");
+    // a.setHeaderText(null);
+    // a.setContentText("Proceed clicked (feature will be added later).");
+    // a.showAndWait();
     // }
 
     @FXML
@@ -456,7 +456,8 @@ public class LawyerEnterSceneController {
                 int rows = prepare.executeUpdate();
                 if (rows > 0) {
                     currentLawyerUsername = username.trim();
-                    //showInfo("Registered successfully! Please complete your lawyer information.");
+                    // showInfo("Registered successfully! Please complete your lawyer
+                    // information.");
                     showSecondPage();
                 } else {
                     showError("Registration failed.");
@@ -542,7 +543,7 @@ public class LawyerEnterSceneController {
 
                 int rows = prepare.executeUpdate();
                 if (rows > 0) {
-                    //showInfo("Lawyer information saved!");
+                    // showInfo("Lawyer information saved!");
                     showLoginPage();
                 } else {
                     showError("Could not save lawyer information.");
@@ -717,7 +718,7 @@ public class LawyerEnterSceneController {
                 theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
             }
 
-            if(theme_toggle_button_reg1 != null && theme_toggle_icon_reg1 != null) {
+            if (theme_toggle_button_reg1 != null && theme_toggle_icon_reg1 != null) {
                 theme_toggle_icon_reg1.setImage(new javafx.scene.image.Image(LIGHT_ICON));
             }
 
@@ -753,6 +754,16 @@ public class LawyerEnterSceneController {
             if (theme_toggle_icon_reg != null) {
                 theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
             }
+
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new Image(LOGO_WHITE));
+            }
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: white; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+            if (theme_toggle_icon_reg1 != null) {
+                theme_toggle_icon_reg1.setImage(new Image(LIGHT_ICON));
+            }
         } else {
             scene.getStylesheets().add(LIGHT_CSS);
 
@@ -765,6 +776,15 @@ public class LawyerEnterSceneController {
 
             if (theme_toggle_icon_reg != null) {
                 theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new Image(LOGO_BLACK));
+            }
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: #000000; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+            if (theme_toggle_icon_reg1 != null) {
+                theme_toggle_icon_reg1.setImage(new Image(DARK_ICON));
             }
         }
     }
