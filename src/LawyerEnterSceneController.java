@@ -225,6 +225,8 @@ public class LawyerEnterSceneController {
             reg_page1.setVisible(true);
             reg_page1.setManaged(true);
         }
+
+        javafx.application.Platform.runLater(this::applyCurrentTheme);
     }
 
     private void showError(String msg) {
@@ -263,14 +265,14 @@ public class LawyerEnterSceneController {
         }
     }
 
-    @FXML
-    void proceed(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setTitle("Proceed");
-        a.setHeaderText(null);
-        a.setContentText("Proceed clicked (feature will be added later).");
-        a.showAndWait();
-    }
+    // @FXML
+    // void proceed(ActionEvent event) {
+    //     Alert a = new Alert(Alert.AlertType.INFORMATION);
+    //     a.setTitle("Proceed");
+    //     a.setHeaderText(null);
+    //     a.setContentText("Proceed clicked (feature will be added later).");
+    //     a.showAndWait();
+    // }
 
     @FXML
     void uploadPhoto(ActionEvent event) {
@@ -300,7 +302,8 @@ public class LawyerEnterSceneController {
 
                 photoPath = newFileName;
 
-                uploaded_img.setImage(new Image(destination.toURI().toString()));
+                Image uploadedImage = new Image(destination.toURI().toString());
+                setCroppedImage(uploadedImage);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -453,7 +456,7 @@ public class LawyerEnterSceneController {
                 int rows = prepare.executeUpdate();
                 if (rows > 0) {
                     currentLawyerUsername = username.trim();
-                    showInfo("Registered successfully! Please complete your lawyer information.");
+                    //showInfo("Registered successfully! Please complete your lawyer information.");
                     showSecondPage();
                 } else {
                     showError("Registration failed.");
@@ -539,7 +542,7 @@ public class LawyerEnterSceneController {
 
                 int rows = prepare.executeUpdate();
                 if (rows > 0) {
-                    showInfo("Lawyer information saved!");
+                    //showInfo("Lawyer information saved!");
                     showLoginPage();
                 } else {
                     showError("Could not save lawyer information.");
@@ -714,6 +717,10 @@ public class LawyerEnterSceneController {
                 theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
             }
 
+            if(theme_toggle_button_reg1 != null && theme_toggle_icon_reg1 != null) {
+                theme_toggle_icon_reg1.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
             if (ainoggo_home_logo_2nd_page != null) {
                 ainoggo_home_logo_2nd_page.setImage(new javafx.scene.image.Image(LOGO_WHITE));
             }
@@ -762,6 +769,24 @@ public class LawyerEnterSceneController {
         }
     }
 
+    private void setCroppedImage(Image image) {
+        if (image == null)
+            return;
+
+        double imgW = image.getWidth();
+        double imgH = image.getHeight();
+
+        double side = Math.min(imgW, imgH);
+        double x = (imgW - side) / 2;
+        double y = (imgH - side) / 2;
+
+        uploaded_img.setViewport(new javafx.geometry.Rectangle2D(x, y, side, side));
+        uploaded_img.setImage(image);
+        uploaded_img.setFitWidth(190);
+        uploaded_img.setFitHeight(190);
+        uploaded_img.setPreserveRatio(false);
+    }
+
     @FXML
     private void initialize() {
         spec_area.setItems(FXCollections.observableArrayList(
@@ -786,8 +811,9 @@ public class LawyerEnterSceneController {
                         "-fx-background-repeat: no-repeat;");
 
         Image defaultProfile = new Image(getClass().getResource("/images/anonymous.png").toExternalForm());
-        uploaded_img.setImage(defaultProfile);
+        setCroppedImage(defaultProfile);
 
         javafx.application.Platform.runLater(() -> applyCurrentTheme());
     }
+
 }

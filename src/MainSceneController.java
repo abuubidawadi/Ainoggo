@@ -218,11 +218,11 @@ public class MainSceneController {
                 prepare.setBoolean(5, reg_checkbox.isSelected());
                 prepare.executeUpdate();
 
-                alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Registration Successful");
-                alert.setHeaderText(null);
-                alert.setContentText("You have successfully registered");
-                alert.showAndWait();
+                // alert = new Alert(Alert.AlertType.INFORMATION);
+                // alert.setTitle("Registration Successful");
+                // alert.setHeaderText(null);
+                // alert.setContentText("You have successfully registered");
+                // alert.showAndWait();
 
                 reg_username.setText("");
                 reg_name.setText("");

@@ -286,11 +286,11 @@
 }
 
 .second-page-root {
-    -fx-background-color: #181a1f;
+    -fx-background-color: #1a1d23;
 }
 
 .second-page-wrap {
-    -fx-background-color: #181a1f;
+    -fx-background-color: #1a1d23;
     -fx-padding: 34 42 34 42;
 }
 
@@ -319,6 +319,7 @@
     -fx-text-fill: #f2f2f2;
     -fx-prompt-text-fill: #9d9d9d;
     -fx-padding: 0 14 0 14;
+    -fx-font-size: 17px;
 }
 
 .photo-preview-box {
@@ -378,4 +379,33 @@
 .combo-box.second-page-input .arrow-button,
 .combo-box.auth-input .arrow-button {
     -fx-background-color: transparent;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #1f1f1f;
+    -fx-text-fill: #f2f2f2;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 17px;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box-popup .list-cell:filled:selected,
+.combo-box-popup .list-cell:filled:selected:hover {
+    -fx-background-color: #353535;
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box.second-page-input .list-cell {
+    -fx-font-size: 17px;
 }
