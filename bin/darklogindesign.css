@@ -57,7 +57,7 @@
     -fx-max-width: 500;
 }
 .overlay-title {
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #e2e5e9;
     -fx-font-size: 34px;
     -fx-font-weight: 800;
     -fx-wrap-text: true;
@@ -94,7 +94,7 @@
 }
 
 .form-title {
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #e2e5e9;
     -fx-font-size: 24px;
     -fx-font-weight: 700;
     -fx-padding: 0 0 12 0;
@@ -113,7 +113,7 @@
 }
 
 .auth-input:focused {
-    -fx-border-color: #ffffff;
+    -fx-border-color: #e2e5e9;
     -fx-background-color: #1f1f1f;
     -fx-background-insets: 0;
 }
@@ -121,9 +121,9 @@
 /* BUTTONS */
 .login-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #e2e5e9;
     -fx-cursor: hand;
-    -fx-border-color: #ffffff;
+    -fx-border-color: #e2e5e9;
     -fx-border-width: 2;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
@@ -133,7 +133,7 @@
 }
 
 .login-button:hover {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #e2e5e9;
     -fx-text-fill: #000000;
     -fx-background-radius: 8;
     -fx-border-radius: 8;
@@ -142,7 +142,7 @@
 .register-button {
     -fx-text-alignment: center;
     -fx-alignment: center;
-    -fx-background-color: #ffffff;
+    -fx-background-color: #e2e5e9;
     -fx-text-fill: #000000;
     -fx-cursor: hand;
     -fx-font-size: 18px;
@@ -150,7 +150,7 @@
     -fx-padding: 10 20 10 20;
     -fx-background-radius: 8;
     -fx-border-radius: 8;
-    -fx-border-color: #ffffff;
+    -fx-border-color: #e2e5e9;
     -fx-border-width: 2;
     -fx-background-insets: 0;
     -fx-border-insets: 0;
@@ -158,8 +158,8 @@
 
 .register-button:hover {
     -fx-background-color: transparent;
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #ffffff;
+    -fx-text-fill: #e2e5e9;
+    -fx-border-color: #e2e5e9;
     -fx-border-width: 2;
     -fx-background-radius: 8;
     -fx-border-radius: 8;
@@ -193,7 +193,7 @@
 }
 
 .go-to-other:hover {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #e2e5e9;
     -fx-text-fill: #000000;
 }
 

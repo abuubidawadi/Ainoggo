@@ -105,17 +105,17 @@ public class MainSceneController {
     @FXML
     private Hyperlink switch_to_lawyer_reg;
 
-@FXML
-private Button theme_toggle_button_login;
+    @FXML
+    private Button theme_toggle_button_login;
 
-@FXML
-private Button theme_toggle_button_reg;
+    @FXML
+    private Button theme_toggle_button_reg;
 
-@FXML
-private ImageView theme_toggle_icon_login;
+    @FXML
+    private ImageView theme_toggle_icon_login;
 
-@FXML
-private ImageView theme_toggle_icon_reg;
+    @FXML
+    private ImageView theme_toggle_icon_reg;
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -304,7 +304,7 @@ private ImageView theme_toggle_icon_reg;
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root, 1000, 650));
-                    stage.setResizable(false);
+                    stage.setResizable(true);
                     stage.setTitle("Ainoggo - Dashboard");
                     stage.show();
 
@@ -375,8 +375,30 @@ private ImageView theme_toggle_icon_reg;
             controller.showLoginPage(); // force login page visible
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 1000, 650));
-            stage.setResizable(false);
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darklogindesign.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
+            }
+            stage.setScene(scene);
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
             stage.show();
 
         } catch (Exception e) {
@@ -394,12 +416,70 @@ private ImageView theme_toggle_icon_reg;
             controller.showRegisterPage(); // force register page visible
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 1000, 650));
-            stage.setResizable(false);
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darklogindesign.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
+            }
+            stage.setScene(scene);
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
             stage.show();
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private void applyCurrentTheme() {
+        Scene scene = login_page.getScene();
+        if (scene == null)
+            return;
+
+        scene.getStylesheets().clear();
+
+        if (ThemeManager.isDarkMode()) {
+            scene.getStylesheets().add(DARK_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+        } else {
+            scene.getStylesheets().add(LIGHT_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
         }
     }
 
@@ -410,70 +490,68 @@ private ImageView theme_toggle_icon_reg;
         reg_page.setManaged(false);
         String imagePath = getClass().getResource("/images/login_bg.jpg").toExternalForm();
 
-    login_page.setStyle(
-        "-fx-background-image: url('" + imagePath + "');" +
-        "-fx-background-size: cover;" +
-        "-fx-background-position: center center;" +
-        "-fx-background-repeat: no-repeat;"
-    );
-    
-      String imagePath2 = getClass().getResource("/images/register_bg.jpg").toExternalForm();
+        login_page.setStyle(
+                "-fx-background-image: url('" + imagePath + "');" +
+                        "-fx-background-size: cover;" +
+                        "-fx-background-position: center center;" +
+                        "-fx-background-repeat: no-repeat;");
 
-    reg_page.setStyle(
-        "-fx-background-image: url('" + imagePath2 + "');" +
-        "-fx-background-size: 100% 100%;" +
-        "-fx-background-position: center center;" +
-        "-fx-background-repeat: no-repeat;"
-    );
+        String imagePath2 = getClass().getResource("/images/register_bg.jpg").toExternalForm();
+
+        reg_page.setStyle(
+                "-fx-background-image: url('" + imagePath2 + "');" +
+                        "-fx-background-size: 100% 100%;" +
+                        "-fx-background-position: center center;" +
+                        "-fx-background-repeat: no-repeat;");
+
+        javafx.application.Platform.runLater(() -> applyCurrentTheme());
     }
 
-    private boolean darkMode = false;
+    private final String LIGHT_CSS = getClass().getResource("loginDesign.css").toExternalForm();
+    private final String DARK_CSS = getClass().getResource("darklogindesign.css").toExternalForm();
 
-private final String LIGHT_CSS = getClass().getResource("loginDesign.css").toExternalForm();
-private final String DARK_CSS = getClass().getResource("darklogindesign.css").toExternalForm();
+    private final String DARK_ICON = getClass().getResource("/images/dark.png").toExternalForm();
+    private final String LIGHT_ICON = getClass().getResource("/images/white.png").toExternalForm();
 
-private final String DARK_ICON = getClass().getResource("/images/dark.png").toExternalForm();
-private final String LIGHT_ICON = getClass().getResource("/images/white.png").toExternalForm();
+    private final String LOGO_BLACK = getClass().getResource("/images/logo_black_icon.png").toExternalForm();
+    private final String LOGO_WHITE = getClass().getResource("/images/logo_white_icon.png").toExternalForm();
 
-private final String LOGO_BLACK = getClass().getResource("/images/logo_black_icon.png").toExternalForm();
-private final String LOGO_WHITE = getClass().getResource("/images/logo_white_icon.png").toExternalForm();
+    @FXML
+    private void toggleTheme(ActionEvent event) {
+        Scene scene = ((Node) event.getSource()).getScene();
 
-@FXML
-private void toggleTheme(ActionEvent event) {
-    Scene scene = ((Node) event.getSource()).getScene();
+        scene.getStylesheets().clear();
 
-    scene.getStylesheets().clear();
+        if (ThemeManager.isDarkMode()) {
+            scene.getStylesheets().add(LIGHT_CSS);
 
-    if (darkMode) {
-        scene.getStylesheets().add(LIGHT_CSS);
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_BLACK));
 
-        ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_BLACK));
-        ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
 
-        if (theme_toggle_icon_login != null) {
-            theme_toggle_icon_login.setImage(new javafx.scene.image.Image(DARK_ICON));
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+
+            ThemeManager.setDarkMode(false);
+        } else {
+            scene.getStylesheets().add(DARK_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            ThemeManager.setDarkMode(true);
         }
-
-        if (theme_toggle_icon_reg != null) {
-            theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
-        }
-
-        darkMode = false;
-    } else {
-        scene.getStylesheets().add(DARK_CSS);
-
-        ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_WHITE));
-        ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_WHITE));
-
-        if (theme_toggle_icon_login != null) {
-            theme_toggle_icon_login.setImage(new javafx.scene.image.Image(LIGHT_ICON));
-        }
-
-        if (theme_toggle_icon_reg != null) {
-            theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
-        }
-
-        darkMode = true;
     }
-}
 }
