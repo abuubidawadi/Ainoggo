@@ -210,13 +210,13 @@
 }
 
 .search-input {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #d7d7d7;
+    -fx-background-color: #1d1d1d;
+    -fx-border-color: #393939;
     -fx-border-width: 1.5;
     -fx-border-radius: 12;
     -fx-background-radius: 12;
-    -fx-text-fill: #222222;
-    -fx-prompt-text-fill: #9a9a9a;
+    -fx-text-fill: #f2f2f2;
+    -fx-prompt-text-fill: #909090;
     -fx-padding: 12 52 12 14;
     -fx-font-size: 14px;
 }
@@ -229,10 +229,18 @@
     -fx-cursor: hand;
     -fx-padding: 0 16 0 16;
 }
+.search-icon-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-cursor: hand;
+    -fx-padding: 0 16 0 16;
+}
 
 .theme-toggle-button {
     -fx-background-color: transparent;
-    -fx-border-color: #111111;
+    -fx-border-color: #e8e8e8;
     -fx-border-width: 2;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
@@ -241,55 +249,45 @@
 }
 
 .theme-toggle-button:hover {
-    -fx-background-color: #111111;
+    -fx-background-color: #f1f1f1;
+}
+.slider-indicators-wrap {
+    -fx-padding: 0 0 14 0;
 }
 
-.slider-card {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 24;
-    -fx-border-radius: 24;
-    -fx-border-color: #e2e2e2;
-    -fx-border-width: 1;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 22, 0.15, 0, 6);
+.slider-indicator {
+    -fx-background-color: rgba(255,255,255,0.35);
+    -fx-background-radius: 100;
+    -fx-border-radius: 100;
+    -fx-min-width: 12;
+    -fx-min-height: 12;
+    -fx-max-width: 12;
+    -fx-max-height: 12;
     -fx-padding: 0;
+    -fx-opacity: 1;
 }
 
-.slider-card {
+.active-indicator {
     -fx-background-color: #ffffff;
-    -fx-background-radius: 24;
-    -fx-border-radius: 24;
-    -fx-border-color: #e2e2e2;
-    -fx-border-width: 1;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 22, 0.15, 0, 6);
-    -fx-padding: 0;
+    -fx-min-width: 28;
+    -fx-max-width: 28;
 }
 
 .section-title {
-    -fx-text-fill: #111111;
+    -fx-text-fill: #f1f1f1;
     -fx-font-size: 30px;
     -fx-font-weight: 800;
     -fx-alignment: center;
 }
 
 .section-subtitle {
-    -fx-text-fill: #666666;
+    -fx-text-fill: #a1a1a1;
     -fx-font-size: 14px;
     -fx-alignment: center;
 }
 
-.lawyer-card {
-    -fx-background-color: rgba(255,255,255,0.96);
-    -fx-background-radius: 18;
-    -fx-border-radius: 18;
-    -fx-border-color: #e4e4e4;
-    -fx-border-width: 1;
-    -fx-padding: 14;
-    -fx-spacing: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.15, 0, 5);
-}
-
 .lawyer-photo-holder {
-    -fx-background-color: #f3f3f3;
+    -fx-background-color: #232323;
     -fx-background-radius: 20;
     -fx-border-radius: 20;
 }

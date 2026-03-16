@@ -1,71 +1,295 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.page-root {
+    -fx-background-color: #f7f7f7;
+}
+
 .header {
-    -fx-background-color: linear-gradient(to top, #ebebeb, #FFFFFF);
-      -fx-border-color: #d9d9d9;
+    -fx-background-color: linear-gradient(to top, #ebebeb, #ffffff);
+    -fx-border-color: transparent transparent #d9d9d9 transparent;
     -fx-border-width: 0 0 1 0;
 }
 
-.titleText {
+.brand-text {
     -fx-font-size: 28px;
-    -fx-font-weight: bold;
+    -fx-font-weight: 800;
+    -fx-fill: #111111;
 }
 
-.scroll {
+.header-button {
     -fx-background-color: transparent;
-}
-
-.btn {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #000000;
-    -fx-cursor: hand;
-    -fx-background-radius: 6px;
-     -fx-border-color: #000000;
-    -fx-border-width: 1px;
-}
-.btn:pressed {
-    -fx-background-color: #000000;
-    -fx-text-fill: #ffffff;
-}
-.btn:hover {
-    -fx-background-color: #222222;
-      -fx-text-fill: #ffffff;
-}
-
-.profileBtn {
-    -fx-background-color: transparent;
-    -fx-cursor: hand;
-    -fx-padding: 0 0 0 8;
-}
-
-.card {
-    -fx-background-color: #ffffff;
-    -fx-padding: 14px;
-    -fx-background-radius: 10px;
-    -fx-border-radius: 10px;
-    -fx-border-color: #e6e6e6;
-}
-
-.name {
-    -fx-font-size: 18px;
-    -fx-font-weight: bold;
-}
-
-.sub {
+    -fx-text-fill: #111111;
+    -fx-border-color: #111111;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
     -fx-font-size: 14px;
-    -fx-text-fill: #333333;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
 }
-.bookBtn {
+
+.header-button:hover {
+    -fx-background-color: #111111;
+    -fx-text-fill: #ffffff;
+}
+
+.main-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.main-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.dashboard-content {
+    -fx-background-color: transparent;
+}
+
+.search-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 12 14 12 14;
+    -fx-font-size: 14px;
+}
+
+.search-input:focused {
+    -fx-border-color: #000000;
+    -fx-background-color: #ffffff;
+}
+
+.filter-combo {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 5 8 5 8;
+}
+
+.primary-button {
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
-    -fx-background-radius: 6px;
-}
-
-.bookBtn:hover {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #000000;
     -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10 18 10 18;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
 }
 
-.bookBtn:pressed {
+.primary-button:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #000000;
+}
+
+.slider-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 22, 0.15, 0, 6);
+    -fx-padding: 0;
+}
+
+.slider-overlay-box {
+    -fx-background-color: rgba(0, 0, 0, 0.38);
+    -fx-background-radius: 16;
+    -fx-padding: 18 22 18 22;
+    -fx-alignment: center-left;
+    -fx-max-width: 420;
+    -fx-translate-x: -250;
+}
+
+.slider-title {
+    -fx-text-fill: white;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+.slider-subtitle {
+    -fx-text-fill: #f1f1f1;
+    -fx-font-size: 14px;
+}
+
+.section-title {
+    -fx-text-fill: #111111;
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+}
+
+.section-subtitle {
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+}
+
+.lawyer-grid {
+    -fx-padding: 2 0 10 0;
+}
+
+.lawyer-card {
+    -fx-background-color: rgba(255,255,255,0.96);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #e4e4e4;
+    -fx-border-width: 1;
+    -fx-padding: 14;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.15, 0, 5);
+}
+
+.lawyer-card:hover {
+    -fx-translate-y: -2;
+}
+
+.lawyer-name {
+    -fx-text-fill: #111111;
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+}
+
+.lawyer-category {
+    -fx-text-fill: #555555;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+}
+
+.lawyer-fee {
+    -fx-text-fill: #111111;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+}
+
+.book-button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.book-button:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+.empty-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #e4e4e4;
+    -fx-padding: 40;
+    -fx-min-width: 938;
+}
+
+.empty-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #111111;
+}
+
+.empty-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666666;
+}
+
+.search-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 12 52 12 14;
+    -fx-font-size: 14px;
+}
+
+.search-icon-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-cursor: hand;
+    -fx-padding: 0 16 0 16;
+}
+
+.theme-toggle-button {
+    -fx-background-color: transparent;
+    -fx-border-color: #111111;
+    -fx-border-width: 2;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 9 12 9 12;
+}
+
+.theme-toggle-button:hover {
+    -fx-background-color: #111111;
+}
+
+.slider-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 22, 0.15, 0, 6);
+    -fx-padding: 0;
+}
+
+.slider-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 24;
+    -fx-border-radius: 24;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 22, 0.15, 0, 6);
+    -fx-padding: 0;
+}
+
+.section-title {
+    -fx-text-fill: #111111;
+    -fx-font-size: 30px;
+    -fx-font-weight: 800;
+    -fx-alignment: center;
+}
+
+.section-subtitle {
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-alignment: center;
+}
+
+.lawyer-card {
+    -fx-background-color: rgba(255,255,255,0.96);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-border-color: #e4e4e4;
+    -fx-border-width: 1;
+    -fx-padding: 14;
+    -fx-spacing: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.15, 0, 5);
+}
+
+.lawyer-photo-holder {
+    -fx-background-color: #f3f3f3;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
 }

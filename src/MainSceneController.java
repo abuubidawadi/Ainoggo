@@ -303,7 +303,16 @@ public class MainSceneController {
                     controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(new Scene(root, 1000, 650));
+                    Scene scene = new Scene(root, 1000, 650);
+                    scene.getStylesheets().clear();
+
+                    if (ThemeManager.isDarkMode()) {
+                        scene.getStylesheets().add(getClass().getResource("darkdashboard.css").toExternalForm());
+                    } else {
+                        scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
+                    }
+
+                    stage.setScene(scene);
                     stage.setResizable(true);
                     stage.setTitle("Ainoggo - Dashboard");
                     stage.show();
