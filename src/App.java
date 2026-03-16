@@ -11,14 +11,16 @@ public class App extends Application {
         
         Parent root = FXMLLoader.load(getClass().getResource("MainScene.fxml"));
         Scene scene = new Scene(root,1000,650);
+        scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("Ainoggo");
+        stage.setTitle("Aino");
         stage.setMinWidth(1000);
         stage.setMinHeight(650);
         stage.setResizable(true);
         stage.show();
 
     }
+
     public static void main(String[] args) {
         launch(args);
     }

@@ -26,7 +26,7 @@
     <children>
 
         <!-- LOGIN PAGE -->
-        <BorderPane fx:id="login_page" styleClass="page-root" stylesheets="@loginDesign.css" visible="false">
+        <BorderPane fx:id="login_page" styleClass="page-root" visible="false">
             <top>
                 <HBox fx:id="login_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                     <children>
@@ -53,6 +53,24 @@
                                 <Font size="20.0" />
                             </font>
                         </Hyperlink>
+
+                        <Button fx:id="theme_toggle_button_login"
+        onAction="#toggleTheme"
+        mnemonicParsing="false"
+        styleClass="theme-button">
+    <graphic>
+        <ImageView fx:id="theme_toggle_icon_login"
+                   fitHeight="22.0"
+                   fitWidth="22.0"
+                   pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@images/dark.png" />
+            </image>
+        </ImageView>
+    </graphic>
+</Button>
+
                     </children>
                     <padding>
                         <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
@@ -74,6 +92,7 @@
                                       spacing="28.0"
                                       styleClass="hero-text-box">
                                     <children>
+                                        <Label styleClass="overlay-title" text="What! You haven’t Registered yet?" textAlignment="CENTER" wrapText="true" />
                                         <Button fx:id="reg_button_log_page"
                                                 alignment="CENTER"
                                                 contentDisplay="CENTER"
@@ -126,7 +145,7 @@
         </BorderPane>
 
         <!-- REGISTER PAGE -->
-        <BorderPane fx:id="reg_page" styleClass="page-root" stylesheets="@loginDesign.css">
+        <BorderPane fx:id="reg_page" styleClass="page-root">
             <top>
                 <HBox fx:id="reg_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                     <children>
@@ -153,6 +172,24 @@
                                 <Font size="20.0" />
                             </font>
                         </Hyperlink>
+
+                        <Button fx:id="theme_toggle_button_reg"
+        onAction="#toggleTheme"
+        mnemonicParsing="false"
+        styleClass="theme-button">
+    <graphic>
+        <ImageView fx:id="theme_toggle_icon_reg"
+                   fitHeight="22.0"
+                   fitWidth="22.0"
+                   pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@images/dark.png" />
+            </image>
+        </ImageView>
+    </graphic>
+</Button>
+
                     </children>
                     <padding>
                         <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
@@ -225,7 +262,7 @@
                             <children>
                                 <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="hero-text-right-box">
                                     <children>
-                                       
+                                       <Label styleClass="overlay-title" text="Already have an account?" wrapText="true" />
                                         <Button fx:id="login_button_reg_page" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Login" />
                                     </children>
                                 </VBox>

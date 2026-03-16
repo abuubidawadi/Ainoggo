@@ -23,6 +23,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -72,16 +75,16 @@ public class LawyerEnterSceneController {
     private Hyperlink login_forgot_password;
 
     @FXML
-    private AnchorPane login_page;
+    private BorderPane login_page;
 
     @FXML
-    private AnchorPane login_page_form;
+    private StackPane login_page_form;
 
     @FXML
-    private AnchorPane login_page_header;
+    private HBox login_page_header;
 
     @FXML
-    private AnchorPane login_page_img;
+    private StackPane login_page_img;
 
     @FXML
     private PasswordField login_pass;
@@ -111,19 +114,19 @@ public class LawyerEnterSceneController {
     private TextField reg_name;
 
     @FXML
-    private AnchorPane reg_page;
+    private BorderPane reg_page;
 
     @FXML
-    private AnchorPane reg_page1;
+    private BorderPane reg_page1;
 
     @FXML
-    private AnchorPane reg_page_form;
+    private StackPane reg_page_form;
 
     @FXML
-    private AnchorPane reg_page_header;
+    private HBox reg_page_header;
 
     @FXML
-    private AnchorPane reg_page_img;
+    private StackPane reg_page_img;
 
     @FXML
     private PasswordField reg_pass;
@@ -135,10 +138,10 @@ public class LawyerEnterSceneController {
     private Button register_button;
 
     @FXML
-    private AnchorPane second_page_form;
+    private StackPane second_page_form;
 
     @FXML
-    private AnchorPane second_page_header;
+    private HBox second_page_header;
 
     @FXML
     private ComboBox<String> spec_area;
@@ -150,7 +153,25 @@ public class LawyerEnterSceneController {
     private Hyperlink switch_to_client_reg;
 
     @FXML
-    private Hyperlink switch_to_client_reg2;
+    private Hyperlink switch_to_client_reg1;
+
+    @FXML
+    private Button theme_toggle_button_login;
+
+    @FXML
+    private Button theme_toggle_button_reg;
+
+    @FXML
+    private ImageView theme_toggle_icon_login;
+
+    @FXML
+    private ImageView theme_toggle_icon_reg;
+
+    @FXML
+    private Button theme_toggle_button_reg1;
+
+    @FXML
+    private ImageView theme_toggle_icon_reg1;
 
     @FXML
     private Button upload_button;
@@ -170,28 +191,42 @@ public class LawyerEnterSceneController {
     public void showLoginPage() {
         login_page.setVisible(true);
         reg_page.setVisible(false);
-        if (second_page_form != null)
+        if (second_page_form != null) {
             second_page_form.setVisible(false);
-        if (reg_page1 != null)
+            second_page_form.setManaged(false);
+        }
+        if (reg_page1 != null) {
             reg_page1.setVisible(false);
+            reg_page1.setManaged(false);
+        }
     }
 
     public void showRegisterPage() {
         login_page.setVisible(false);
         reg_page.setVisible(true);
-        if (second_page_form != null)
+        if (second_page_form != null) {
             second_page_form.setVisible(false);
-        if (reg_page1 != null)
+            second_page_form.setManaged(false);
+        }
+        if (reg_page1 != null) {
             reg_page1.setVisible(false);
+            reg_page1.setManaged(false);
+        }
     }
 
     private void showSecondPage() {
         login_page.setVisible(false);
         reg_page.setVisible(false);
-        if (second_page_form != null)
+        if (second_page_form != null) {
             second_page_form.setVisible(true);
-        if (reg_page1 != null)
+            second_page_form.setManaged(true);
+        }
+        if (reg_page1 != null) {
             reg_page1.setVisible(true);
+            reg_page1.setManaged(true);
+        }
+
+        javafx.application.Platform.runLater(this::applyCurrentTheme);
     }
 
     private void showError(String msg) {
@@ -230,14 +265,14 @@ public class LawyerEnterSceneController {
         }
     }
 
-    @FXML
-    void proceed(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setTitle("Proceed");
-        a.setHeaderText(null);
-        a.setContentText("Proceed clicked (feature will be added later).");
-        a.showAndWait();
-    }
+    // @FXML
+    // void proceed(ActionEvent event) {
+    // Alert a = new Alert(Alert.AlertType.INFORMATION);
+    // a.setTitle("Proceed");
+    // a.setHeaderText(null);
+    // a.setContentText("Proceed clicked (feature will be added later).");
+    // a.showAndWait();
+    // }
 
     @FXML
     void uploadPhoto(ActionEvent event) {
@@ -267,7 +302,8 @@ public class LawyerEnterSceneController {
 
                 photoPath = newFileName;
 
-                uploaded_img.setImage(new Image(destination.toURI().toString()));
+                Image uploadedImage = new Image(destination.toURI().toString());
+                setCroppedImage(uploadedImage);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -420,7 +456,8 @@ public class LawyerEnterSceneController {
                 int rows = prepare.executeUpdate();
                 if (rows > 0) {
                     currentLawyerUsername = username.trim();
-                    showInfo("Registered successfully! Please complete your lawyer information.");
+                    // showInfo("Registered successfully! Please complete your lawyer
+                    // information.");
                     showSecondPage();
                 } else {
                     showError("Registration failed.");
@@ -506,7 +543,7 @@ public class LawyerEnterSceneController {
 
                 int rows = prepare.executeUpdate();
                 if (rows > 0) {
-                    showInfo("Lawyer information saved!");
+                    // showInfo("Lawyer information saved!");
                     showLoginPage();
                 } else {
                     showError("Could not save lawyer information.");
@@ -559,8 +596,30 @@ public class LawyerEnterSceneController {
             controller.showLoginPage();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 1000, 650));
-            stage.setResizable(false);
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darklogindesign.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
+            }
+            stage.setScene(scene);
+            stage.setMinHeight(650);
+            stage.setMinWidth(1000);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -577,12 +636,175 @@ public class LawyerEnterSceneController {
             controller.showRegisterPage();
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 1000, 650));
-            stage.setResizable(false);
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darklogindesign.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
+            }
+            stage.setScene(scene);
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
             stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private final String LIGHT_CSS = getClass().getResource("loginDesign.css").toExternalForm();
+    private final String DARK_CSS = getClass().getResource("darklogindesign.css").toExternalForm();
+
+    private final String DARK_ICON = getClass().getResource("/images/dark.png").toExternalForm();
+    private final String LIGHT_ICON = getClass().getResource("/images/white.png").toExternalForm();
+
+    private final String LOGO_BLACK = getClass().getResource("/images/logo_black_icon.png").toExternalForm();
+    private final String LOGO_WHITE = getClass().getResource("/images/logo_white_icon.png").toExternalForm();
+
+    @FXML
+    private void toggleTheme(ActionEvent event) {
+        Scene scene = ((Node) event.getSource()).getScene();
+
+        scene.getStylesheets().clear();
+
+        if (ThemeManager.isDarkMode()) {
+            scene.getStylesheets().add(LIGHT_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            }
+
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: #000000; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+
+            ThemeManager.setDarkMode(false);
+        } else {
+            scene.getStylesheets().add(DARK_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (theme_toggle_button_reg1 != null && theme_toggle_icon_reg1 != null) {
+                theme_toggle_icon_reg1.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+            }
+
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: white; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+
+            ThemeManager.setDarkMode(true);
+        }
+    }
+
+    private void applyCurrentTheme() {
+        Scene scene = login_page.getScene();
+        if (scene == null)
+            return;
+
+        scene.getStylesheets().clear();
+
+        if (ThemeManager.isDarkMode()) {
+            scene.getStylesheets().add(DARK_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new Image(LOGO_WHITE));
+            }
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: white; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+            if (theme_toggle_icon_reg1 != null) {
+                theme_toggle_icon_reg1.setImage(new Image(LIGHT_ICON));
+            }
+        } else {
+            scene.getStylesheets().add(LIGHT_CSS);
+
+            ainoggo_home_logo_log.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            ainoggo_home_logo_reg.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+
+            if (theme_toggle_icon_login != null) {
+                theme_toggle_icon_login.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+
+            if (theme_toggle_icon_reg != null) {
+                theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
+            }
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new Image(LOGO_BLACK));
+            }
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: #000000; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+            if (theme_toggle_icon_reg1 != null) {
+                theme_toggle_icon_reg1.setImage(new Image(DARK_ICON));
+            }
+        }
+    }
+
+    private void setCroppedImage(Image image) {
+        if (image == null)
+            return;
+
+        double imgW = image.getWidth();
+        double imgH = image.getHeight();
+
+        double side = Math.min(imgW, imgH);
+        double x = (imgW - side) / 2;
+        double y = (imgH - side) / 2;
+
+        uploaded_img.setViewport(new javafx.geometry.Rectangle2D(x, y, side, side));
+        uploaded_img.setImage(image);
+        uploaded_img.setFitWidth(190);
+        uploaded_img.setFitHeight(190);
+        uploaded_img.setPreserveRatio(false);
     }
 
     @FXML
@@ -592,5 +814,26 @@ public class LawyerEnterSceneController {
                 "Property / Real Estate", "Civil Litigation", "Tax Law",
                 "Labor / Employment", "Intellectual Property", "Other"));
         showLoginPage();
+        String imagePath = getClass().getResource("/images/login_bg_lawyer.jpg").toExternalForm();
+
+        login_page.setStyle(
+                "-fx-background-image: url('" + imagePath + "');" +
+                        "-fx-background-size: cover;" +
+                        "-fx-background-position: center center;" +
+                        "-fx-background-repeat: no-repeat;");
+
+        String imagePath2 = getClass().getResource("/images/register_bg_lawyer.jpg").toExternalForm();
+
+        reg_page.setStyle(
+                "-fx-background-image: url('" + imagePath2 + "');" +
+                        "-fx-background-size: 100% 100%;" +
+                        "-fx-background-position: center center;" +
+                        "-fx-background-repeat: no-repeat;");
+
+        Image defaultProfile = new Image(getClass().getResource("/images/anonymous.png").toExternalForm());
+        setCroppedImage(defaultProfile);
+
+        javafx.application.Platform.runLater(() -> applyCurrentTheme());
     }
+
 }

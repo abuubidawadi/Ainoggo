@@ -32,7 +32,7 @@
   
   .login-hero {
     -fx-background-color: transparent;
-    -fx-background-image: url("../images/lawyer_2.png");
+    -fx-background-image: url("../images/login_bg.png");
     -fx-background-size: cover;
     -fx-background-position: center center;
     -fx-background-repeat: no-repeat;
@@ -69,18 +69,18 @@
 /* ---------------- FLOATING FORM WRAPPERS ---------------- */
 
 .floating-form-wrapper {
-    -fx-padding: 40 70 40 40;
-    -fx-alignment: center-right;
+    -fx-padding: 40 70 40 70;
+    -fx-alignment: center;
 }
 
 .floating-form-left-wrapper {
-    -fx-padding: 40 40 40 70;
-    -fx-alignment: center-left;
+    -fx-padding: 40 40 40 40;
+    -fx-alignment: center;
 }
 
 .floating-right-text-wrapper {
-    -fx-padding: 40 70 40 40;
-    -fx-alignment: center-right;
+    -fx-padding: 0;
+    -fx-alignment: center;
 }
 
 /* ---------------- FORM CARD ---------------- */
@@ -138,6 +138,8 @@
 .login-button:hover {
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
 }
 
 .register-button {
@@ -146,19 +148,33 @@
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
     -fx-cursor: hand;
-    -fx-background-radius: 8px;
-    -fx-border-radius: 8px;
+
     -fx-font-size: 18px;
     -fx-font-weight: 700;
     -fx-padding: 10 20 10 20;
+
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
 }
 
 .register-button:hover {
     -fx-background-color: #ffffff;
     -fx-text-fill: #000000;
+
     -fx-border-color: #000000;
-    -fx-border-width: 2px;
-    -fx-border-radius: 8px;
+    -fx-border-width: 2;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 8;
+
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
 }
 
 /* ---------------- LINKS ---------------- */
@@ -227,7 +243,18 @@
 }
 
 .form-scroll .scroll-bar:vertical {
-    -fx-background-color: transparent;
+    -fx-pref-width: 0;
+    -fx-opacity: 0;
+}
+
+.form-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
+.form-scroll .thumb {
+    -fx-background-color: rgba(255,255,255,0.65);
+    -fx-background-radius: 10;
 }
 
 .form-scroll .increment-button,
@@ -268,4 +295,151 @@
 .go-to-other:hover {
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
+}
+
+.theme-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-cursor: hand;
+    -fx-padding: 6;
+    -fx-translate-x: 8;
+}
+
+.theme-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.08);
+}
+
+.second-step-text {
+    -fx-fill: white;
+    -fx-font-size: 15px;
+}
+
+.preview-avatar {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 12, 0.2, 0, 2);
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+}
+
+.combo-box.auth-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.second-page-root {
+    -fx-background-color: #f5f6f8;
+}
+
+.second-page-wrap {
+    -fx-background-color: #f5f6f8;
+    -fx-padding: 34 42 34 42;
+}
+
+.second-page-card {
+    -fx-background-color: transparent;
+    -fx-padding: 6 0 6 0;
+}
+
+.second-left-pane,
+.second-right-pane {
+    -fx-padding: 6 0 6 0;
+}
+
+.second-page-title {
+    -fx-text-fill: #1b1b1b;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+}
+
+.second-page-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 0 14 0 14;
+    -fx-font-size: 17px;
+}
+
+.photo-preview-box {
+    -fx-background-color: #eceff3;
+    -fx-border-color: #d7dce4;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 0;
+    -fx-alignment: center;
+    -fx-overflow: hidden;
+}
+
+.preview-avatar-square {
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
+
+.bio-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 10 12 10 12;
+}
+
+.bio-area,
+.bio-area .viewport,
+.bio-area .content {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+}
+
+.bio-area .scroll-pane,
+.bio-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.combo-box.second-page-input,
+.combo-box.auth-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #1f1f1f;
+    -fx-text-fill: #f2f2f2;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 17px;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box-popup .list-cell:filled:selected,
+.combo-box-popup .list-cell:filled:selected:hover {
+    -fx-background-color: #353535;
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box.second-page-input .list-cell {
+    -fx-font-size: 17px;
 }
