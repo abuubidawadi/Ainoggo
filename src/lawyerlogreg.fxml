@@ -22,319 +22,330 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LawyerEnterSceneController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0"
+   xmlns="http://javafx.com/javafx/25"
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="LawyerEnterSceneController">
    <children>
-        <!-- LOGIN PAGE -->
-        <BorderPane fx:id="login_page" styleClass="page-root" visible="false">
-            <top>
-                <HBox fx:id="login_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
-                    <children>
-                        <HBox alignment="CENTER_LEFT" spacing="12.0">
-                            <children>
-                                <ImageView fx:id="ainoggo_home_logo_log" fitHeight="56.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/logo_black_icon.png" />
-                                    </image>
-                                </ImageView>
-
-                                <Text fx:id="ainoggo_home_text_log" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
-                                    <font>
-                                        <Font size="30.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </HBox>
-
-                        <Region HBox.hgrow="ALWAYS" />
-
-                        <Hyperlink fx:id="switch_to_client_login1" onAction="#switchToClientLogin" styleClass="go-to-other" text="Go to Client Login">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Hyperlink>
-
-                        <Button fx:id="theme_toggle_button_login" mnemonicParsing="false" onAction="#toggleTheme" styleClass="theme-button">
-    <graphic>
-        <ImageView fx:id="theme_toggle_icon_login" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/dark.png" />
-            </image>
-        </ImageView>
-    </graphic>
-</Button>
-
-                    </children>
-                    <padding>
-                        <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
-                    </padding>
-                </HBox>
-            </top>
-
-            <center>
-                <HBox styleClass="auth-body">
-                    <children>
-
-                        <!-- LEFT SIDE -->
-                        <StackPane fx:id="login_page_img" styleClass="auth-hero login-hero" HBox.hgrow="ALWAYS">
-                            <children>
-                                <VBox alignment="BOTTOM_CENTER" maxWidth="420.0" prefHeight="639.0" prefWidth="720.0" spacing="28.0" styleClass="hero-text-box">
-                                    <children>
-                                        <Label styleClass="overlay-title" text="What! You haven’t Registered yet?" textAlignment="CENTER" wrapText="true" />
-                                        <Button fx:id="reg_button_log_page" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Register Now" />
-                                    </children>
-                                    <padding>
-                                        <Insets bottom="25.0" />
-                                    </padding>
-                                </VBox>
-                            </children>
-                        </StackPane> 
-             
-
-
-                        <!-- RIGHT SIDE -->
-                        <StackPane fx:id="login_page_form" styleClass="floating-form-wrapper" HBox.hgrow="ALWAYS">
-                            <children>
-                                <VBox maxWidth="420.0" prefWidth="380.0" spacing="18.0" styleClass="form-card">
-                                    <children>
-                                        <Label styleClass="form-title" text="Lawyer Login" />
-
-                                        <TextField fx:id="login_username" prefHeight="44.0" promptText="Username / Email" styleClass="auth-input">
-                                            <font>
-                                                <Font size="17.0" />
-                                            </font>
-                                        </TextField>
-
-                                        <PasswordField fx:id="login_pass" prefHeight="44.0" promptText="Password" styleClass="auth-input">
-                                            <font>
-                                                <Font size="17.0" />
-                                            </font>
-                                        </PasswordField>
-
-                                        <Hyperlink fx:id="login_forgot_password" onAction="#forgotPassword" styleClass="forgot-password" text="forgot password?" />
-
-                                        <Button fx:id="login_button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#login" prefHeight="48.0" styleClass="login-button" text="Login" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </StackPane>
-
-                    </children>
-                </HBox>
-            </center>
-        </BorderPane>
-
-        <!-- REGISTER PAGE -->
-        <BorderPane fx:id="reg_page" styleClass="page-root">
-            <top>
-                <HBox fx:id="reg_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
-                    <children>
-                        <HBox alignment="CENTER_LEFT" spacing="12.0">
-                            <children>
-                                <ImageView fx:id="ainoggo_home_logo_reg" fitHeight="56.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@images/logo_black_icon.png" />
-                                    </image>
-                                </ImageView>
-
-                                <Text fx:id="ainoggo_home_text_reg" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
-                                    <font>
-                                        <Font size="30.0" />
-                                    </font>
-                                </Text>
-                            </children>
-                        </HBox>
-
-                        <Region HBox.hgrow="ALWAYS" />
-
-                        <Hyperlink fx:id="switch_to_client_reg" onAction="#switchToClientRegister" styleClass="go-to-other" text="Go to Client Registration">
-                            <font>
-                                <Font size="20.0" />
-                            </font>
-                        </Hyperlink>
-
-                        <Button fx:id="theme_toggle_button_reg" mnemonicParsing="false" onAction="#toggleTheme" styleClass="theme-button">
-    <graphic>
-        <ImageView fx:id="theme_toggle_icon_reg" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/dark.png" />
-            </image>
-        </ImageView>
-    </graphic>
-</Button>
-
-                    </children>
-                    <padding>
-                        <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
-                    </padding>
-                </HBox>
-            </top>
-
-            <center>
-                <HBox styleClass="auth-body">
-                    <children>
-
-                        <!-- LEFT SIDE FORM -->
-                        <StackPane fx:id="reg_page_form" styleClass="floating-form-left-wrapper" HBox.hgrow="ALWAYS">
-                            <children>
-                                <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="form-scroll">
-                                    <content>
-                                        <StackPane>
-                                            <children>
-                                                <VBox maxWidth="420.0" prefWidth="380.0" spacing="16.0" styleClass="form-card">
-                                                    <children>
-                                                        <Label styleClass="form-title" text="Register as a Lawyer" />
-
-                                                        <TextField fx:id="reg_name" prefHeight="44.0" promptText="Full Name" styleClass="auth-input">
-                                                            <font>
-                                                                <Font size="17.0" />
-                                                            </font>
-                                                        </TextField>
-
-                                                        <TextField fx:id="reg_username" prefHeight="44.0" promptText="Username" styleClass="auth-input">
-                                                            <font>
-                                                                <Font size="17.0" />
-                                                            </font>
-                                                        </TextField>
-
-                                                        <TextField fx:id="reg_email" prefHeight="44.0" promptText="Email" styleClass="auth-input">
-                                                            <font>
-                                                                <Font size="17.0" />
-                                                            </font>
-                                                        </TextField>
-
-                                                        <PasswordField fx:id="reg_pass" prefHeight="44.0" promptText="Password" styleClass="auth-input">
-                                                            <font>
-                                                                <Font size="17.0" />
-                                                            </font>
-                                                        </PasswordField>
-
-                                                        <PasswordField fx:id="reg_conf_pass" prefHeight="44.0" promptText="Confirm Password" styleClass="auth-input">
-                                                            <font>
-                                                                <Font size="17.0" />
-                                                            </font>
-                                                        </PasswordField>
-
-                                                        <CheckBox fx:id="reg_checkbox" mnemonicParsing="false" styleClass="terms-check" text="I agree to the Terms &amp; Conditions" />
-
-                                                        <Button fx:id="register_button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registration" prefHeight="48.0" styleClass="login-button" text="Register" />
-                                                    </children>
-                                                </VBox>
-                                            </children>
-                                            <padding>
-                                                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-                                            </padding>
-                                        </StackPane>
-                                    </content>
-                                </ScrollPane>
-                            </children>
-                        </StackPane>
-
-                        <!-- RIGHT SIDE IMAGE -->
-                        <StackPane fx:id="reg_page_img" styleClass="auth-hero register-hero" HBox.hgrow="ALWAYS">
-                            <children>
-                                <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="hero-text-right-box">
-                                    <children>
-                                       <Label styleClass="overlay-title" text="Already have an account?" wrapText="true" />
-                                        <Button fx:id="login_button_reg_page" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Login" />
-                                    </children>
-                                </VBox>
-                            </children>
-                        </StackPane>
-
-                    </children>
-                </HBox>
-            </center>
-        </BorderPane>
-      <AnchorPane fx:id="reg_page1" layoutX="9.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css" visible="false">
-         <children>
-            <AnchorPane fx:id="second_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
+      <!-- LOGIN PAGE -->
+      <BorderPane fx:id="login_page" styleClass="page-root" visible="false">
+         <top>
+            <HBox fx:id="login_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
                <children>
-                  <ImageView fx:id="ainoggo_home_logo_2nd_page" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <!-- <Image url="@main/resources/images/logo_black_icon.png" /> -->
-                 <Image url="@images/logo_black_icon.png" />
-                                      </image>
-                  </ImageView>
-                  <Text fx:id="ainoggo_home_text_2nd_page" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                  <HBox alignment="CENTER_LEFT" spacing="12.0">
+                     <children>
+                        <ImageView fx:id="ainoggo_home_logo_log" fitHeight="56.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/logo_black_icon.png" />
+                           </image>
+                        </ImageView>
+
+                        <Text fx:id="ainoggo_home_text_log" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+
+                  <Region HBox.hgrow="ALWAYS" />
+
+                  <Hyperlink fx:id="switch_to_client_login1" onAction="#switchToClientLogin" styleClass="go-to-other" text="Go to Client Login">
                      <font>
-                        <Font name="Inter 24pt SemiBold" size="30.0" />
-                     </font>
-                  </Text>
-                  <Hyperlink fx:id="switch_to_client_reg2" layoutX="806.0" layoutY="23.0" onAction="#switchToClientRegister" text="I'm a client">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
+                        <Font size="20.0" />
                      </font>
                   </Hyperlink>
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="second_page_form" layoutY="80.0" prefHeight="570.0" prefWidth="1000.0" styleClass="right">
-               <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="500.0" layoutX="497.5" layoutY="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="5.0" />
-                  <Text layoutX="136.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload Your Photo">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="25.0" />
-                     </font>
-                  </Text>
-                  <ImageView fx:id="uploaded_img" fitHeight="170.0" fitWidth="170.0" layoutX="163.75" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <!-- <Image url="@main/resources/images/anonymous.png" /> -->
 
-<Image url="@images/anonymous.png" />                     </image>
-                  </ImageView>
-                  <Button fx:id="upload_button" layoutX="163.75" layoutY="293.0" mnemonicParsing="false" onAction="#uploadPhoto" prefHeight="41.0" prefWidth="170.0" text="Upload">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
+                  <Button fx:id="theme_toggle_button_login" mnemonicParsing="false" onAction="#toggleTheme" styleClass="theme-button">
+                     <graphic>
+                        <ImageView fx:id="theme_toggle_icon_login" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/dark.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
-                  <Text layoutX="620.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lawyer Information">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="30.0" />
-                     </font>
-                  </Text>
-                  <TextField fx:id="bar_reg_no" layoutX="577.5" layoutY="117.0" prefHeight="38.0" prefWidth="350.0" promptText="Bar Council Registration Number">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="17.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="exp_yr" layoutX="577.5" layoutY="171.0" prefHeight="38.0" prefWidth="350.0" promptText="Years of Experience">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="17.0" />
-                     </font>
-                  </TextField>
-                  <ComboBox fx:id="spec_area" layoutX="577.5" layoutY="225.0" prefHeight="38.0" prefWidth="350.0" promptText="Area of Specialization" styleClass="combo-box" />
-                  <TextField fx:id="law_firm" layoutX="577.5" layoutY="279.0" prefHeight="38.0" prefWidth="350.0" promptText="Current Law Firm (optional)">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="17.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="office_address" layoutX="577.5" layoutY="333.0" prefHeight="38.0" prefWidth="350.0" promptText="Office Address">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="17.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="consult_fee" layoutX="577.5" layoutY="387.0" prefHeight="38.0" prefWidth="350.0" promptText="Consultation Fee (per session)">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="17.0" />
-                     </font>
-                  </TextField>
-                  <Button fx:id="proceed_button" layoutX="663.75" layoutY="451.0" mnemonicParsing="false" onAction="#registration" prefHeight="40.0" prefWidth="170.0" styleClass="login-button" text="Proceed">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Text layoutX="74.0" layoutY="371.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write your bio">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Text>
-                  <TextArea fx:id="lawyer_bio" layoutX="74.0" layoutY="381.0" prefHeight="131.0" prefWidth="350.0" promptText="default: I am a lawyer">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="17.0" />
-                     </font>
-                  </TextArea>
+
                </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
+               <padding>
+                  <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
+               </padding>
+            </HBox>
+         </top>
+
+         <center>
+            <HBox styleClass="auth-body">
+               <children>
+
+                  <!-- LEFT SIDE -->
+                  <StackPane fx:id="login_page_img" styleClass="auth-hero login-hero" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="BOTTOM_CENTER" maxWidth="420.0" prefHeight="639.0" prefWidth="720.0" spacing="28.0" styleClass="hero-text-box">
+                           <children>
+                              <Label styleClass="overlay-title" text="What! You haven’t Registered yet?" textAlignment="CENTER" wrapText="true" />
+                              <Button fx:id="reg_button_log_page" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Register Now" />
+                           </children>
+                           <padding>
+                              <Insets bottom="25.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </StackPane>
+
+
+
+                  <!-- RIGHT SIDE -->
+                  <StackPane fx:id="login_page_form" styleClass="floating-form-wrapper" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox maxWidth="420.0" prefWidth="380.0" spacing="18.0" styleClass="form-card">
+                           <children>
+                              <Label styleClass="form-title" text="Lawyer Login" />
+
+                              <TextField fx:id="login_username" prefHeight="44.0" promptText="Username / Email" styleClass="auth-input">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </TextField>
+
+                              <PasswordField fx:id="login_pass" prefHeight="44.0" promptText="Password" styleClass="auth-input">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </PasswordField>
+
+                              <Hyperlink fx:id="login_forgot_password" onAction="#forgotPassword" styleClass="forgot-password" text="forgot password?" />
+
+                              <Button fx:id="login_button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#login" prefHeight="48.0" styleClass="login-button" text="Login" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+
+      <!-- REGISTER PAGE -->
+      <BorderPane fx:id="reg_page" styleClass="page-root">
+         <top>
+            <HBox fx:id="reg_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="12.0">
+                     <children>
+                        <ImageView fx:id="ainoggo_home_logo_reg" fitHeight="56.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/logo_black_icon.png" />
+                           </image>
+                        </ImageView>
+
+                        <Text fx:id="ainoggo_home_text_reg" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+
+                  <Region HBox.hgrow="ALWAYS" />
+
+                  <Hyperlink fx:id="switch_to_client_reg" onAction="#switchToClientRegister" styleClass="go-to-other" text="Go to Client Registration">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+
+                  <Button fx:id="theme_toggle_button_reg" mnemonicParsing="false" onAction="#toggleTheme" styleClass="theme-button">
+                     <graphic>
+                        <ImageView fx:id="theme_toggle_icon_reg" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/dark.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
+               </padding>
+            </HBox>
+         </top>
+
+         <center>
+            <HBox styleClass="auth-body">
+               <children>
+
+                  <!-- LEFT SIDE FORM -->
+                  <StackPane fx:id="reg_page_form" styleClass="floating-form-left-wrapper" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="form-scroll">
+                           <content>
+                              <StackPane>
+                                 <children>
+                                    <VBox maxWidth="420.0" prefWidth="380.0" spacing="16.0" styleClass="form-card">
+                                       <children>
+                                          <Label styleClass="form-title" text="Register as a Lawyer" />
+
+                                          <TextField fx:id="reg_name" prefHeight="44.0" promptText="Full Name" styleClass="auth-input">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </TextField>
+
+                                          <TextField fx:id="reg_username" prefHeight="44.0" promptText="Username" styleClass="auth-input">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </TextField>
+
+                                          <TextField fx:id="reg_email" prefHeight="44.0" promptText="Email" styleClass="auth-input">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </TextField>
+
+                                          <PasswordField fx:id="reg_pass" prefHeight="44.0" promptText="Password" styleClass="auth-input">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </PasswordField>
+
+                                          <PasswordField fx:id="reg_conf_pass" prefHeight="44.0" promptText="Confirm Password" styleClass="auth-input">
+                                             <font>
+                                                <Font size="17.0" />
+                                             </font>
+                                          </PasswordField>
+
+                                          <CheckBox fx:id="reg_checkbox" mnemonicParsing="false" styleClass="terms-check" text="I agree to the Terms &amp; Conditions" />
+
+                                          <Button fx:id="register_button" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#registration" prefHeight="48.0" styleClass="login-button" text="Register" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                                 </padding>
+                              </StackPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </StackPane>
+
+                  <!-- RIGHT SIDE IMAGE -->
+                  <StackPane fx:id="reg_page_img" styleClass="auth-hero register-hero" HBox.hgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="CENTER" maxWidth="420.0" spacing="28.0" styleClass="hero-text-right-box">
+                           <children>
+                              <Label styleClass="overlay-title" text="Already have an account?" wrapText="true" />
+                              <Button fx:id="login_button_reg_page" mnemonicParsing="false" onAction="#switchbetweenloginandreg" prefHeight="48.0" prefWidth="220.0" styleClass="register-button" text="Login" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </StackPane>
+
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+      <!-- SECOND REGISTRATION PAGE -->
+      <!-- SECOND REGISTRATION PAGE -->
+      <BorderPane fx:id="reg_page1" visible="false" managed="false" styleClass="second-page-root">
+
+         <top>
+            <HBox fx:id="second_page_header" alignment="CENTER_LEFT" prefHeight="80.0" styleClass="header">
+               <children>
+                  <HBox alignment="CENTER_LEFT" spacing="12.0">
+                     <children>
+                        <ImageView fx:id="ainoggo_home_logo_2nd_page" fitHeight="56.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/logo_black_icon.png" />
+                           </image>
+                        </ImageView>
+
+                        <Text fx:id="ainoggo_home_text_2nd_page" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
+                           <font>
+                              <Font size="30.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+
+                  <Region HBox.hgrow="ALWAYS" />
+
+                  <Hyperlink fx:id="switch_to_client_reg1" onAction="#switchToClientRegister" styleClass="go-to-other" text="Go to Client Registration">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Hyperlink>
+
+                  <Button fx:id="theme_toggle_button_reg1" mnemonicParsing="false" onAction="#toggleTheme" styleClass="theme-button">
+                     <graphic>
+                        <ImageView fx:id="theme_toggle_icon_reg1" fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/dark.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="12.0" left="40.0" right="40.0" top="12.0" />
+               </padding>
+            </HBox>
+         </top>
+
+         <center>
+            <StackPane fx:id="second_page_form" styleClass="second-page-wrap">
+               <children>
+                  <HBox maxWidth="920.0" alignment="TOP_CENTER" spacing="56.0" styleClass="second-page-card">
+
+                     <children>
+                        <!-- LEFT COLUMN -->
+                        <VBox prefWidth="300.0" alignment="TOP_CENTER" spacing="18.0" styleClass="second-left-pane">
+                           <children>
+                              <Label styleClass="second-page-title" text="Profile Photo &amp; Bio" />
+
+                              <StackPane prefWidth="220.0" prefHeight="220.0" minWidth="220.0" minHeight="220.0" maxWidth="220.0" maxHeight="220.0" styleClass="photo-preview-box">
+                                 <children>
+                                    <ImageView fx:id="uploaded_img" fitWidth="220.0" fitHeight="220.0" preserveRatio="false" smooth="true" styleClass="preview-avatar-square" />
+                                 </children>
+                              </StackPane>
+
+                              <Button fx:id="upload_button" mnemonicParsing="false" onAction="#uploadPhoto" prefHeight="46.0" prefWidth="210.0" styleClass="login-button" text="Upload Photo" />
+
+                              <TextArea fx:id="lawyer_bio" prefWidth="300.0" prefHeight="190.0" promptText="Write a short bio about yourself" wrapText="true" styleClass="bio-area" />
+                           </children>
+                        </VBox>
+
+                        <!-- RIGHT COLUMN -->
+                        <VBox prefWidth="470.0" alignment="TOP_LEFT" spacing="16.0" styleClass="second-right-pane">
+                           <children>
+                              <Label styleClass="second-page-title" text="Professional Information" />
+
+                              <TextField fx:id="bar_reg_no" prefHeight="44.0" prefWidth="430.0" promptText="Bar Registration Number" styleClass="second-page-input" />
+
+                              <ComboBox fx:id="spec_area" prefHeight="44.0" prefWidth="430.0" promptText="Select Specialization" styleClass="second-page-input" />
+
+                              <TextField fx:id="exp_yr" prefHeight="44.0" prefWidth="430.0" promptText="Years of Experience" styleClass="second-page-input" />
+
+                              <TextField fx:id="law_firm" prefHeight="44.0" prefWidth="430.0" promptText="Law Firm / Chamber Name" styleClass="second-page-input" />
+
+                              <TextField fx:id="office_address" prefHeight="44.0" prefWidth="430.0" promptText="Office Address" styleClass="second-page-input" />
+
+                              <TextField fx:id="consult_fee" prefHeight="44.0" prefWidth="430.0" promptText="Consultation Fee" styleClass="second-page-input" />
+
+                              <HBox prefWidth="430.0" alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="proceed_button" mnemonicParsing="false" onAction="#registration" prefHeight="48.0" prefWidth="250.0" styleClass="register-button" text="Complete Registration" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
    </children>
 </StackPane>

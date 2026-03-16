@@ -117,7 +117,7 @@ public class LawyerEnterSceneController {
     private BorderPane reg_page;
 
     @FXML
-    private AnchorPane reg_page1;
+    private BorderPane reg_page1;
 
     @FXML
     private StackPane reg_page_form;
@@ -138,10 +138,10 @@ public class LawyerEnterSceneController {
     private Button register_button;
 
     @FXML
-    private AnchorPane second_page_form;
+    private StackPane second_page_form;
 
     @FXML
-    private AnchorPane second_page_header;
+    private HBox second_page_header;
 
     @FXML
     private ComboBox<String> spec_area;
@@ -153,7 +153,7 @@ public class LawyerEnterSceneController {
     private Hyperlink switch_to_client_reg;
 
     @FXML
-    private Hyperlink switch_to_client_reg2;
+    private Hyperlink switch_to_client_reg1;
 
     @FXML
     private Button theme_toggle_button_login;
@@ -166,6 +166,12 @@ public class LawyerEnterSceneController {
 
     @FXML
     private ImageView theme_toggle_icon_reg;
+
+    @FXML
+    private Button theme_toggle_button_reg1;
+
+    @FXML
+    private ImageView theme_toggle_icon_reg1;
 
     @FXML
     private Button upload_button;
@@ -185,28 +191,40 @@ public class LawyerEnterSceneController {
     public void showLoginPage() {
         login_page.setVisible(true);
         reg_page.setVisible(false);
-        if (second_page_form != null)
+        if (second_page_form != null) {
             second_page_form.setVisible(false);
-        if (reg_page1 != null)
+            second_page_form.setManaged(false);
+        }
+        if (reg_page1 != null) {
             reg_page1.setVisible(false);
+            reg_page1.setManaged(false);
+        }
     }
 
     public void showRegisterPage() {
         login_page.setVisible(false);
         reg_page.setVisible(true);
-        if (second_page_form != null)
+        if (second_page_form != null) {
             second_page_form.setVisible(false);
-        if (reg_page1 != null)
+            second_page_form.setManaged(false);
+        }
+        if (reg_page1 != null) {
             reg_page1.setVisible(false);
+            reg_page1.setManaged(false);
+        }
     }
 
     private void showSecondPage() {
         login_page.setVisible(false);
         reg_page.setVisible(false);
-        if (second_page_form != null)
+        if (second_page_form != null) {
             second_page_form.setVisible(true);
-        if (reg_page1 != null)
+            second_page_form.setManaged(true);
+        }
+        if (reg_page1 != null) {
             reg_page1.setVisible(true);
+            reg_page1.setManaged(true);
+        }
     }
 
     private void showError(String msg) {
@@ -673,6 +691,14 @@ public class LawyerEnterSceneController {
                 theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(DARK_ICON));
             }
 
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new javafx.scene.image.Image(LOGO_BLACK));
+            }
+
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: #000000; -fx-font-size: 24px; -fx-font-weight: 800;");
+            }
+
             ThemeManager.setDarkMode(false);
         } else {
             scene.getStylesheets().add(DARK_CSS);
@@ -686,6 +712,14 @@ public class LawyerEnterSceneController {
 
             if (theme_toggle_icon_reg != null) {
                 theme_toggle_icon_reg.setImage(new javafx.scene.image.Image(LIGHT_ICON));
+            }
+
+            if (ainoggo_home_logo_2nd_page != null) {
+                ainoggo_home_logo_2nd_page.setImage(new javafx.scene.image.Image(LOGO_WHITE));
+            }
+
+            if (ainoggo_home_text_2nd_page != null) {
+                ainoggo_home_text_2nd_page.setStyle("-fx-fill: white; -fx-font-size: 24px; -fx-font-weight: 800;");
             }
 
             ThemeManager.setDarkMode(true);
@@ -750,6 +784,9 @@ public class LawyerEnterSceneController {
                         "-fx-background-size: 100% 100%;" +
                         "-fx-background-position: center center;" +
                         "-fx-background-repeat: no-repeat;");
+
+        Image defaultProfile = new Image(getClass().getResource("/images/anonymous.png").toExternalForm());
+        uploaded_img.setImage(defaultProfile);
 
         javafx.application.Platform.runLater(() -> applyCurrentTheme());
     }

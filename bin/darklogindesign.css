@@ -265,3 +265,117 @@
 #ainoggo_home_text_reg {
     -fx-fill: white;
 }
+
+.second-step-text {
+    -fx-fill: #e2e5e9;
+    -fx-font-size: 15px;
+}
+
+.preview-avatar {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.35), 14, 0.2, 0, 3);
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+}
+
+.combo-box.auth-input {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.second-page-root {
+    -fx-background-color: #181a1f;
+}
+
+.second-page-wrap {
+    -fx-background-color: #181a1f;
+    -fx-padding: 34 42 34 42;
+}
+
+.second-page-card {
+    -fx-background-color: transparent;
+    -fx-padding: 6 0 6 0;
+}
+
+.second-left-pane,
+.second-right-pane {
+    -fx-padding: 6 0 6 0;
+}
+
+.second-page-title {
+    -fx-text-fill: #e2e5e9;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+}
+
+.second-page-input {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #f2f2f2;
+    -fx-prompt-text-fill: #9d9d9d;
+    -fx-padding: 0 14 0 14;
+}
+
+.photo-preview-box {
+    -fx-background-color: #20242b;
+    -fx-border-color: #353b45;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 0;
+    -fx-alignment: center;
+    -fx-overflow: hidden;
+}
+
+.preview-avatar-square {
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
+
+.bio-area {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #f2f2f2;
+    -fx-prompt-text-fill: #9d9d9d;
+    -fx-padding: 10 12 10 12;
+}
+
+.bio-area,
+.bio-area .viewport,
+.bio-area .content {
+    -fx-background-color: #1f1f1f;
+    -fx-background-radius: 12;
+}
+
+.bio-area .scroll-pane,
+.bio-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.combo-box.second-page-input,
+.combo-box.auth-input {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box.second-page-input .list-cell,
+.combo-box.auth-input .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f2f2f2;
+}
+
+.combo-box.second-page-input .arrow-button,
+.combo-box.auth-input .arrow-button {
+    -fx-background-color: transparent;
+}
