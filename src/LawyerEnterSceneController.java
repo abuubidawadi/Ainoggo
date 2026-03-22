@@ -180,6 +180,7 @@ public class LawyerEnterSceneController {
     private ImageView uploaded_img;
 
     private Alert alert;
+    
 
     private Connection connect;
     private PreparedStatement prepare;

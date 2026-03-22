@@ -39,6 +39,7 @@ public class UserDashboardController {
     private String loggedUsername;
     private String loggedName;
     private String loggedEmail;
+    private Stage currentStage;
 
     @FXML
     private BorderPane rootPane;
@@ -92,16 +93,29 @@ public class UserDashboardController {
         this.loggedEmail = email;
     }
 
-    @FXML
-    public void initialize() {
-        setupFeeFilter();
-        setupSlider();
+    //@FXML
+    // public void initialize() {
+    //     setupFeeFilter();
+    //     setupSlider();
 
-        Platform.runLater(() -> {
-            applyTheme();
-            loadLawyers(null, getSelectedFeeFilter());
-        });
-    }
+    //     Platform.runLater(() -> {
+    //         applyTheme();
+    //         loadLawyers(null, getSelectedFeeFilter());
+    //     });
+    // }
+    @FXML
+public void initialize() {
+    setupFeeFilter();
+    setupSlider();
+
+    Platform.runLater(() -> {
+        if (rootPane != null && rootPane.getScene() != null && rootPane.getScene().getWindow() instanceof Stage) {
+            currentStage = (Stage) rootPane.getScene().getWindow();
+        }
+        applyTheme();
+        loadLawyers(null, getSelectedFeeFilter());
+    });
+}
 
     private void setupFeeFilter() {
         feeFilterCombo.getItems().addAll(
@@ -346,8 +360,8 @@ public class UserDashboardController {
         photoHolder.setClip(clip);
 
         photoHolder.getChildren().add(photoView);
-        photoHolder.setOnMouseClicked(e -> openLawyerProfile(lawyerId));
-
+        photoHolder.setOnMouseClicked(e -> openLawyerProfile(lawyerId,e));
+        
         Label nameLabel = new Label(name);
         nameLabel.getStyleClass().add("lawyer-name");
 
@@ -360,10 +374,10 @@ public class UserDashboardController {
         Button bookButton = new Button("Book Appointment");
         bookButton.getStyleClass().add("book-button");
         bookButton.setMaxWidth(Double.MAX_VALUE);
-        bookButton.setOnAction(e -> openLawyerProfile(lawyerId));
-
-        photoView.setOnMouseClicked(e -> openLawyerProfile(lawyerId));
-
+        bookButton.setOnAction(e -> openLawyerProfile(lawyerId,e));
+        
+        photoView.setOnMouseClicked(e -> openLawyerProfile(lawyerId,e));
+       
         card.getChildren().addAll(photoHolder, nameLabel, categoryLabel, feeLabel, bookButton);
 
         ScaleTransition scaleUp = new ScaleTransition(Duration.millis(180), card);
@@ -565,66 +579,63 @@ public class UserDashboardController {
         }
     }
 
-    private void openLawyerProfile(int lawyerId) {
-        SelectedLawyer.id = lawyerId;
+ private void openLawyerProfile(int lawyerId, javafx.event.Event event) {
+    SelectedLawyer.id = lawyerId;
 
-        try {
-            // URL url = new File("src/lawyerProfilefromUser.fxml").toURI().toURL();
-            // FXMLLoader loader = new FXMLLoader(url);
-            // Parent root = loader.load();
+    try {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("lawyerProfilefromUser.fxml"));
+        Parent root = loader.load();
 
-            // lawyerProfileUser controller = loader.getController();
-            // controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
-            // controller.loadLawyerById(lawyerId);
+        lawyerProfileUser controller = loader.getController();
+        controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
+        controller.loadLawyerById(lawyerId);
 
-            // Stage stage = (Stage) rootPane.getScene().getWindow();
-            // Scene scene = new Scene(root, 1000, 650);
-            // stage.setScene(scene);
-            // stage.setResizable(false);
-            // stage.show();
+        Stage stage = currentStage;
 
-            URL url = new File("src/lawyerProfilefromUser.fxml").toURI().toURL();
-            FXMLLoader loader = new FXMLLoader(url);
-            Parent root = loader.load();
-
-            lawyerProfileUser controller = loader.getController();
-            controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
-            controller.loadLawyerById(lawyerId);
-
-            Stage stage = (Stage) rootPane.getScene().getWindow();
-
-            double width = stage.getWidth();
-            double height = stage.getHeight();
-            double x = stage.getX();
-            double y = stage.getY();
-            boolean maximized = stage.isMaximized();
-
-            Scene scene = new Scene(root);
-            scene.getStylesheets().clear();
-
-            if (ThemeManager.isDarkMode()) {
-                scene.getStylesheets().add(getClass().getResource("darklawyerfromUser.css").toExternalForm());
-            } else {
-                scene.getStylesheets().add(getClass().getResource("lawyerfromUser.css").toExternalForm());
-            }
-            stage.setScene(scene);
-            stage.setMinWidth(1000);
-            stage.setMinHeight(650);
-            stage.setWidth(width);
-            stage.setHeight(height);
-            stage.setX(x);
-            stage.setY(y);
-            stage.setMaximized(maximized);
-            stage.setResizable(true);
-            stage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("Error");
-            a.setHeaderText(null);
-            a.setContentText("Could not open lawyer profile. Check terminal.");
-            a.showAndWait();
+        if (stage == null && rootPane != null && rootPane.getScene() != null
+                && rootPane.getScene().getWindow() instanceof Stage) {
+            stage = (Stage) rootPane.getScene().getWindow();
+            currentStage = stage;
         }
+
+        if (stage == null) {
+            throw new IllegalStateException("Dashboard stage was not initialized.");
+        }
+
+        double width = stage.getWidth();
+        double height = stage.getHeight();
+        double x = stage.getX();
+        double y = stage.getY();
+        boolean maximized = stage.isMaximized();
+
+        Scene scene = new Scene(root);
+        scene.getStylesheets().clear();
+
+        if (ThemeManager.isDarkMode()) {
+            scene.getStylesheets().add(getClass().getResource("darklawyerfromUser.css").toExternalForm());
+        } else {
+            scene.getStylesheets().add(getClass().getResource("lawyerfromUser.css").toExternalForm());
+        }
+
+        stage.setScene(scene);
+        stage.setTitle("Ainoggo");
+        stage.setMinWidth(1000);
+        stage.setMinHeight(650);
+        stage.setWidth(width);
+        stage.setHeight(height);
+        stage.setX(x);
+        stage.setY(y);
+        stage.setMaximized(maximized);
+        stage.setResizable(true);
+        stage.show();
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        Alert a = new Alert(Alert.AlertType.ERROR);
+        a.setTitle("Error");
+        a.setHeaderText(null);
+        a.setContentText("Could not open lawyer profile. Check terminal.");
+        a.showAndWait();
     }
+}
 }
