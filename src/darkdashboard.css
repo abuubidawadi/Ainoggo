@@ -174,7 +174,7 @@
 .book-button {
     -fx-background-color: #000000;
     -fx-text-fill: #ffffff;
-    -fx-border-color: #000000;
+    -fx-border-color: transparent;
     -fx-border-width: 2;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
