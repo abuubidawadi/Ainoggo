@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
@@ -65,14 +66,14 @@ public class UserDashboardController {
     private Timeline sliderTimeline;
     private int sliderIndex = 0;
 
-    private final String DARK_ICON = getClass().getResource("/images/dark.png").toExternalForm();
-    private final String LIGHT_ICON = getClass().getResource("/images/white.png").toExternalForm();
+    private final String DARK_ICON = getResourceSafe("/images/dark.png");
+    private final String LIGHT_ICON = getResourceSafe("/images/white.png");
 
-    private final String SEARCH_BLACK = getClass().getResource("/images/search_black.png").toExternalForm();
-    private final String SEARCH_WHITE = getClass().getResource("/images/search_white.png").toExternalForm();
+    private final String SEARCH_BLACK = getResourceSafe("/images/search_black.png");
+    private final String SEARCH_WHITE = getResourceSafe("/images/search_white.png");
 
     private final String[] sliderImages = {
-            "/images/login_bg.png",
+            "/images/login_bg.jpg",
             "/images/register_bg.jpg"
     };
 
@@ -92,6 +93,35 @@ public class UserDashboardController {
             loadLawyers(null, getSelectedFeeFilter());
         });
     }
+
+  
+    private String getResourceSafe(String path) {
+    try {
+        URL url = getClass().getResource(path);
+        if (url != null) {
+            return url.toExternalForm();
+        }
+
+        String fileName = path.startsWith("/") ? path.substring(1) : path;
+
+        File f1 = new File("bin/" + fileName);
+        if (f1.exists()) {
+            return f1.toURI().toString();
+        }
+
+        File f2 = new File("src/main/resources/" + fileName);
+        if (f2.exists()) {
+            return f2.toURI().toString();
+        }
+
+        System.out.println("Resource not found: " + path);
+        return null;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 
     private void setupFeeFilter() {
         feeFilterCombo.getItems().addAll(
@@ -150,18 +180,39 @@ public class UserDashboardController {
         }
     }
 
+   
     private void setSliderImage(String resourcePath) {
-        try {
-            InputStream is = getClass().getResourceAsStream(resourcePath);
-            if (is != null) {
-                Image image = new Image(is);
-                sliderImageView.setImage(image);
-                applyCenterCrop(sliderImageView, image, 956, 280);
+    try {
+        Image image = null;
+
+        InputStream is = getClass().getResourceAsStream(resourcePath);
+        if (is != null) {
+            image = new Image(is);
+        } else {
+            String fileName = resourcePath.startsWith("/") ? resourcePath.substring(1) : resourcePath;
+
+            File f1 = new File("bin/" + fileName);
+            if (f1.exists()) {
+                image = new Image(f1.toURI().toString());
+            } else {
+                File f2 = new File("src/main/resources/" + fileName);
+                if (f2.exists()) {
+                    image = new Image(f2.toURI().toString());
+                }
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+
+        if (image != null) {
+            sliderImageView.setImage(image);
+            applyCenterCrop(sliderImageView, image, 956, 280);
+        } else {
+            System.out.println("Slider image not found: " + resourcePath);
+        }
+
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
 
     private void applyCenterCrop(ImageView imageView, Image image, double boxWidth, double boxHeight) {
         if (image == null)
@@ -508,20 +559,20 @@ public class UserDashboardController {
         if (ThemeManager.isDarkMode()) {
             scene.getStylesheets().add(getClass().getResource("darkdashboard.css").toExternalForm());
 
-            if (themeToggleIcon != null) {
+            if (themeToggleIcon != null && LIGHT_ICON != null) {
                 themeToggleIcon.setImage(new Image(LIGHT_ICON));
             }
-            if (searchIcon != null) {
+            if (searchIcon != null && SEARCH_WHITE != null) {
                 searchIcon.setImage(new Image(SEARCH_WHITE));
             }
 
         } else {
             scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
 
-            if (themeToggleIcon != null) {
+            if (themeToggleIcon != null && DARK_ICON != null) {
                 themeToggleIcon.setImage(new Image(DARK_ICON));
             }
-            if (searchIcon != null) {
+            if (searchIcon != null && SEARCH_BLACK != null) {
                 searchIcon.setImage(new Image(SEARCH_BLACK));
             }
         }
