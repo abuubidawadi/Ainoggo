@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -568,6 +569,20 @@ public class UserDashboardController {
         SelectedLawyer.id = lawyerId;
 
         try {
+            // URL url = new File("src/lawyerProfilefromUser.fxml").toURI().toURL();
+            // FXMLLoader loader = new FXMLLoader(url);
+            // Parent root = loader.load();
+
+            // lawyerProfileUser controller = loader.getController();
+            // controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
+            // controller.loadLawyerById(lawyerId);
+
+            // Stage stage = (Stage) rootPane.getScene().getWindow();
+            // Scene scene = new Scene(root, 1000, 650);
+            // stage.setScene(scene);
+            // stage.setResizable(false);
+            // stage.show();
+
             URL url = new File("src/lawyerProfilefromUser.fxml").toURI().toURL();
             FXMLLoader loader = new FXMLLoader(url);
             Parent root = loader.load();
@@ -577,9 +592,30 @@ public class UserDashboardController {
             controller.loadLawyerById(lawyerId);
 
             Stage stage = (Stage) rootPane.getScene().getWindow();
-            Scene scene = new Scene(root, 1000, 650);
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darklawyerfromUser.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("lawyerfromUser.css").toExternalForm());
+            }
             stage.setScene(scene);
-            stage.setResizable(false);
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
             stage.show();
 
         } catch (Exception e) {

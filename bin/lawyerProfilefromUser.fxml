@@ -1,158 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" stylesheets="@lawyerfromUser.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lawyerProfileUser">
-   <children>
-      <AnchorPane fx:id="login_page" prefHeight="200.0" prefWidth="200.0" stylesheets="@loginDesign.css">
-         <children>
-            <AnchorPane fx:id="login_page_header" prefHeight="80.0" prefWidth="1000.0" styleClass="header">
-               <children>
-                  <ImageView fx:id="ainoggo_home_logo_log" fitHeight="60.0" fitWidth="100.0" layoutX="50.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <!-- <Image url="@main/resources/images/logo_black_icon.png" /> -->
+<BorderPane fx:id="rootPane" prefHeight="650.0" prefWidth="1000.0"
+    xmlns="http://javafx.com/javafx/25"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="lawyerProfileUser" styleClass="page-root">
 
-<Image url="@images/logo_black_icon.png" />                     </image>
-                  </ImageView>
-                  <Text fx:id="ainoggo_home_text_log" layoutX="117.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ainoggo">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="30.0" />
-                     </font>
-                  </Text>
-                  <Button fx:id="logout" layoutX="844.0" layoutY="20.0" onAction="#logout" prefHeight="36" prefWidth="100" text="Log Out">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="dashboard_btn" layoutX="724.0" layoutY="20.0" onAction="#godashboard" prefHeight="36" prefWidth="100.0" text="Dashboard">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane layoutY="80.0" prefHeight="570.0" prefWidth="1000.0">
-               <children>
-                  <ImageView fx:id="lawyer_img" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../uploaded_photos/lawyer_3.jpg" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="lawyer_name" layoutX="277.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advocate Robiul Islam">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="30.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="898.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bio">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="30.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="bio" layoutX="638.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="An accomplished legal professional with over 10 years of experience providing strategic legal solutions and strong courtroom representation. Specializing in civil and corporate law, he has successfully handled complex cases with integrity, precision, and dedication. Known for his client-focused approach, he prioritizes clear communication, thorough case preparation, and practical legal guidance. His commitment to excellence and ethical practice has earned the trust of clients and colleagues alike." textAlignment="JUSTIFY" wrappingWidth="303.138427734375">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="44.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" Fee: Tk.">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="fee" layoutX="136.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="800" textAlignment="RIGHT">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="25.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="190.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="per hour">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="specialization" layoutX="277.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Corporate Law">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="277.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area of Specialization :">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="law_firm" layoutX="277.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rahman Legal Chamber">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="277.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Law Firm :">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="office_address" layoutX="277.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Supreme Court, Dhaka">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="277.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Office Adress:">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="277.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bar Council Reg No :">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="bar_reg_no" layoutX="407.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="BAR - 1001">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="277.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Years of Experience :">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="exp_yr" layoutX="412.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="13.0" />
-                     </font>
-                  </Text>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" height="271.0" layoutX="607.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="6.0" />
-                  <Text layoutX="50.0" layoutY="461.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Book an Appointment">
-                     <font>
-                        <Font name="Inter 24pt SemiBold" size="30.0" />
-                     </font>
-                  </Text>
-                  <DatePicker fx:id="date_picker" layoutX="387.0" layoutY="433.0" prefHeight="36.0" prefWidth="200.0" />
-                  <ComboBox fx:id="time_picker" layoutX="617.0" layoutY="433.0" prefHeight="30.0" prefWidth="150.0" promptText="Time" />
-                  <Button fx:id="book_btn" layoutX="804.0" layoutY="433.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="138.0" text="Book Now" textFill="WHITE" onAction="#bookAppointment">
-                     <font>
-                        <Font name="Inter 18pt SemiBold" size="15.0" />
-                     </font></Button>
-                  <Text layoutX="50.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Before booking an appointment, You can contact with the lawyer by sending a mail to:">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="15.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="mail" layoutX="650.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="abul2017318138@gmail.com">
-                     <font>
-                        <Font name="Inter 24pt Medium" size="15.0" />
-                     </font>
-                  </Text>
-                  <AnchorPane layoutY="510.0" prefHeight="60.0" prefWidth="1001.0" />
-               </children>
-            </AnchorPane>
-         </children>
-      </AnchorPane>
-   </children>
-</StackPane>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="header">
+            <padding>
+                <Insets top="12" right="18" bottom="12" left="18"/>
+            </padding>
+
+            <ImageView fx:id="brandLogo" fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                <image>
+                    <Image url="@images/logo_black_icon.png"/>
+                </image>
+            </ImageView>
+
+            <Text text="Ainoggo" styleClass="brand-text"/>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <Button text="Dashboard" onAction="#godashboard" styleClass="header-button"/>
+            <Button text="Logout" onAction="#logout" styleClass="header-button"/>
+
+            <Button fx:id="themeToggleButton" onAction="#toggleTheme" styleClass="theme-toggle-button" focusTraversable="false">
+                <graphic>
+                    <ImageView fx:id="themeToggleIcon" fitHeight="18.0" fitWidth="18.0" preserveRatio="true"/>
+                </graphic>
+            </Button>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="main-scroll">
+            <content>
+                <VBox spacing="22.0" styleClass="profile-content">
+                    <padding>
+                        <Insets top="22" right="22" bottom="28" left="22"/>
+                    </padding>
+
+                    <StackPane styleClass="profile-hero-card">
+                        <HBox spacing="24.0" alignment="TOP_LEFT">
+                            <VBox spacing="14.0" alignment="TOP_CENTER">
+                                <StackPane fx:id="photoHolder" styleClass="profile-photo-holder" prefHeight="250.0" prefWidth="250.0" minHeight="250.0" minWidth="250.0" maxHeight="250.0" maxWidth="250.0">
+                                    <children>
+                                        <ImageView fx:id="lawyer_img" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="false" />
+                                    </children>
+                                </StackPane>
+
+                                <Label text="Session Fee" styleClass="mini-heading"/>
+                                <Label fx:id="fee" text="Tk. 800 / session" styleClass="fee-badge"/>
+                            </VBox>
+
+                            <VBox spacing="18.0" HBox.hgrow="ALWAYS">
+                                <VBox spacing="6.0">
+                                    <Label fx:id="lawyer_name" text="Advocate Robiul Islam" styleClass="profile-name"/>
+                                    <Label fx:id="specialization" text="Corporate Law" styleClass="profile-specialization"/>
+                                    <!--<Label fx:id="mail" text="abul2017318138@gmail.com" styleClass="profile-email" wrapText="true"/>-->
+                                </VBox>
+
+                                <HBox spacing="14.0">
+                                    <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                        <Label text="Experience" styleClass="stat-title"/>
+                                        <Label fx:id="exp_yr" text="8 Years" styleClass="stat-value"/>
+                                    </VBox>
+
+                                    <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                        <Label text="Bar Registration" styleClass="stat-title"/>
+                                        <Label fx:id="bar_reg_no" text="BAR-1001" styleClass="stat-value" wrapText="true"/>
+                                    </VBox>
+
+                                    <VBox spacing="8.0" styleClass="stat-card" HBox.hgrow="ALWAYS">
+                                        <Label text="Law Firm" styleClass="stat-title"/>
+                                        <Label fx:id="law_firm" text="Rahman Legal Chamber" styleClass="stat-value" wrapText="true"/>
+                                    </VBox>
+                                </HBox>
+
+                                <VBox spacing="8.0" styleClass="detail-card">
+                                    <Label text="Office Address" styleClass="detail-title"/>
+                                    <Label fx:id="office_address" text="Supreme Court, Dhaka" styleClass="detail-value" wrapText="true"/>
+                                </VBox>
+
+                                <VBox spacing="8.0" styleClass="detail-card">
+                                    <Label text="About the Lawyer" styleClass="detail-title"/>
+                                    <Label fx:id="bio" text="An accomplished legal professional with over 10 years of experience..." styleClass="detail-value" wrapText="true"/>
+                                </VBox>
+                            </VBox>
+                        </HBox>
+                    </StackPane>
+
+                    <VBox spacing="14.0" styleClass="booking-card">
+                        <VBox spacing="4.0">
+                            <Label text="Book an Appointment" styleClass="section-title"/>
+                            <Label text="Choose a suitable date and available time slot to request a consultation." styleClass="section-subtitle"/>
+                        </VBox>
+
+                        <VBox spacing="8.0" styleClass="contact-note-card">
+                            <Label text="Need to contact before booking?" styleClass="detail-title"/>
+                            <Label fx:id="mail" text="abul2017318138@gmail.com" styleClass="profile-email" wrapText="true"/>
+                            <Label text="You can reach the lawyer directly at the email above before placing your appointment request." styleClass="detail-value" wrapText="true"/>
+                        </VBox>
+
+                        <HBox spacing="14.0" alignment="CENTER_LEFT">
+                            <DatePicker fx:id="date_picker" prefHeight="44.0" prefWidth="250.0" styleClass="appointment-input"/>
+                            <ComboBox fx:id="time_picker" prefHeight="44.0" prefWidth="220.0" promptText="Select time" styleClass="appointment-combo"/>
+                            <Button fx:id="book_btn" mnemonicParsing="false" onAction="#bookAppointment" prefHeight="44.0" prefWidth="190.0" text="Book Appointment" styleClass="primary-action-button"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+
+</BorderPane>
