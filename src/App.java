@@ -13,7 +13,7 @@ public class App extends Application {
         Scene scene = new Scene(root,1000,650);
         scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
         stage.setScene(scene);
-        stage.setTitle("Aino");
+        stage.setTitle("Ainoggo");
         stage.setMinWidth(1000);
         stage.setMinHeight(650);
         stage.setResizable(true);

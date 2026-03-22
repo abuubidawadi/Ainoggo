@@ -17,14 +17,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="rootPane"
-            prefHeight="650.0"
-            prefWidth="1000.0"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="UserDashboardController"
-            stylesheets="@dashboard.css"
-            styleClass="page-root">
+<BorderPane fx:id="rootPane" prefHeight="650.0" prefWidth="1000.0"
+    xmlns="http://javafx.com/javafx/25"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserDashboardController" styleClass="page-root">
 
     <top>
         <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="header">
@@ -32,7 +27,7 @@
                 <Insets top="12" right="18" bottom="12" left="18"/>
             </padding>
 
-            <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+            <ImageView fx:id="brandLogo" fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
                 <image>
                     <Image url="@images/logo_black_icon.png"/>
                 </image>
@@ -45,9 +40,7 @@
             <Button text="Profile" onAction="#showProfile" styleClass="header-button"/>
             <Button text="Logout" onAction="#logout" styleClass="header-button"/>
 
-            <Button fx:id="themeToggleButton"
-                    onAction="#toggleTheme"
-                    styleClass="theme-toggle-button">
+            <Button fx:id="themeToggleButton" onAction="#toggleTheme" styleClass="theme-toggle-button" focusTraversable="false">
                 <graphic>
                     <ImageView fx:id="themeToggleIcon" fitHeight="18.0" fitWidth="18.0" preserveRatio="true"/>
                 </graphic>
@@ -66,38 +59,24 @@
                     <!-- SEARCH + FILTER -->
                     <HBox spacing="14.0" alignment="CENTER_LEFT">
                         <StackPane HBox.hgrow="ALWAYS">
-                            <TextField fx:id="searchField"
-                                       promptText="Search by lawyer name or category..."
-                                       styleClass="search-input"/>
+                            <TextField fx:id="searchField" promptText="Search by lawyer name or category..." styleClass="search-input"/>
 
-                            <Button fx:id="searchButton"
-                                    onAction="#searchLawyer"
-                                    styleClass="search-icon-button"
-                                    StackPane.alignment="CENTER_RIGHT">
+                            <Button fx:id="searchButton" onAction="#searchLawyer" styleClass="search-icon-button" StackPane.alignment="CENTER_RIGHT">
                                 <graphic>
                                     <ImageView fx:id="searchIcon" fitHeight="18.0" fitWidth="18.0" preserveRatio="true"/>
                                 </graphic>
                             </Button>
                         </StackPane>
 
-                        <ComboBox fx:id="feeFilterCombo"
-                                  prefWidth="170.0"
-                                  promptText="Session fee"
-                                  styleClass="filter-combo"/>
+                        <ComboBox fx:id="feeFilterCombo" prefWidth="170.0" promptText="Session fee" styleClass="filter-combo"/>
                     </HBox>
 
                     <!-- SLIDER -->
-                    <StackPane styleClass="slider-card">
-                        <ImageView fx:id="sliderImageView"
-                                   fitWidth="956.0"
-                                   fitHeight="280.0"
-                                   preserveRatio="true"
-                                   smooth="true"/>
+                    <StackPane fx:id="sliderContainer" styleClass="slider-card" prefHeight="280.0" minHeight="280.0" maxHeight="280.0">
+                        <ImageView fx:id="sliderImageView" preserveRatio="false" smooth="true" managed="false"/>
 
-                        <HBox alignment="BOTTOM_CENTER" spacing="10.0"
-                              styleClass="slider-indicators-wrap"
-                              StackPane.alignment="BOTTOM_CENTER">
-                            <Button fx:id="indicator1" disable="true" styleClass="slider-indicator active-indicator"/>
+                        <HBox alignment="BOTTOM_CENTER" spacing="10.0" styleClass="slider-indicators-wrap" StackPane.alignment="BOTTOM_CENTER">
+                            <Button fx:id="indicator1" disable="true" styleClass="slider-indicator"/>
                             <Button fx:id="indicator2" disable="true" styleClass="slider-indicator"/>
                         </HBox>
                     </StackPane>
@@ -105,17 +84,11 @@
                     <!-- TITLE -->
                     <VBox spacing="4.0" alignment="CENTER">
                         <Label text="Find Your Lawyer" styleClass="section-title"/>
-                        <Label text="Browse verified lawyers and choose the one that fits your need."
-                               styleClass="section-subtitle"/>
+                        <Label text="Browse verified lawyers and choose the one that fits your need." styleClass="section-subtitle"/>
                     </VBox>
 
                     <!-- LAWYER GRID -->
-                    <FlowPane fx:id="lawyerGrid"
-                              hgap="20.0"
-                              vgap="20.0"
-                              prefWrapLength="940.0"
-                              alignment="TOP_CENTER"
-                              styleClass="lawyer-grid"/>
+                    <FlowPane fx:id="lawyerGrid" hgap="20.0" vgap="20.0" prefWrapLength="940.0" alignment="TOP_CENTER" styleClass="lawyer-grid"/>
                 </VBox>
             </content>
         </ScrollPane>

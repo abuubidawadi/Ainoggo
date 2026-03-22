@@ -61,6 +61,12 @@ public class UserDashboardController {
     private ImageView searchIcon;
     @FXML
     private Button searchButton;
+    @FXML
+    private ImageView brandLogo;
+    @FXML
+    private StackPane sliderContainer;
+
+    private Image currentSliderImage;
 
     private Timeline sliderTimeline;
     private int sliderIndex = 0;
@@ -71,9 +77,12 @@ public class UserDashboardController {
     private final String SEARCH_BLACK = getClass().getResource("/images/search_black.png").toExternalForm();
     private final String SEARCH_WHITE = getClass().getResource("/images/search_white.png").toExternalForm();
 
+    private final String LOGO_BLACK = getClass().getResource("/images/logo_black_icon.png").toExternalForm();
+    private final String LOGO_WHITE = getClass().getResource("/images/logo_white_icon.png").toExternalForm();
+
     private final String[] sliderImages = {
-            "/images/login_bg.png",
-            "/images/register_bg.jpg"
+            "/images/slider1.png",
+            "/images/slider2.png"
     };
 
     public void setLoggedUser(String username, String name, String email) {
@@ -110,6 +119,18 @@ public class UserDashboardController {
     }
 
     private void setupSlider() {
+        sliderImageView.setManaged(false);
+
+        Rectangle clip = new Rectangle();
+        clip.widthProperty().bind(sliderContainer.widthProperty());
+        clip.heightProperty().bind(sliderContainer.heightProperty());
+        clip.setArcWidth(48);
+        clip.setArcHeight(48);
+        sliderContainer.setClip(clip);
+
+        sliderContainer.widthProperty().addListener((obs, oldVal, newVal) -> refreshSliderCrop());
+        sliderContainer.heightProperty().addListener((obs, oldVal, newVal) -> refreshSliderCrop());
+
         setSliderImage(sliderImages[0]);
         updateIndicators();
 
@@ -140,8 +161,8 @@ public class UserDashboardController {
     }
 
     private void updateIndicators() {
-        indicator1.getStyleClass().remove("active-indicator");
-        indicator2.getStyleClass().remove("active-indicator");
+        indicator1.getStyleClass().setAll("slider-indicator");
+        indicator2.getStyleClass().setAll("slider-indicator");
 
         if (sliderIndex == 0) {
             indicator1.getStyleClass().add("active-indicator");
@@ -154,13 +175,23 @@ public class UserDashboardController {
         try {
             InputStream is = getClass().getResourceAsStream(resourcePath);
             if (is != null) {
-                Image image = new Image(is);
-                sliderImageView.setImage(image);
-                applyCenterCrop(sliderImageView, image, 956, 280);
+                currentSliderImage = new Image(is);
+                sliderImageView.setImage(currentSliderImage);
+                refreshSliderCrop();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void refreshSliderCrop() {
+        if (currentSliderImage == null || sliderContainer == null)
+            return;
+
+        double width = sliderContainer.getWidth() > 0 ? sliderContainer.getWidth() : 956;
+        double height = sliderContainer.getHeight() > 0 ? sliderContainer.getHeight() : 280;
+
+        applyCenterCrop(sliderImageView, currentSliderImage, width, height);
     }
 
     private void applyCenterCrop(ImageView imageView, Image image, double boxWidth, double boxHeight) {
@@ -514,6 +545,9 @@ public class UserDashboardController {
             if (searchIcon != null) {
                 searchIcon.setImage(new Image(SEARCH_WHITE));
             }
+            if (brandLogo != null) {
+                brandLogo.setImage(new Image(LOGO_WHITE));
+            }
 
         } else {
             scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
@@ -523,6 +557,9 @@ public class UserDashboardController {
             }
             if (searchIcon != null) {
                 searchIcon.setImage(new Image(SEARCH_BLACK));
+            }
+            if (brandLogo != null) {
+                brandLogo.setImage(new Image(LOGO_BLACK));
             }
         }
     }

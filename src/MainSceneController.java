@@ -296,6 +296,27 @@ public class MainSceneController {
 
                 try {
 
+                    // FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
+                    // Parent root = loader.load();
+
+                    // UserDashboardController controller = loader.getController();
+                    // controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
+
+                    // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    // Scene scene = new Scene(root, 1000, 650);
+                    // scene.getStylesheets().clear();
+
+                    // if (ThemeManager.isDarkMode()) {
+                    //     scene.getStylesheets().add(getClass().getResource("darkdashboard.css").toExternalForm());
+                    // } else {
+                    //     scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
+                    // }
+
+                    // stage.setScene(scene);
+                    // stage.setResizable(true);
+                    // stage.setTitle("Ainoggo");
+                    // stage.show();
+
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
                     Parent root = loader.load();
 
@@ -303,18 +324,30 @@ public class MainSceneController {
                     controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    Scene scene = new Scene(root, 1000, 650);
+
+                    double width = stage.getWidth();
+                    double height = stage.getHeight();
+                    double x = stage.getX();
+                    double y = stage.getY();
+                    boolean maximized = stage.isMaximized();
+
+                    Scene scene = new Scene(root);
                     scene.getStylesheets().clear();
 
                     if (ThemeManager.isDarkMode()) {
-                        scene.getStylesheets().add(getClass().getResource("darkdashboard.css").toExternalForm());
+                        scene.getStylesheets().add(getClass().getResource("darklogindesign.css").toExternalForm());
                     } else {
-                        scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
+                        scene.getStylesheets().add(getClass().getResource("loginDesign.css").toExternalForm());
                     }
-
                     stage.setScene(scene);
+                    stage.setMinWidth(1000);
+                    stage.setMinHeight(650);
+                    stage.setWidth(width);
+                    stage.setHeight(height);
+                    stage.setX(x);
+                    stage.setY(y);
+                    stage.setMaximized(maximized);
                     stage.setResizable(true);
-                    stage.setTitle("Ainoggo - Dashboard");
                     stage.show();
 
                 } catch (Exception e) {

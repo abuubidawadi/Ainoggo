@@ -286,11 +286,11 @@
 }
 
 .second-page-root {
-    -fx-background-color: #1a1d23;
+    -fx-background-color: #111111;
 }
 
 .second-page-wrap {
-    -fx-background-color: #1a1d23;
+    -fx-background-color: #111111;
     -fx-padding: 34 42 34 42;
 }
 

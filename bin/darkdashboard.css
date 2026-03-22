@@ -3,25 +3,25 @@
 }
 
 .page-root {
-    -fx-background-color: #f7f7f7;
+    -fx-background-color: #111111;
 }
 
 .header {
-    -fx-background-color: linear-gradient(to top, #ebebeb, #ffffff);
-    -fx-border-color: transparent transparent #d9d9d9 transparent;
+    -fx-background-color: linear-gradient(to top, #151515, #1e1e1e);
+    -fx-border-color: transparent transparent #2e2e2e transparent;
     -fx-border-width: 0 0 1 0;
 }
 
 .brand-text {
     -fx-font-size: 28px;
     -fx-font-weight: 800;
-    -fx-fill: #111111;
+    -fx-fill: #ffffff;
 }
 
 .header-button {
     -fx-background-color: transparent;
-    -fx-text-fill: #111111;
-    -fx-border-color: #111111;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
     -fx-border-width: 2;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
@@ -32,8 +32,8 @@
 }
 
 .header-button:hover {
-    -fx-background-color: #111111;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #111111;
 }
 
 .main-scroll {
@@ -41,7 +41,7 @@
     -fx-border-color: transparent;
 }
 
-.main-scroll > .viewport {
+.main-scroll>.viewport {
     -fx-background-color: transparent;
 }
 
@@ -67,8 +67,8 @@
 }
 
 .filter-combo {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #d7d7d7;
+    -fx-background-color: #1a1a1a;
+    -fx-border-color: #2d2d2d;
     -fx-border-width: 1.5;
     -fx-border-radius: 10;
     -fx-background-radius: 10;
@@ -99,7 +99,7 @@
     -fx-border-radius: 20;
     -fx-border-color: #e2e2e2;
     -fx-border-width: 1;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 22, 0.15, 0, 6);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.12), 22, 0.15, 0, 6);
     -fx-padding: 0;
 }
 
@@ -139,14 +139,14 @@
 }
 
 .lawyer-card {
-    -fx-background-color: rgba(255,255,255,0.96);
+    -fx-background-color: rgba(24, 24, 24, 0.96);
     -fx-background-radius: 18;
     -fx-border-radius: 18;
-    -fx-border-color: #e4e4e4;
+    -fx-border-color: #2a2a2a;
     -fx-border-width: 1;
     -fx-padding: 14;
     -fx-spacing: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.10), 18, 0.15, 0, 5);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.10), 18, 0.15, 0, 5);
 }
 
 .lawyer-card:hover {
@@ -154,19 +154,19 @@
 }
 
 .lawyer-name {
-    -fx-text-fill: #111111;
+    -fx-text-fill: #f1f1f1;
     -fx-font-size: 18px;
     -fx-font-weight: 800;
 }
 
 .lawyer-category {
-    -fx-text-fill: #555555;
+    -fx-text-fill: #b0b0b0;
     -fx-font-size: 14px;
     -fx-font-weight: 600;
 }
 
 .lawyer-fee {
-    -fx-text-fill: #111111;
+    -fx-text-fill: #f1f1f1;
     -fx-font-size: 14px;
     -fx-font-weight: 700;
 }
@@ -229,6 +229,7 @@
     -fx-cursor: hand;
     -fx-padding: 0 16 0 16;
 }
+
 .search-icon-button {
     -fx-background-color: transparent;
     -fx-border-color: transparent;
@@ -240,37 +241,52 @@
 
 .theme-toggle-button {
     -fx-background-color: transparent;
-    -fx-border-color: #e8e8e8;
+    -fx-border-color: transparent;
     -fx-border-width: 2;
     -fx-background-radius: 10;
     -fx-border-radius: 10;
     -fx-cursor: hand;
     -fx-padding: 9 12 9 12;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
 }
 
 .theme-toggle-button:hover {
-    -fx-background-color: #f1f1f1;
+    -fx-background-color: rgba(255, 255, 255, 0.08);
 }
+
 .slider-indicators-wrap {
     -fx-padding: 0 0 14 0;
 }
 
 .slider-indicator {
-    -fx-background-color: rgba(255,255,255,0.35);
-    -fx-background-radius: 100;
-    -fx-border-radius: 100;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-border-width: 2;
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+
+    -fx-pref-width: 12;
+    -fx-pref-height: 12;
     -fx-min-width: 12;
     -fx-min-height: 12;
     -fx-max-width: 12;
     -fx-max-height: 12;
+
     -fx-padding: 0;
-    -fx-opacity: 1;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-cursor: default;
+
+    -fx-border-color: #ffffff;
 }
+
+
 
 .active-indicator {
     -fx-background-color: #ffffff;
-    -fx-min-width: 28;
-    -fx-max-width: 28;
+    -fx-border-color: #ffffff;
 }
 
 .section-title {
