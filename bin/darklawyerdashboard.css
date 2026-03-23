@@ -1,0 +1,213 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.page-root {
+    -fx-background-color: #111111;
+}
+
+.header {
+    -fx-background-color: linear-gradient(to top, #151515, #1e1e1e);
+    -fx-border-color: transparent transparent #2d2d2d transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.brand-text {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #ffffff;
+}
+
+.sidebar-pane {
+    -fx-background-color: #111111;
+    -fx-border-color: transparent #2d2d2d transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.content-pane {
+    -fx-background-color: #151515;
+}
+
+.section-title-left {
+    -fx-font-size: 24px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f2f2f2;
+}
+
+.page-title-right {
+    -fx-font-size: 28px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #ffffff;
+}
+
+.subsection-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f1f1f1;
+}
+
+.profile-photo-holder {
+    -fx-background-color: #232323;
+    -fx-background-radius: 22;
+    -fx-border-radius: 22;
+    -fx-border-color: #2f2f2f;
+    -fx-border-width: 1;
+    -fx-alignment: center;
+    -fx-padding: 0;
+}
+
+.info-card {
+    -fx-background-color: rgba(24, 24, 24, 0.97);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #2b2b2b;
+    -fx-border-width: 1;
+    -fx-padding: 20;
+    -fx-spacing: 14;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.16), 18, 0.16, 0, 5);
+}
+
+.info-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #d9d9d9;
+    -fx-line-spacing: 2px;
+}
+
+.dashboard-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.dashboard-scroll>.viewport {
+    -fx-background-color: transparent;
+}
+
+.dashboard-scroll>.corner {
+    -fx-background-color: transparent;
+}
+
+.appointments-container {
+    -fx-background-color: transparent;
+    -fx-padding: 2 2 2 2;
+}
+
+.appointment-card {
+    -fx-background-color: rgba(24, 24, 24, 0.98);
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-border-color: #2b2b2b;
+    -fx-border-width: 1;
+    -fx-padding: 18;
+    -fx-spacing: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.16), 16, 0.15, 0, 4);
+}
+
+.previous-card {
+    -fx-background-color: #1c1c1c;
+}
+
+.appointment-client {
+    -fx-font-size: 16px;
+    -fx-font-weight: 800;
+    -fx-text-fill: #f4f4f4;
+}
+
+.appointment-meta {
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-text-fill: #b8b8b8;
+}
+
+.appointment-status {
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #ffffff;
+}
+
+.primary-button {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 9 16 9 16;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.primary-button:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+.secondary-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 9 16 9 16;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+.danger-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 9 16 9 16;
+    -fx-font-size: 14px;
+    -fx-font-weight: 700;
+    -fx-cursor: hand;
+}
+
+.danger-button:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+.theme-toggle-btn {
+    -fx-background-color: transparent;
+    -fx-border-color: #ffffff;
+    -fx-border-width: 2;
+    -fx-border-radius: 21;
+    -fx-background-radius: 21;
+    -fx-cursor: hand;
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+.theme-toggle-btn:hover {
+    -fx-background-color: #ffffff;
+}
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #3c3c3c;
+    -fx-background-radius: 10;
+}
+
+.scroll-bar:vertical .track,
+.scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+}
