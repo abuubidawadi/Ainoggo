@@ -1,4 +1,3 @@
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -9,9 +8,9 @@ public class database {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             return DriverManager.getConnection(
-                "jdbc:mysql://shortline.proxy.rlwy.net:29795/railway?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true",
+                "jdbc:mysql://crossover.proxy.rlwy.net:27408/railway?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true",
                 "root",
-                "BXKpsykeNGzLyiyYxNyqEQGwOtgLACeW"
+                "IgcmcGlSPEswVxgRhrNKhMdsUguxcYUh"
             );
 
         } catch (Exception e) {
