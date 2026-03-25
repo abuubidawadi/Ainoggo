@@ -191,7 +191,6 @@ public class LawyerEnterSceneController {
     private ImageView uploaded_img;
 
     private Alert alert;
-    
 
     private Connection connect;
     private PreparedStatement prepare;
@@ -457,9 +456,32 @@ dialog.setOnShown(e -> {
             controller.setLawyerUsername(currentLawyerUsername);
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root, 1000, 650));
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darklawyerdashboard.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("lawyerdashboard.css").toExternalForm());
+            }
+
+            stage.setScene(scene);
             stage.setTitle("Ainoggo - Lawyer Dashboard");
-            stage.setResizable(false);
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
             stage.show();
 
         } catch (Exception e) {
