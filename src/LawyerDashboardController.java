@@ -75,6 +75,9 @@ public class LawyerDashboardController {
     private Label lawFirmLabel;
 
     @FXML
+    private Label officeAddressLabel;
+
+    @FXML
     private Label feeLabel;
 
     @FXML
@@ -127,7 +130,7 @@ public class LawyerDashboardController {
     }
 
     private void loadLawyerProfile() {
-        String sql = "SELECT name, email, specialization, exp_years, bar_reg_no, law_firm, fee, bio, photo "
+        String sql = "SELECT name, email, specialization, exp_years, bar_reg_no, law_firm, office_address, fee, bio, photo "
                 + "FROM lawyers WHERE username = ?";
 
         try (Connection con = database.connectDB();
@@ -142,6 +145,7 @@ public class LawyerDashboardController {
                     specializationLabel.setText("Specialization: " + safe(rs.getString("specialization")));
                     experienceLabel.setText("Experience: " + safe(rs.getString("exp_years")) + " Years");
                     barIdLabel.setText("Bar ID: " + safe(rs.getString("bar_reg_no")));
+                    officeAddressLabel.setText("Office Adress: " + safe(rs.getString("office_address")));
                     lawFirmLabel.setText("Law Firm: " + safe(rs.getString("law_firm")));
 
                     Object feeObj = rs.getObject("fee");

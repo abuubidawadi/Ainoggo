@@ -59,6 +59,9 @@ public class editProfileLawyerController {
     private TextField law_firm;
 
     @FXML
+    private TextField office_adress;
+
+    @FXML
     private TextArea lawyer_bio;
 
     @FXML
@@ -137,6 +140,7 @@ public class editProfileLawyerController {
                 bar_reg_no.setText(rs.getString("bar_reg_no"));
                 exp_yr.setText(rs.getString("exp_years"));
                 law_firm.setText(rs.getString("law_firm"));
+                office_address.setText(rs.getString("office_address"));
                 consult_fee.setText(String.valueOf(rs.getDouble("fee")));
                 lawyer_bio.setText(rs.getString("bio"));
                 spec_area.setValue(rs.getString("specialization"));
@@ -221,7 +225,7 @@ public class editProfileLawyerController {
             }
         }
 
-        String sql = "UPDATE lawyers SET name=?, email=?, specialization=?, exp_years=?, law_firm=?, fee=?, bio=?"
+        String sql = "UPDATE lawyers SET name=?, email=?, specialization=?, exp_years=?, law_firm=?, office_adress=? fee=?, bio=?"
                 + (photoName != null ? ", photo=?" : "") + " WHERE username=?";
 
         try (Connection con = database.connectDB();
@@ -230,14 +234,15 @@ public class editProfileLawyerController {
             ps.setString(2, email.getText());
             ps.setString(3, spec_area.getValue());
             ps.setString(4, exp_yr.getText());
-            ps.setString(5, law_firm.getText());
-            ps.setDouble(6, Double.parseDouble(consult_fee.getText()));
-            ps.setString(7, lawyer_bio.getText());
+            ps.setString(5, office_address.getText());
+            ps.setString(6, law_firm.getText());
+            ps.setDouble(7, Double.parseDouble(consult_fee.getText()));
+            ps.setString(8, lawyer_bio.getText());
             if (photoName != null) {
-                ps.setString(8, photoName);
-                ps.setString(9, lawyerUsername);
+                ps.setString(9, photoName);
+                ps.setString(10, lawyerUsername);
             } else {
-                ps.setString(8, lawyerUsername);
+                ps.setString(9, lawyerUsername);
             }
             ps.executeUpdate();
             // showInfo("Profile updated successfully!");

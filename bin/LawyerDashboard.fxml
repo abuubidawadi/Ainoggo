@@ -71,6 +71,7 @@
                                                 <Label fx:id="experienceLabel" text="Experience: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="barIdLabel" text="Bar ID: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="lawFirmLabel" text="Law Firm: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="officeAddressLabel" text="Office Adress: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="feeLabel" text="Fee: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="bioLabel" text="Bio: -" styleClass="info-label" wrapText="true" />
                                             </children>
