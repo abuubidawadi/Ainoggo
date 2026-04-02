@@ -102,22 +102,22 @@ public class UserProfileController {
 
     private void loadProfile() {
         // String sql = "SELECT name, username, email"
-        //       + "FROM users WHERE username = ?";
+        // + "FROM users WHERE username = ?";
 
         // try (Connection con = database.connectDB();
-        //         PreparedStatement ps = con.prepareStatement(sql)) {
+        // PreparedStatement ps = con.prepareStatement(sql)) {
 
-        //     ps.setString(1, username);
+        // ps.setString(1, username);
 
-            // try (ResultSet rs = ps.executeQuery()) {
-            //     if (rs.next()) {
-            //         nameLabel.setText("Name: " + name);
-            //         usernameLabel.setText("Username: " + username);
-            //         emailLabel.setText("Email: " + email);
-            //     } else {
-            //         showError("profile not found.");
-            //     }
-            // }
+        // try (ResultSet rs = ps.executeQuery()) {
+        // if (rs.next()) {
+        // nameLabel.setText("Name: " + name);
+        // usernameLabel.setText("Username: " + username);
+        // emailLabel.setText("Email: " + email);
+        // } else {
+        // showError("profile not found.");
+        // }
+        // }
 
         try {
             nameLabel.setText("Name: " + safe(name));
@@ -221,10 +221,11 @@ public class UserProfileController {
         upcomingContainer.getChildren().clear();
         previousContainer.getChildren().clear();
 
-        String sql = "SELECT a.id, a.user_username, a.date, a.time, a.status "
+        // Query adjusted to fetch Lawyer Name based on the User's username
+        String sql = "SELECT a.id, l.name AS lawyer_name, a.date, a.time, a.status "
                 + "FROM appointments a "
                 + "JOIN lawyers l ON l.id = a.lawyer_id "
-                + "WHERE l.username = ? "
+                + "WHERE a.user_username = ? "
                 + "ORDER BY a.date ASC, a.time ASC";
 
         try (Connection con = database.connectDB();
@@ -235,7 +236,7 @@ public class UserProfileController {
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
                     int appointmentId = rs.getInt("id");
-                    String client = rs.getString("user_username");
+                    String lawyerName = rs.getString("lawyer_name");
                     String date = rs.getString("date");
                     String time = rs.getString("time");
                     String status = rs.getString("status");
@@ -244,17 +245,16 @@ public class UserProfileController {
 
                     if (isPast) {
                         previousContainer.getChildren().add(0,
-                                createPreviousCard(client, date, time, status));
+                                createPreviousCard(lawyerName, date, time, status));
                     } else {
                         upcomingContainer.getChildren().add(
-                                createUpcomingCard(appointmentId, client, date, time, status));
+                                createUpcomingCard(appointmentId, lawyerName, date, time, status));
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
-            showError("Could not load appointments.");
+            showError("Could not load your appointments.");
         }
     }
 
@@ -300,12 +300,12 @@ public class UserProfileController {
         }
     }
 
-    private VBox createUpcomingCard(int appointmentId, String client, String date, String time, String status) {
+    private VBox createUpcomingCard(int appointmentId, String lawyerName, String date, String time, String status) {
         VBox card = new VBox(8);
         card.getStyleClass().add("appointment-card");
 
-        Label clientLabel = new Label(client);
-        clientLabel.getStyleClass().add("appointment-client");
+        Label lawyerLabel = new Label("Lawyer: " + lawyerName);
+        lawyerLabel.getStyleClass().add("appointment-client"); // Reusing style class for consistency
 
         Label dateLabel = new Label("Date: " + date);
         dateLabel.getStyleClass().add("appointment-meta");
@@ -316,38 +316,16 @@ public class UserProfileController {
         Label statusLabel = new Label("Status: " + status);
         statusLabel.getStyleClass().add("appointment-status");
 
-        card.getChildren().addAll(clientLabel, dateLabel, timeLabel, statusLabel);
-
-        if ("Pending".equalsIgnoreCase(status)) {
-            Button acceptBtn = new Button("Accept");
-            Button rejectBtn = new Button("Reject");
-
-            acceptBtn.getStyleClass().add("primary-button");
-            rejectBtn.getStyleClass().add("secondary-button");
-
-            acceptBtn.setOnAction(e -> {
-                updateAppointmentStatus(appointmentId, "Accepted");
-                loadAppointments();
-            });
-
-            rejectBtn.setOnAction(e -> {
-                updateAppointmentStatus(appointmentId, "Rejected");
-                loadAppointments();
-            });
-
-            HBox buttonBox = new HBox(10, acceptBtn, rejectBtn);
-            card.getChildren().add(buttonBox);
-        }
-
+        card.getChildren().addAll(lawyerLabel, dateLabel, timeLabel, statusLabel);
         return card;
     }
 
-    private VBox createPreviousCard(String client, String date, String time, String status) {
+    private VBox createPreviousCard(String lawyerName, String date, String time, String status) {
         VBox card = new VBox(8);
         card.getStyleClass().addAll("appointment-card", "previous-card");
 
-        Label clientLabel = new Label(client);
-        clientLabel.getStyleClass().add("appointment-client");
+        Label lawyerLabel = new Label("Lawyer: " + lawyerName);
+        lawyerLabel.getStyleClass().add("appointment-client");
 
         Label dateLabel = new Label("Date: " + date);
         dateLabel.getStyleClass().add("appointment-meta");
@@ -358,25 +336,8 @@ public class UserProfileController {
         Label statusLabel = new Label("Status: " + status);
         statusLabel.getStyleClass().add("appointment-status");
 
-        card.getChildren().addAll(clientLabel, dateLabel, timeLabel, statusLabel);
-
+        card.getChildren().addAll(lawyerLabel, dateLabel, timeLabel, statusLabel);
         return card;
-    }
-
-    private void updateAppointmentStatus(int appointmentId, String newStatus) {
-        String sql = "UPDATE appointments SET status = ? WHERE id = ?";
-
-        try (Connection con = database.connectDB();
-                PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, newStatus);
-            ps.setInt(2, appointmentId);
-            ps.executeUpdate();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            showError("Could not update appointment status.");
-        }
     }
 
     private String safe(String s) {
