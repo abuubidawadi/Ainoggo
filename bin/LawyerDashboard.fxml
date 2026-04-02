@@ -29,7 +29,7 @@
             <Region HBox.hgrow="ALWAYS"/>
 
 
-            <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" prefHeight="42.0" prefWidth="78.0" text="Logout" styleClass="danger-button" />
+            <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" prefHeight="42.0" text="Logout" styleClass="danger-button" />
             <Button fx:id="themeToggleButton" mnemonicParsing="false" onAction="#toggleTheme" prefHeight="42.0" prefWidth="42.0" styleClass="theme-toggle-btn">
                 <graphic>
                     <ImageView fx:id="themeToggleIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
@@ -45,31 +45,42 @@
                 <VBox alignment="TOP_CENTER" spacing="22.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="28.0">
 
                     <children>
-                        <Label text="Profile" styleClass="section-title-left" />
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" VBox.vgrow="ALWAYS" styleClass="profile-scroll" vbarPolicy="AS_NEEDED">
+                            <content>
+                                <VBox fx:id="profileContainer" spacing="15.0" prefHeight="-1.0" alignment="TOP_CENTER" styleClass="profile-container">
+                                    <padding>
+                                        <Insets top="0" right="0" bottom="0" left="0"/>
+                                    </padding>
+                                    <children>
+                                        <Label text="Profile" styleClass="section-title-left" />
 
-                        <StackPane fx:id="photoHolder" maxHeight="160.0" maxWidth="160.0" minHeight="160.0" minWidth="160.0" prefHeight="160.0" prefWidth="160.0" styleClass="profile-photo-holder">
-                            <children>
-                                <ImageView fx:id="lawyerImageView" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="false" smooth="true" />
-                            </children>
-                        </StackPane>
+                                        <StackPane fx:id="photoHolder" maxHeight="160.0" maxWidth="160.0" minHeight="160.0" minWidth="160.0" prefHeight="160.0" prefWidth="160.0" styleClass="profile-photo-holder">
+                                            <children>
+                                                <ImageView fx:id="lawyerImageView" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="false" smooth="true" />
+                                            </children>
+                                        </StackPane>
 
-                        <VBox maxWidth="280.0" spacing="14.0" styleClass="info-card">
-                            <padding>
-                                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
-                            </padding>
-                            <children>
-                                <Label fx:id="nameLabel" text="Name: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="emailLabel" text="Email: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="specializationLabel" text="Specialization: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="experienceLabel" text="Experience: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="barIdLabel" text="Bar ID: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="lawFirmLabel" text="Law Firm: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="feeLabel" text="Fee: -" styleClass="info-label" wrapText="true" />
-                                <Label fx:id="bioLabel" text="Bio: -" styleClass="info-label" wrapText="true" />
-                            </children>
-                        </VBox>
+                                        <VBox maxWidth="280.0" spacing="14.0" styleClass="info-card">
+                                            <padding>
+                                                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+                                            </padding>
+                                            <children>
+                                                <Label fx:id="nameLabel" text="Name: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="emailLabel" text="Email: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="specializationLabel" text="Specialization: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="experienceLabel" text="Experience: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="barIdLabel" text="Bar ID: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="lawFirmLabel" text="Law Firm: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="feeLabel" text="Fee: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="bioLabel" text="Bio: -" styleClass="info-label" wrapText="true" />
+                                            </children>
+                                        </VBox>
 
-                        <Button fx:id="editProfileBtn" mnemonicParsing="false" onAction="#editProfile" prefHeight="42.0" prefWidth="150.0" text="Edit Profile" styleClass="primary-button" />
+                                        <Button fx:id="editProfileBtn" mnemonicParsing="false" onAction="#editProfile" prefHeight="42.0" prefWidth="150.0" text="Edit Profile" styleClass="primary-button" />
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
                     </children>
                 </VBox>
             </children>

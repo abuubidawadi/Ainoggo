@@ -176,15 +176,19 @@
     -fx-text-fill: #000000;
 }
 
+.profile-container {
+    -fx-background-color: transparent;
+}
+
 .danger-button {
     -fx-background-color: transparent;
     -fx-text-fill: #ffffff;
-    -fx-border-color: #ffffff;
+    -fx-border-color: transparent;
     -fx-border-width: 2;
     -fx-border-radius: 12;
     -fx-background-radius: 12;
     -fx-padding: 9 16 9 16;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: 700;
     -fx-cursor: hand;
 }
@@ -223,4 +227,38 @@
 .scroll-bar:vertical .track,
 .scroll-bar:horizontal .track {
     -fx-background-color: transparent;
+}
+
+.profile-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-fit-to-width: true;
+
+}
+
+.profile-scroll>.viewport {
+    -fx-background-color: transparent;
+}
+
+.profile-scroll .scroll-bar:vertical {
+    -fx-pref-width: 0;
+    -fx-opacity: 0;
+}
+
+.profile-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
+.profile-scroll .thumb {
+    -fx-background-color: rgba(0, 0, 0, 0.65);
+    -fx-background-radius: 10;
+}
+
+.profile-scroll .increment-button,
+.profile-scroll .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }

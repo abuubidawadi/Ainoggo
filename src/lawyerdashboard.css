@@ -180,12 +180,12 @@
 .danger-button {
     -fx-background-color: transparent;
     -fx-text-fill: #111111;
-    -fx-border-color: #111111;
+    -fx-border-color: transparent;
     -fx-border-width: 2;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
     -fx-padding: 8 16 8 16;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: 700;
     -fx-cursor: hand;
     -fx-text-alignment: center;
@@ -231,4 +231,38 @@
 .scroll-bar:vertical .track,
 .scroll-bar:horizontal .track {
     -fx-background-color: transparent;
+}
+
+.profile-scroll {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-fit-to-width: true;
+
+}
+
+.profile-scroll>.viewport {
+    -fx-background-color: transparent;
+}
+
+.profile-scroll .scroll-bar:vertical {
+    -fx-pref-width: 0;
+    -fx-opacity: 0;
+}
+
+.profile-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
+.profile-scroll .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.65);
+    -fx-background-radius: 10;
+}
+
+.profile-scroll .increment-button,
+.profile-scroll .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }

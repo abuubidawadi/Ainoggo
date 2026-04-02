@@ -305,7 +305,7 @@ public class UserProfileController {
         card.getStyleClass().add("appointment-card");
 
         Label lawyerLabel = new Label("Lawyer: " + lawyerName);
-        lawyerLabel.getStyleClass().add("appointment-client"); // Reusing style class for consistency
+        lawyerLabel.getStyleClass().add("appointment-client"); 
 
         Label dateLabel = new Label("Date: " + date);
         dateLabel.getStyleClass().add("appointment-meta");

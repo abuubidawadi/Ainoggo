@@ -1,0 +1,395 @@
+.root {
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* ---------------- PAGE ---------------- */
+
+.page-root {
+    -fx-background-color: #f7f7f7;
+}
+
+.header {
+    -fx-background-color: linear-gradient(to top, #ebebeb, #ffffff);
+    -fx-border-color: transparent transparent #d9d9d9 transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* ---------------- FULL BACKGROUND HERO ---------------- */
+
+.auth-body {
+    -fx-alignment: center;
+    -fx-spacing: 0;
+    -fx-fill-height: true;
+}
+
+.auth-hero {
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+}
+
+
+.hero-text-box {
+    -fx-alignment: center;
+    -fx-padding: 60 40 60 70;
+    -fx-max-width: 520;
+}
+
+.hero-text-right-box {
+    -fx-alignment: center;
+    -fx-padding: 60 70 60 40;
+    -fx-max-width: 500;
+}
+
+.overlay-title {
+    -fx-text-fill: white;
+    -fx-font-size: 34px;
+    -fx-font-weight: 800;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+
+.floating-form-wrapper {
+    -fx-padding: 40 70 40 70;
+    -fx-alignment: center;
+}
+
+.floating-form-left-wrapper {
+    -fx-padding: 40 40 40 40;
+    -fx-alignment: center;
+}
+
+.floating-right-text-wrapper {
+    -fx-padding: 0;
+    -fx-alignment: center;
+}
+
+/* ---------------- FORM CARD ---------------- */
+
+.form-card {
+    -fx-background-color: rgba(255, 255, 255, 0.96);
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+    -fx-padding: 36;
+    -fx-spacing: 16;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 28, 0.18, 0, 8);
+}
+
+.form-title {
+    -fx-text-fill: #1f1f1f;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+    -fx-padding: 0 0 12 0;
+}
+
+/* ---------------- INPUTS ---------------- */
+
+.auth-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 0 14 0 14;
+}
+
+.auth-input:focused {
+    -fx-border-color: #000000;
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.login-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;
+    -fx-cursor: hand;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 20 10 20;
+}
+
+.login-button:hover {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+}
+
+.save-button {
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+
+    -fx-font-size: 18px;
+    -fx-font-weight: 700;
+    -fx-padding: 10 20 10 20;
+
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+}
+
+.save-button:hover {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+
+    -fx-border-color: #000000;
+    -fx-border-width: 2;
+
+    -fx-background-radius: 10;
+    -fx-border-radius: 8;
+
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+}
+
+/* ---------------- LINKS ---------------- */
+
+.hyperlink {
+    -fx-underline: false;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+.hyperlink:hover {
+    -fx-underline: false;
+    -fx-text-fill: #303030;
+}
+
+.hyperlink:focused {
+    -fx-border-color: transparent;
+    -fx-underline: false;
+}
+
+
+/* ---------------- SCROLLPANE ---------------- */
+
+.form-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-fit-to-width: true;
+}
+
+.form-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.form-scroll .scroll-bar:vertical {
+    -fx-pref-width: 0;
+    -fx-opacity: 0;
+}
+
+.form-scroll .scroll-bar:horizontal {
+    -fx-pref-height: 0;
+    -fx-opacity: 0;
+}
+
+.form-scroll .thumb {
+    -fx-background-color: rgba(255,255,255,0.65);
+    -fx-background-radius: 10;
+}
+
+.form-scroll .increment-button,
+.form-scroll .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* ---------------- SAFE OLD CLASSES ---------------- */
+
+.right {
+    -fx-background-color: #ffffff;
+}
+
+.left {
+    -fx-background-color: #000000;
+}
+
+.combo-box {
+    -fx-text-fill: #000000;
+    -fx-font-size: 17px;
+}
+
+.cancel {
+    -fx-text-fill: #000000;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 2;
+    -fx-cursor: hand;
+    -fx-font-size: 17px;
+    -fx-font-weight: 600;
+    -fx-padding: 6 14 6 14;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    /* -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent; */
+}
+
+.cancel:hover {
+    -fx-background-color: #000000;
+    -fx-text-fill: #ffffff;
+}
+
+.theme-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 50;
+    -fx-border-radius: 50;
+    -fx-cursor: hand;
+    -fx-padding: 6;
+    -fx-translate-x: 8;
+}
+
+.theme-button:hover {
+    -fx-background-color: rgba(0, 0, 0, 0.08);
+}
+
+.step-text {
+    -fx-fill: white;
+    -fx-font-size: 15px;
+}
+
+.preview-avatar {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 12, 0.2, 0, 2);
+    -fx-background-radius: 999;
+    -fx-border-radius: 999;
+}
+
+.combo-box.auth-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.root {
+    -fx-background-color: #f5f6f8;
+}
+
+.page-wrap {
+    -fx-background-color: #f5f6f8;
+    -fx-padding: 34 42 34 42;
+}
+
+.page-card {
+    -fx-background-color: transparent;
+    -fx-padding: 6 0 6 0;
+}
+
+.pane {
+    -fx-padding: 6 0 6 0;
+}
+
+.page-title {
+    -fx-text-fill: #1b1b1b;
+    -fx-font-size: 24px;
+    -fx-font-weight: 700;
+}
+
+.page-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 0 14 0 14;
+    -fx-font-size: 17px;
+}
+
+.photo-preview-box {
+    -fx-background-color: #eceff3;
+    -fx-border-color: #d7dce4;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 18;
+    -fx-background-radius: 18;
+    -fx-padding: 0;
+    -fx-alignment: center;
+    -fx-overflow: hidden;
+}
+
+.preview-avatar-square {
+    -fx-background-radius: 18;
+    -fx-border-radius: 18;
+}
+
+.bio-area {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #9a9a9a;
+    -fx-padding: 10 12 10 12;
+}
+
+.bio-area,
+.bio-area .viewport,
+.bio-area .content {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 12;
+}
+
+.bio-area .scroll-pane,
+.bio-area .scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.combo-box.page-input,
+.combo-box.auth-input {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d7d7d7;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #1f1f1f;
+    -fx-border-color: #3a3a3a;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: #1f1f1f;
+    -fx-text-fill: #f2f2f2;
+    -fx-padding: 10 14 10 14;
+    -fx-font-size: 17px;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: #2b2b2b;
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box-popup .list-cell:filled:selected,
+.combo-box-popup .list-cell:filled:selected:hover {
+    -fx-background-color: #353535;
+    -fx-text-fill: #ffffff;
+}
+
+.combo-box.page-input .list-cell {
+    -fx-font-size: 17px;
+}

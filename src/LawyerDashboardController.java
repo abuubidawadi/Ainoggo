@@ -462,10 +462,51 @@ public class LawyerDashboardController {
 
     @FXML
     private void editProfile(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setTitle("Edit Profile");
-        a.setHeaderText(null);
-        a.setContentText("Edit profile page will be connected next.");
-        a.showAndWait();
+        // Alert a = new Alert(Alert.AlertType.INFORMATION);
+        // a.setTitle("Edit Profile");
+        // a.setHeaderText(null);
+        // a.setContentText("Edit profile page will be connected next.");
+        // a.showAndWait();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editProfileLawyer.fxml"));
+            Parent root = loader.load();
+
+            editProfileLawyerController controller = loader.getController();
+            controller.setLawyerUsername(lawyerUsername);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darkeditprofile.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("editprofile.css").toExternalForm());
+            }
+
+            stage.setScene(scene);
+            stage.setTitle("Ainoggo");
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showError("Could not open lawyer dashboard.");
+        }
     }
 }
