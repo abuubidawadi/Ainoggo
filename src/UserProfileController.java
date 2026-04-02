@@ -30,13 +30,10 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Node;
 
-public class LawyerDashboardController {
+public class UserProfileController {
 
     @FXML
     private BorderPane rootPane;
-
-    @FXML
-    private ImageView lawyerImageView;
 
     @FXML
     private ImageView themeToggleIcon;
@@ -45,13 +42,13 @@ public class LawyerDashboardController {
     private ImageView brandLogo;
 
     @FXML
-    private StackPane photoHolder;
-
-    @FXML
     private Button themeToggleButton;
 
     @FXML
     private Button logoutBtn;
+
+    @FXML
+    private Button dashboardBtn;
 
     @FXML
     private Button editProfileBtn;
@@ -60,25 +57,10 @@ public class LawyerDashboardController {
     private Label nameLabel;
 
     @FXML
+    private Label usernameLabel;
+
+    @FXML
     private Label emailLabel;
-
-    @FXML
-    private Label specializationLabel;
-
-    @FXML
-    private Label experienceLabel;
-
-    @FXML
-    private Label barIdLabel;
-
-    @FXML
-    private Label lawFirmLabel;
-
-    @FXML
-    private Label feeLabel;
-
-    @FXML
-    private Label bioLabel;
 
     @FXML
     private VBox upcomingContainer;
@@ -86,16 +68,12 @@ public class LawyerDashboardController {
     @FXML
     private VBox previousContainer;
 
-    @FXML
-    private Label phoneLabel;
+    private String username;
+    private String name;
+    private String email;
 
-    @FXML
-    private Label addressLabel;
-
-    private String lawyerUsername;
-
-    private final String LIGHT_CSS = getClass().getResource("lawyerdashboard.css").toExternalForm();
-    private final String DARK_CSS = getClass().getResource("darklawyerdashboard.css").toExternalForm();
+    private final String LIGHT_CSS = getClass().getResource("userprofile.css").toExternalForm();
+    private final String DARK_CSS = getClass().getResource("darkuserprofile.css").toExternalForm();
 
     private final String DARK_ICON = getClass().getResource("/images/dark.png").toExternalForm();
     private final String LIGHT_ICON = getClass().getResource("/images/white.png").toExternalForm();
@@ -106,12 +84,6 @@ public class LawyerDashboardController {
     @FXML
     public void initialize() {
         Platform.runLater(() -> {
-            Rectangle clip = new Rectangle();
-            clip.setArcWidth(44);
-            clip.setArcHeight(44);
-            clip.widthProperty().bind(lawyerImageView.fitWidthProperty());
-            clip.heightProperty().bind(lawyerImageView.fitHeightProperty());
-            lawyerImageView.setClip(clip);
 
             themeToggleButton.setStyle("-fx-alignment: center-right; -fx-padding: 10px;");
             logoutBtn.setStyle("-fx-alignment: center-right; -fx-padding: 10px;");
@@ -120,66 +92,42 @@ public class LawyerDashboardController {
         });
     }
 
-    public void setLawyerUsername(String lawyerUsername) {
-        this.lawyerUsername = lawyerUsername;
-        loadLawyerProfile();
+    public void setLoggedUser(String username, String name, String email) {
+        this.username = username;
+        this.name = name;
+        this.email = email;
+        loadProfile();
         loadAppointments();
     }
 
-    private void loadLawyerProfile() {
-        String sql = "SELECT name, email, specialization, exp_years, bar_reg_no, law_firm, fee, bio, photo "
-                + "FROM lawyers WHERE username = ?";
+    private void loadProfile() {
+        // String sql = "SELECT name, username, email"
+        //       + "FROM users WHERE username = ?";
 
-        try (Connection con = database.connectDB();
-                PreparedStatement ps = con.prepareStatement(sql)) {
+        // try (Connection con = database.connectDB();
+        //         PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, lawyerUsername);
+        //     ps.setString(1, username);
 
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    nameLabel.setText("Name: " + safe(rs.getString("name")));
-                    emailLabel.setText("Email: " + safe(rs.getString("email")));
-                    specializationLabel.setText("Specialization: " + safe(rs.getString("specialization")));
-                    experienceLabel.setText("Experience: " + safe(rs.getString("exp_years")) + " Years");
-                    barIdLabel.setText("Bar ID: " + safe(rs.getString("bar_reg_no")));
-                    lawFirmLabel.setText("Law Firm: " + safe(rs.getString("law_firm")));
+            // try (ResultSet rs = ps.executeQuery()) {
+            //     if (rs.next()) {
+            //         nameLabel.setText("Name: " + name);
+            //         usernameLabel.setText("Username: " + username);
+            //         emailLabel.setText("Email: " + email);
+            //     } else {
+            //         showError("profile not found.");
+            //     }
+            // }
 
-                    Object feeObj = rs.getObject("fee");
-                    feeLabel.setText(feeObj == null ? "Fee: Tk. -"
-                            : String.format("Fee: Tk. %.0f / session", rs.getDouble("fee")));
-
-                    bioLabel.setText("Bio: " + safe(rs.getString("bio")));
-
-                    String photo = rs.getString("photo");
-                    Image image = loadLawyerImage(photo);
-                    lawyerImageView.setImage(image);
-                    applyCenterSquareCrop(lawyerImageView, image, 160);
-                } else {
-                    showError("Lawyer profile not found.");
-                }
-            }
+        try {
+            nameLabel.setText("Name: " + safe(name));
+            usernameLabel.setText("Username: " + safe(username));
+            emailLabel.setText("Email: " + safe(email));
 
         } catch (Exception e) {
             e.printStackTrace();
-            showError("Could not load lawyer profile.");
+            showError("Could not load profile.");
         }
-    }
-
-    private void applyCenterSquareCrop(ImageView imageView, Image image, double size) {
-        if (image == null)
-            return;
-
-        double imageWidth = image.getWidth();
-        double imageHeight = image.getHeight();
-        double squareSide = Math.min(imageWidth, imageHeight);
-
-        double x = (imageWidth - squareSide) / 2;
-        double y = (imageHeight - squareSide) / 2;
-
-        imageView.setViewport(new Rectangle2D(x, y, squareSide, squareSide));
-        imageView.setFitWidth(size);
-        imageView.setFitHeight(size);
-        imageView.setPreserveRatio(false);
     }
 
     @FXML
@@ -226,6 +174,49 @@ public class LawyerDashboardController {
         }
     }
 
+    @FXML
+    private void gotoDashboard(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
+            Parent root = loader.load();
+
+            UserDashboardController controller = loader.getController();
+            controller.setLoggedUser(username, name, email);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            double width = stage.getWidth();
+            double height = stage.getHeight();
+            double x = stage.getX();
+            double y = stage.getY();
+            boolean maximized = stage.isMaximized();
+
+            Scene scene = new Scene(root);
+            scene.getStylesheets().clear();
+
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darkdashboard.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
+            }
+
+            stage.setScene(scene);
+            stage.setTitle("Ainoggo");
+            stage.setMinWidth(1000);
+            stage.setMinHeight(650);
+            stage.setWidth(width);
+            stage.setHeight(height);
+            stage.setX(x);
+            stage.setY(y);
+            stage.setMaximized(maximized);
+            stage.setResizable(true);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            showError("Could not go to dashboard. Check terminal.");
+        }
+    }
+
     private void loadAppointments() {
         upcomingContainer.getChildren().clear();
         previousContainer.getChildren().clear();
@@ -239,7 +230,7 @@ public class LawyerDashboardController {
         try (Connection con = database.connectDB();
                 PreparedStatement ps = con.prepareStatement(sql)) {
 
-            ps.setString(1, lawyerUsername);
+            ps.setString(1, username);
 
             try (ResultSet rs = ps.executeQuery()) {
                 while (rs.next()) {
@@ -386,31 +377,6 @@ public class LawyerDashboardController {
             e.printStackTrace();
             showError("Could not update appointment status.");
         }
-    }
-
-    private Image loadLawyerImage(String photoFromDb) {
-        if (photoFromDb == null || photoFromDb.trim().isEmpty()) {
-            InputStream is = getClass().getResourceAsStream("/images/anonymous.png");
-            return new Image(is);
-        }
-
-        String photo = photoFromDb.trim().replace("\\", "/");
-        if (photo.contains("/")) {
-            photo = photo.substring(photo.lastIndexOf("/") + 1);
-        }
-
-        File f = new File("uploaded_photos/" + photo);
-        if (f.exists()) {
-            return new Image(f.toURI().toString());
-        }
-
-        InputStream is2 = getClass().getResourceAsStream("/images/lawyers/" + photo);
-        if (is2 != null) {
-            return new Image(is2);
-        }
-
-        InputStream is3 = getClass().getResourceAsStream("/images/anonymous.png");
-        return new Image(is3);
     }
 
     private String safe(String s) {

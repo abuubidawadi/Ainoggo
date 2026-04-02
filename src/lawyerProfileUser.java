@@ -420,7 +420,7 @@ public class lawyerProfileUser {
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setTitle("Appointment Booked");
             a.setHeaderText(null);
-            a.setContentText("Appointment booked successfully.");
+            a.setContentText("Appointment booking request sent.");
             a.showAndWait();
 
             date_picker.setValue(null);

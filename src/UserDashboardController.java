@@ -67,6 +67,8 @@ public class UserDashboardController {
     private ImageView brandLogo;
     @FXML
     private StackPane sliderContainer;
+    @FXML
+    private Button profileButton;
 
     private Image currentSliderImage;
 
@@ -435,75 +437,112 @@ public void initialize() {
         return (s == null || s.trim().isEmpty()) ? "-" : s.trim();
     }
 
+    // @FXML
+    // private void showProfile(ActionEvent event) {
+    //     if (loggedUsername == null || loggedUsername.trim().isEmpty()) {
+    //         Alert a = new Alert(Alert.AlertType.ERROR);
+    //         a.setTitle("My Profile");
+    //         a.setHeaderText(null);
+    //         a.setContentText("User not found. Please login again.");
+    //         a.showAndWait();
+    //         return;
+    //     }
+
+    //     StringBuilder sb = new StringBuilder();
+
+    //     sb.append("Full Name: ").append(loggedName == null ? "-" : loggedName).append("\n");
+    //     sb.append("Username: ").append(loggedUsername).append("\n");
+    //     sb.append("Email: ").append(loggedEmail == null ? "-" : loggedEmail).append("\n\n");
+
+    //     sb.append("===== My Appointments =====\n\n");
+
+    //     String sql = "SELECT a.id, a.`date`, a.`time`, a.status, l.name AS lawyer_name, l.specialization, l.law_firm " +
+    //             "FROM appointments a " +
+    //             "JOIN lawyers l ON l.id = a.lawyer_id " +
+    //             "WHERE a.user_username = ? " +
+    //             "ORDER BY a.`date` DESC, a.`time` DESC";
+
+    //     try (Connection con = database.connectDB();
+    //             PreparedStatement ps = con.prepareStatement(sql)) {
+
+    //         ps.setString(1, loggedUsername);
+
+    //         try (ResultSet rs = ps.executeQuery()) {
+    //             int count = 0;
+
+    //             while (rs.next()) {
+    //                 count++;
+
+    //                 sb.append(count).append(") ")
+    //                         .append(rs.getString("date")).append("  ")
+    //                         .append(rs.getString("time")).append(" | Lawyer: ")
+    //                         .append(safe(rs.getString("lawyer_name"))).append(" | ")
+    //                         .append(safe(rs.getString("specialization"))).append(" | ")
+    //                         .append(safe(rs.getString("law_firm"))).append(" | Status: ")
+    //                         .append(safe(rs.getString("status")))
+    //                         .append(" | Appointment ID: ")
+    //                         .append(rs.getInt("id"))
+    //                         .append("\n");
+    //             }
+
+    //             if (count == 0) {
+    //                 sb.append("No appointments found.\n");
+    //             }
+    //         }
+
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //         sb.append("\n[Could not load appointments. Check terminal.]\n");
+    //     }
+
+    //     TextArea area = new TextArea(sb.toString());
+    //     area.setEditable(false);
+    //     area.setWrapText(true);
+    //     area.setPrefWidth(520);
+    //     area.setPrefHeight(380);
+
+    //     Alert a = new Alert(Alert.AlertType.INFORMATION);
+    //     a.setTitle("My Profile");
+    //     a.setHeaderText(null);
+    //     a.getDialogPane().setContent(area);
+    //     a.showAndWait();
+    // }
+
     @FXML
-    private void showProfile(ActionEvent event) {
-        if (loggedUsername == null || loggedUsername.trim().isEmpty()) {
-            Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setTitle("My Profile");
-            a.setHeaderText(null);
-            a.setContentText("User not found. Please login again.");
-            a.showAndWait();
-            return;
-        }
+    private void openProfilePage(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("UserProfile.fxml"));
+            Parent root = loader.load();
 
-        StringBuilder sb = new StringBuilder();
+            UserProfileController controller = loader.getController();
+            controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);  
 
-        sb.append("Full Name: ").append(loggedName == null ? "-" : loggedName).append("\n");
-        sb.append("Username: ").append(loggedUsername).append("\n");
-        sb.append("Email: ").append(loggedEmail == null ? "-" : loggedEmail).append("\n\n");
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
 
-        sb.append("===== My Appointments =====\n\n");
-
-        String sql = "SELECT a.id, a.`date`, a.`time`, a.status, l.name AS lawyer_name, l.specialization, l.law_firm " +
-                "FROM appointments a " +
-                "JOIN lawyers l ON l.id = a.lawyer_id " +
-                "WHERE a.user_username = ? " +
-                "ORDER BY a.`date` DESC, a.`time` DESC";
-
-        try (Connection con = database.connectDB();
-                PreparedStatement ps = con.prepareStatement(sql)) {
-
-            ps.setString(1, loggedUsername);
-
-            try (ResultSet rs = ps.executeQuery()) {
-                int count = 0;
-
-                while (rs.next()) {
-                    count++;
-
-                    sb.append(count).append(") ")
-                            .append(rs.getString("date")).append("  ")
-                            .append(rs.getString("time")).append(" | Lawyer: ")
-                            .append(safe(rs.getString("lawyer_name"))).append(" | ")
-                            .append(safe(rs.getString("specialization"))).append(" | ")
-                            .append(safe(rs.getString("law_firm"))).append(" | Status: ")
-                            .append(safe(rs.getString("status")))
-                            .append(" | Appointment ID: ")
-                            .append(rs.getInt("id"))
-                            .append("\n");
-                }
-
-                if (count == 0) {
-                    sb.append("No appointments found.\n");
-                }
+            if (ThemeManager.isDarkMode()) {
+                scene.getStylesheets().add(getClass().getResource("darkuserprofile.css").toExternalForm());
+            } else {
+                scene.getStylesheets().add(getClass().getResource("userprofile.css").toExternalForm());
             }
 
+            stage.setScene(scene);
+            stage.setTitle("User Profile");
+            stage.show();
+
         } catch (Exception e) {
+            // Handle any exceptions (e.g., if FXML loading fails)
             e.printStackTrace();
-            sb.append("\n[Could not load appointments. Check terminal.]\n");
+            showError("Could not open the User Profile page.");
         }
+    }
 
-        TextArea area = new TextArea(sb.toString());
-        area.setEditable(false);
-        area.setWrapText(true);
-        area.setPrefWidth(520);
-        area.setPrefHeight(380);
-
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setTitle("My Profile");
-        a.setHeaderText(null);
-        a.getDialogPane().setContent(area);
-        a.showAndWait();
+        private void showError(String msg) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 
     @FXML

@@ -12,6 +12,20 @@
     -fx-border-width: 0 0 1 0;
 }
 
+/*.header .logout-btn,
+.header .theme-toggle-btn {
+    -fx-alignment: center-right;
+    -fx-padding-right: 10px;
+}*/
+
+.theme-toggle-btn {
+    -fx-padding-right: 20px;
+}
+
+/*.logout-btn {
+    -fx-padding-right: 10px;
+}*/
+
 .brand-text {
     -fx-font-size: 28px;
     -fx-font-weight: 800;
@@ -164,36 +178,39 @@
 }
 
 .danger-button {
-    -fx-background-color: #000000;
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #000000;
+    -fx-background-color: transparent;
+    -fx-text-fill: #111111;
+    -fx-border-color: #111111;
     -fx-border-width: 2;
-    -fx-border-radius: 12;
-    -fx-background-radius: 12;
-    -fx-padding: 9 16 9 16;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
     -fx-font-size: 14px;
     -fx-font-weight: 700;
     -fx-cursor: hand;
+    -fx-text-alignment: center;
 }
 
 .danger-button:hover {
-    -fx-background-color: #ffffff;
-    -fx-text-fill: #000000;
+    -fx-background-color: #111111;
+    -fx-text-fill: #ffffff;
 }
 
 .theme-toggle-btn {
     -fx-background-color: transparent;
-    -fx-border-color: #111111;
+    -fx-border-color: transparent;
     -fx-border-width: 2;
     -fx-border-radius: 21;
     -fx-background-radius: 21;
     -fx-cursor: hand;
     -fx-padding: 0;
     -fx-alignment: center;
+    -fx-padding: 9 12 9 12;
+
 }
 
 .theme-toggle-btn:hover {
-    -fx-background-color: #111111;
+    -fx-background-color: rgba(0, 0, 0, 0.08);
 }
 
 .theme-toggle-btn:hover .image-view {

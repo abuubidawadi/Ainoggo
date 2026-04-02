@@ -473,7 +473,7 @@ dialog.setOnShown(e -> {
             }
 
             stage.setScene(scene);
-            stage.setTitle("Ainoggo - Lawyer Dashboard");
+            stage.setTitle("Ainoggo");
             stage.setMinWidth(1000);
             stage.setMinHeight(650);
             stage.setWidth(width);

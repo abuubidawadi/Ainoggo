@@ -22,9 +22,9 @@
     xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserDashboardController" styleClass="page-root">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="12.0" styleClass="header">
+        <HBox alignment="CENTER_LEFT" spacing="12.0" prefHeight="80.0" styleClass="header">
             <padding>
-                <Insets top="12" right="18" bottom="12" left="18"/>
+                <Insets top="12" right="40" bottom="12" left="40"/>
             </padding>
 
             <ImageView fx:id="brandLogo" fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
@@ -37,7 +37,7 @@
 
             <Region HBox.hgrow="ALWAYS"/>
 
-            <Button text="Profile" onAction="#showProfile" styleClass="header-button"/>
+            <Button fx:id="profileButton" text="Profile" onAction="#openProfilePage" styleClass="header-button"/>
             <Button text="Logout" onAction="#logout" styleClass="header-button"/>
 
             <Button fx:id="themeToggleButton" onAction="#toggleTheme" styleClass="theme-toggle-button" focusTraversable="false">

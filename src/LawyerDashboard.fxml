@@ -10,90 +10,46 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
 
-<BorderPane fx:id="rootPane"
-            prefHeight="650.0"
-            prefWidth="1000.0"
-            styleClass="page-root"
-            stylesheets="@lawyerdashboard.css"
-            xmlns="http://javafx.com/javafx/25"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="LawyerDashboardController">
+
+<BorderPane fx:id="rootPane" prefHeight="650.0" prefWidth="1000.0" styleClass="page-root"
+    xmlns="http://javafx.com/javafx/25"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="LawyerDashboardController">
 
     <top>
-        <AnchorPane prefHeight="80.0" styleClass="header">
-            <children>
-                <ImageView fx:id="brandLogo"
-                           fitHeight="46.0"
-                           fitWidth="46.0"
-                           layoutX="55.0"
-                           layoutY="17.0"
-                           pickOnBounds="true"
-                           preserveRatio="true" />
+        <HBox alignment="CENTER_LEFT" spacing="12.0" prefHeight="80.0" styleClass="header">
+            <padding>
+                <Insets top="12" right="40" bottom="12" left="40"/>
+            </padding>
+            <ImageView fx:id="brandLogo" fitHeight="46.0" fitWidth="46.0" layoutX="55.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
 
-                <Label layoutX="115.0"
-                       layoutY="20.0"
-                       text="Ainoggo"
-                       styleClass="brand-text" />
+            <Label layoutX="115.0" layoutY="20.0" text="Ainoggo" styleClass="brand-text" />
 
-                <Button fx:id="themeToggleButton"
-                        layoutX="845.0"
-                        layoutY="18.0"
-                        mnemonicParsing="false"
-                        onAction="#toggleTheme"
-                        prefHeight="42.0"
-                        prefWidth="42.0"
-                        styleClass="theme-toggle-btn">
-                    <graphic>
-                        <ImageView fx:id="themeToggleIcon"
-                                   fitHeight="18.0"
-                                   fitWidth="18.0"
-                                   pickOnBounds="true"
-                                   preserveRatio="true" />
-                    </graphic>
-                </Button>
+            <Region HBox.hgrow="ALWAYS"/>
 
-                <Button fx:id="logoutBtn"
-                        layoutX="900.0"
-                        layoutY="18.0"
-                        mnemonicParsing="false"
-                        onAction="#logout"
-                        prefHeight="42.0"
-                        prefWidth="78.0"
-                        text="Logout"
-                        styleClass="danger-button" />
-            </children>
-        </AnchorPane>
+
+            <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" prefHeight="42.0" prefWidth="78.0" text="Logout" styleClass="danger-button" />
+            <Button fx:id="themeToggleButton" mnemonicParsing="false" onAction="#toggleTheme" prefHeight="42.0" prefWidth="42.0" styleClass="theme-toggle-btn">
+                <graphic>
+                    <ImageView fx:id="themeToggleIcon" fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true" />
+                </graphic>
+            </Button>
+
+        </HBox>
     </top>
 
     <left>
         <AnchorPane prefWidth="330.0" styleClass="sidebar-pane">
             <children>
-                <VBox alignment="TOP_CENTER"
-                      spacing="22.0"
-                      AnchorPane.bottomAnchor="25.0"
-                      AnchorPane.leftAnchor="25.0"
-                      AnchorPane.rightAnchor="25.0"
-                      AnchorPane.topAnchor="28.0">
+                <VBox alignment="TOP_CENTER" spacing="22.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="28.0">
 
                     <children>
                         <Label text="Profile" styleClass="section-title-left" />
 
-                        <StackPane fx:id="photoHolder"
-                                   maxHeight="160.0"
-                                   maxWidth="160.0"
-                                   minHeight="160.0"
-                                   minWidth="160.0"
-                                   prefHeight="160.0"
-                                   prefWidth="160.0"
-                                   styleClass="profile-photo-holder">
+                        <StackPane fx:id="photoHolder" maxHeight="160.0" maxWidth="160.0" minHeight="160.0" minWidth="160.0" prefHeight="160.0" prefWidth="160.0" styleClass="profile-photo-holder">
                             <children>
-                                <ImageView fx:id="lawyerImageView"
-                                           fitHeight="160.0"
-                                           fitWidth="160.0"
-                                           pickOnBounds="true"
-                                           preserveRatio="false"
-                                           smooth="true" />
+                                <ImageView fx:id="lawyerImageView" fitHeight="160.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="false" smooth="true" />
                             </children>
                         </StackPane>
 
@@ -113,13 +69,7 @@
                             </children>
                         </VBox>
 
-                        <Button fx:id="editProfileBtn"
-                                mnemonicParsing="false"
-                                onAction="#editProfile"
-                                prefHeight="42.0"
-                                prefWidth="150.0"
-                                text="Edit Profile"
-                                styleClass="primary-button" />
+                        <Button fx:id="editProfileBtn" mnemonicParsing="false" onAction="#editProfile" prefHeight="42.0" prefWidth="150.0" text="Edit Profile" styleClass="primary-button" />
                     </children>
                 </VBox>
             </children>
@@ -129,27 +79,16 @@
     <center>
         <AnchorPane styleClass="content-pane">
             <children>
-                <VBox spacing="20.0"
-                      AnchorPane.bottomAnchor="20.0"
-                      AnchorPane.leftAnchor="24.0"
-                      AnchorPane.rightAnchor="24.0"
-                      AnchorPane.topAnchor="24.0">
+                <VBox spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="24.0" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="24.0">
 
                     <children>
                         <Label text="Lawyer Dashboard" styleClass="page-title-right" />
 
                         <Label text="Upcoming Appointments" styleClass="subsection-title" />
 
-                        <ScrollPane fitToWidth="true"
-                                    hbarPolicy="NEVER"
-                                    pannable="true"
-                                    prefHeight="220.0"
-                                    styleClass="dashboard-scroll"
-                                    vbarPolicy="AS_NEEDED">
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" prefHeight="220.0" styleClass="dashboard-scroll" vbarPolicy="AS_NEEDED">
                             <content>
-                                <VBox fx:id="upcomingContainer"
-                                      spacing="12.0"
-                                      styleClass="appointments-container">
+                                <VBox fx:id="upcomingContainer" spacing="12.0" styleClass="appointments-container">
                                     <padding>
                                         <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
                                     </padding>
@@ -159,16 +98,9 @@
 
                         <Label text="Previous Sessions" styleClass="subsection-title" />
 
-                        <ScrollPane fitToWidth="true"
-                                    hbarPolicy="NEVER"
-                                    pannable="true"
-                                    styleClass="dashboard-scroll"
-                                    vbarPolicy="AS_NEEDED"
-                                    VBox.vgrow="ALWAYS">
+                        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" pannable="true" styleClass="dashboard-scroll" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
                             <content>
-                                <VBox fx:id="previousContainer"
-                                      spacing="12.0"
-                                      styleClass="appointments-container">
+                                <VBox fx:id="previousContainer" spacing="12.0" styleClass="appointments-container">
                                     <padding>
                                         <Insets top="4.0" right="4.0" bottom="4.0" left="4.0"/>
                                     </padding>
