@@ -80,7 +80,7 @@
                                     <content>
                                         <VBox prefWidth="430.0" alignment="TOP_CENTER" spacing="18.0" styleClass="pane">
                                             <children>
-                                                <Label styleClass="page-title" text="Profile Photo &amp; Bio" />
+                                                <Label styleClass="page-title" text="Update Profile Informations" />
 
                                                 <StackPane prefWidth="190.0" prefHeight="190.0" maxWidth="190.0" maxHeight="190.0" styleClass="photo-preview-box">
                                                     <children>

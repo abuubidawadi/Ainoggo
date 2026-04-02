@@ -60,6 +60,9 @@ public class LawyerDashboardController {
     private Label nameLabel;
 
     @FXML
+    private Label usernameLabel;
+
+    @FXML
     private Label emailLabel;
 
     @FXML
@@ -130,7 +133,7 @@ public class LawyerDashboardController {
     }
 
     private void loadLawyerProfile() {
-        String sql = "SELECT name, email, specialization, exp_years, bar_reg_no, law_firm, office_address, fee, bio, photo "
+        String sql = "SELECT name, username, email, specialization, exp_years, bar_reg_no, law_firm, office_address, fee, bio, photo "
                 + "FROM lawyers WHERE username = ?";
 
         try (Connection con = database.connectDB();
@@ -141,6 +144,7 @@ public class LawyerDashboardController {
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     nameLabel.setText("Name: " + safe(rs.getString("name")));
+                    usernameLabel.setText("Username: " + safe(rs.getString("username")));
                     emailLabel.setText("Email: " + safe(rs.getString("email")));
                     specializationLabel.setText("Specialization: " + safe(rs.getString("specialization")));
                     experienceLabel.setText("Experience: " + safe(rs.getString("exp_years")) + " Years");

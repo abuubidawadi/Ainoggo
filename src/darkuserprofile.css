@@ -179,12 +179,12 @@
 .danger-button {
     -fx-background-color: transparent;
     -fx-text-fill: #ffffff;
-    -fx-border-color: #ffffff;
+    -fx-border-color: transparent;
     -fx-border-width: 2;
     -fx-border-radius: 12;
     -fx-background-radius: 12;
     -fx-padding: 9 16 9 16;
-    -fx-font-size: 14px;
+    -fx-font-size: 17px;
     -fx-font-weight: 700;
     -fx-cursor: hand;
 }

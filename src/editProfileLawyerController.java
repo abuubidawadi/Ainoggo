@@ -95,6 +95,10 @@ public class editProfileLawyerController {
 
     private File selectedImageFile;
 
+    private String editedUsername;
+
+    private Boolean isEdited = false;
+
     private final String LIGHT_CSS = getClass().getResource("editprofile.css").toExternalForm();
     private final String DARK_CSS = getClass().getResource("darkeditprofile.css").toExternalForm();
 
@@ -225,27 +229,31 @@ public class editProfileLawyerController {
             }
         }
 
-        String sql = "UPDATE lawyers SET name=?, email=?, specialization=?, exp_years=?, law_firm=?, office_adress=? fee=?, bio=?"
+        String sql = "UPDATE lawyers SET name=?, username=?, email=?, specialization=?, exp_years=?, law_firm=?, office_address=?, fee=?, bio=?"
                 + (photoName != null ? ", photo=?" : "") + " WHERE username=?";
 
         try (Connection con = database.connectDB();
                 PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, name.getText());
-            ps.setString(2, email.getText());
-            ps.setString(3, spec_area.getValue());
-            ps.setString(4, exp_yr.getText());
-            ps.setString(5, office_address.getText());
-            ps.setString(6, law_firm.getText());
-            ps.setDouble(7, Double.parseDouble(consult_fee.getText()));
-            ps.setString(8, lawyer_bio.getText());
+            ps.setString(2, username.getText());
+            ps.setString(3, email.getText());
+            ps.setString(4, spec_area.getValue());
+            ps.setString(5, exp_yr.getText());
+            ps.setString(6, office_address.getText());
+            ps.setString(7, law_firm.getText());
+            ps.setDouble(8, Double.parseDouble(consult_fee.getText()));
+            ps.setString(9, lawyer_bio.getText());
             if (photoName != null) {
-                ps.setString(9, photoName);
-                ps.setString(10, lawyerUsername);
+                ps.setString(10, photoName);
+                ps.setString(11, lawyerUsername);
             } else {
-                ps.setString(9, lawyerUsername);
+                ps.setString(10, lawyerUsername);
             }
             ps.executeUpdate();
             // showInfo("Profile updated successfully!");
+            editedUsername = username.getText();
+            lawyerUsername = editedUsername;
+            isEdited = true;
             cancelEdit(event); // Return to dashboard
         } catch (Exception e) {
             e.printStackTrace();
@@ -258,7 +266,11 @@ public class editProfileLawyerController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LawyerDashboard.fxml"));
             Parent root = loader.load();
             LawyerDashboardController controller = loader.getController();
-            controller.setLawyerUsername(lawyerUsername);
+            if(isEdited) {
+                controller.setLawyerUsername(editedUsername);
+            } else {
+                controller.setLawyerUsername(lawyerUsername);
+            }
             Stage stage = (Stage) edit_page.getScene().getWindow();
             stage.getScene().setRoot(root);
         } catch (Exception e) {

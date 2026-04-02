@@ -66,6 +66,7 @@
                                             </padding>
                                             <children>
                                                 <Label fx:id="nameLabel" text="Name: -" styleClass="info-label" wrapText="true" />
+                                                <Label fx:id="usernameLabel" text="Username: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="emailLabel" text="Email: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="specializationLabel" text="Specialization: -" styleClass="info-label" wrapText="true" />
                                                 <Label fx:id="experienceLabel" text="Experience: -" styleClass="info-label" wrapText="true" />

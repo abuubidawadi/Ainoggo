@@ -24,7 +24,7 @@
 
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0"
     xmlns="http://javafx.com/javafx/25"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="editProfileLawyerController">
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="editProfileUserController">
     <children>
         <BorderPane fx:id="edit_page" visible="true" managed="true" styleClass="root">
 
@@ -82,27 +82,10 @@
                                             <children>
                                                 <Label styleClass="page-title" text="Update Profile Informations" />
 
-                                                <StackPane prefWidth="190.0" prefHeight="190.0" maxWidth="190.0" maxHeight="190.0" styleClass="photo-preview-box">
-                                                    <children>
-                                                        <ImageView fx:id="uploaded_img" fitWidth="190.0" fitHeight="190.0" preserveRatio="false" smooth="true" styleClass="preview-avatar-square" />
-                                                    </children>
-                                                </StackPane>
-
-                                                <Button fx:id="upload_button" mnemonicParsing="false" onAction="#uploadPhoto" prefHeight="46.0" prefWidth="210.0" styleClass="login-button" text="Upload Photo" />
                                                 <TextField fx:id="name" prefHeight="44.0" promptText="Name" styleClass="page-input" />
                                                 <TextField fx:id="username" prefHeight="44.0" promptText="Username" styleClass="page-input" />
                                                 <TextField fx:id="email" prefHeight="44.0" promptText="Email" styleClass="page-input" />
-                                                <TextField fx:id="bar_reg_no" prefHeight="44.0" promptText="Bar Registration Number" styleClass="page-input" />
-
-                                                <ComboBox fx:id="spec_area" prefHeight="44.0" prefWidth="430.0" promptText="Select Specialization" styleClass="page-input" />
-
-                                                <TextField fx:id="exp_yr" prefHeight="44.0" promptText="Years of Experience" styleClass="page-input" />
-                                                <TextField fx:id="law_firm" prefHeight="44.0" promptText="Law Firm / Chamber Name" styleClass="page-input" />
-                                                <TextField fx:id="office_address" prefHeight="44.0" promptText="Office Address" styleClass="page-input" />
-                                                <TextField fx:id="consult_fee" prefHeight="44.0" promptText="Consultation Fee" styleClass="page-input" />
-
-                                                <TextArea fx:id="lawyer_bio" prefHeight="190.0" promptText="Write a short bio about yourself" wrapText="true" styleClass="bio-area" />
-
+                                                
                                                 <Button fx:id="save_button" mnemonicParsing="false" onAction="#saveEdit" prefHeight="48.0" prefWidth="250.0" styleClass="save-button" text="Save Changes" />
                                             </children>
                                         </VBox>

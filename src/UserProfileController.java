@@ -389,10 +389,21 @@ public class UserProfileController {
 
     @FXML
     private void editProfile(ActionEvent event) {
-        Alert a = new Alert(Alert.AlertType.INFORMATION);
-        a.setTitle("Edit Profile");
-        a.setHeaderText(null);
-        a.setContentText("Edit profile page will be connected next.");
-        a.showAndWait();
+        // Alert a = new Alert(Alert.AlertType.INFORMATION);
+        // a.setTitle("Edit Profile");
+        // a.setHeaderText(null);
+        // a.setContentText("Edit profile page will be connected next.");
+        // a.showAndWait();
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("editProfileUser.fxml"));
+            Parent root = loader.load();
+            editProfileUserController controller = loader.getController();
+            controller.setLoggedUser(username, name, email);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.getScene().setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
