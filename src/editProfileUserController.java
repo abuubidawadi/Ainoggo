@@ -110,27 +110,7 @@ public class editProfileUserController {
         }
     }
 
-    // @FXML
-    // void saveEdit(ActionEvent event) {
 
-    //     String sql = "UPDATE users SET name=?, username=?, email=? WHERE username=?";
-
-    //     try (Connection con = database.connectDB();
-    //             PreparedStatement ps = con.prepareStatement(sql)) {
-    //         ps.setString(1, name.getText());
-    //         ps.setString(2, username.getText());
-    //         ps.setString(3, email.getText());
-    //         ps.setString(4, Username);
-    //         ps.executeUpdate();
-    //         // showInfo("Profile updated successfully!");
-    //         editedUsername = username.getText();
-    //         Username = editedUsername;
-    //         isEdited = true;
-    //         cancelEdit(event); // Return to dashboard
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //     }
-    // }
     @FXML
 void saveEdit(ActionEvent event) {
 
