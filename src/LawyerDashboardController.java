@@ -30,6 +30,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.Node;
 
+
 public class LawyerDashboardController {
 
     @FXML

@@ -14,8 +14,8 @@
       "name": "Launch App (JavaFX)",
       "request": "launch",
       "mainClass": "App",
-      "vmArgs": "--module-path \"D:/javafx/Ainoggo/Ainoggo/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics --enable-native-access=javafx.graphics -Djava.library.path=\"D:/javafx/Ainoggo/Ainoggo/lib\""
-     // "vmArgs": "--module-path \"D:/javafx/javafx-sdk-25.0.2/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics --enable-native-access=javafx.graphics -Djava.library.path=\"D:/javafx/javafx-sdk-25.0.2/lib\""
+     //"vmArgs": "--module-path \"D:/javafx/Ainoggo/Ainoggo/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics --enable-native-access=javafx.graphics -Djava.library.path=\"D:/javafx/Ainoggo/Ainoggo/lib\""
+      "vmArgs": "--module-path \"D:/javafx/javafx-sdk-25.0.2/lib\" --add-modules javafx.controls,javafx.fxml,javafx.graphics --enable-native-access=javafx.graphics -Djava.library.path=\"D:/javafx/javafx-sdk-25.0.2/lib\""
 
     }
   ]

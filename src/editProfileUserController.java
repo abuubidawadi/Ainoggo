@@ -110,27 +110,134 @@ public class editProfileUserController {
         }
     }
 
+    // @FXML
+    // void saveEdit(ActionEvent event) {
+
+    //     String sql = "UPDATE users SET name=?, username=?, email=? WHERE username=?";
+
+    //     try (Connection con = database.connectDB();
+    //             PreparedStatement ps = con.prepareStatement(sql)) {
+    //         ps.setString(1, name.getText());
+    //         ps.setString(2, username.getText());
+    //         ps.setString(3, email.getText());
+    //         ps.setString(4, Username);
+    //         ps.executeUpdate();
+    //         // showInfo("Profile updated successfully!");
+    //         editedUsername = username.getText();
+    //         Username = editedUsername;
+    //         isEdited = true;
+    //         cancelEdit(event); // Return to dashboard
+    //     } catch (Exception e) {
+    //         e.printStackTrace();
+    //     }
+    // }
     @FXML
-    void saveEdit(ActionEvent event) {
+void saveEdit(ActionEvent event) {
 
-        String sql = "UPDATE users SET name=?, username=?, email=? WHERE username=?";
+    String newName = name.getText() == null ? "" : name.getText().trim();
+    String newUsername = username.getText() == null ? "" : username.getText().trim();
+    String newEmail = email.getText() == null ? "" : email.getText().trim();
 
-        try (Connection con = database.connectDB();
-                PreparedStatement ps = con.prepareStatement(sql)) {
-            ps.setString(1, name.getText());
-            ps.setString(2, username.getText());
-            ps.setString(3, email.getText());
-            ps.setString(4, Username);
-            ps.executeUpdate();
-            // showInfo("Profile updated successfully!");
-            editedUsername = username.getText();
-            Username = editedUsername;
-            isEdited = true;
-            cancelEdit(event); // Return to dashboard
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    if (newName.isEmpty()) {
+        showInfo("Name cannot be empty.");
+        return;
     }
+
+    if (newUsername.isEmpty()) {
+        showInfo("Username cannot be empty.");
+        return;
+    }
+
+    if (newEmail.isEmpty()) {
+        showInfo("Email cannot be empty.");
+        return;
+    }
+
+    Connection con = null;
+    PreparedStatement checkPs = null;
+    PreparedStatement userPs = null;
+    PreparedStatement appointmentPs = null;
+    ResultSet rs = null;
+
+    try {
+        con = database.connectDB();
+        if (con == null) {
+            showInfo("Database connection failed.");
+            return;
+        }
+
+        con.setAutoCommit(false);
+
+        // Check if new username already exists for another user
+        String checkSql = "SELECT username FROM users WHERE username = ? AND username <> ?";
+        checkPs = con.prepareStatement(checkSql);
+        checkPs.setString(1, newUsername);
+        checkPs.setString(2, Username);
+        rs = checkPs.executeQuery();
+
+        if (rs.next()) {
+            showInfo("This username is already taken.");
+            con.rollback();
+            return;
+        }
+
+        // Update users table
+        String userSql = "UPDATE users SET name=?, username=?, email=? WHERE username=?";
+        userPs = con.prepareStatement(userSql);
+        userPs.setString(1, newName);
+        userPs.setString(2, newUsername);
+        userPs.setString(3, newEmail);
+        userPs.setString(4, Username);
+
+        int userUpdated = userPs.executeUpdate();
+
+        if (userUpdated <= 0) {
+            con.rollback();
+            showInfo("Could not update user profile.");
+            return;
+        }
+
+        // If username changed, update appointments table too
+        if (!newUsername.equals(Username)) {
+            String appointmentSql = "UPDATE appointments SET user_username=? WHERE user_username=?";
+            appointmentPs = con.prepareStatement(appointmentSql);
+            appointmentPs.setString(1, newUsername);
+            appointmentPs.setString(2, Username);
+            appointmentPs.executeUpdate();
+        }
+
+        con.commit();
+
+        editedUsername = newUsername;
+        Username = newUsername;
+        Name = newName;
+        Email = newEmail;
+        isEdited = true;
+
+        cancelEdit(event);
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        try {
+            if (con != null) {
+                con.rollback();
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    } finally {
+        try { if (rs != null) rs.close(); } catch (Exception e) {}
+        try { if (checkPs != null) checkPs.close(); } catch (Exception e) {}
+        try { if (userPs != null) userPs.close(); } catch (Exception e) {}
+        try { if (appointmentPs != null) appointmentPs.close(); } catch (Exception e) {}
+        try {
+            if (con != null) {
+                con.setAutoCommit(true);
+                con.close();
+            }
+        } catch (Exception e) {}
+    }
+}
 
     @FXML
     void cancelEdit(ActionEvent event) {
