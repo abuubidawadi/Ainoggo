@@ -527,7 +527,7 @@ public void initialize() {
             }
 
             stage.setScene(scene);
-            stage.setTitle("User Profile");
+            stage.setTitle("Ainoggo");
             stage.show();
 
         } catch (Exception e) {
