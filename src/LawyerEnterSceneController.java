@@ -490,15 +490,7 @@ dialog.setOnShown(e -> {
         }
     }
 
-    // @FXML
-    // void proceed(ActionEvent event) {
-    // Alert a = new Alert(Alert.AlertType.INFORMATION);
-    // a.setTitle("Proceed");
-    // a.setHeaderText(null);
-    // a.setContentText("Proceed clicked (feature will be added later).");
-    // a.showAndWait();
-    // }
-
+   
     @FXML
     void uploadPhoto(ActionEvent event) {
 
@@ -547,14 +539,7 @@ dialog.setOnShown(e -> {
         }
     }
 
-    // @FXML
-    // void forgotPassword(ActionEvent event) {
-    //     alert = new Alert(Alert.AlertType.INFORMATION);
-    //     alert.setTitle("Forgot Password");
-    //     alert.setHeaderText(null);
-    //     alert.setContentText("Forgot password is not available yet.");
-    //     alert.showAndWait();
-    // }
+  
     @FXML
 void forgotPassword(ActionEvent event) {
     openForgotPasswordDialog("lawyers", "Lawyer");

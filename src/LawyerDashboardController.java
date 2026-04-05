@@ -471,11 +471,7 @@ public class LawyerDashboardController {
 
     @FXML
     private void editProfile(ActionEvent event) {
-        // Alert a = new Alert(Alert.AlertType.INFORMATION);
-        // a.setTitle("Edit Profile");
-        // a.setHeaderText(null);
-        // a.setContentText("Edit profile page will be connected next.");
-        // a.showAndWait();
+      
 
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("editProfileLawyer.fxml"));
