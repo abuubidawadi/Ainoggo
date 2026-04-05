@@ -43,10 +43,13 @@ A JavaFX-based law and appointment management system.
 * Md. Emamul Haque Pranta(Lecturer,BUET)
 
 ---
-▶️ How to Run
+▶️  How to Run
+
 1.Clone the repository:
 git clone https://github.com/abuubidawadi/Ainoggo.git
+
 2.Open in IDE (IntelliJ / VS Code)
+
 3.Run the project
 ## 📸  Some Screenshots
 
