@@ -101,23 +101,7 @@ public class UserProfileController {
     }
 
     private void loadProfile() {
-        // String sql = "SELECT name, username, email"
-        // + "FROM users WHERE username = ?";
-
-        // try (Connection con = database.connectDB();
-        // PreparedStatement ps = con.prepareStatement(sql)) {
-
-        // ps.setString(1, username);
-
-        // try (ResultSet rs = ps.executeQuery()) {
-        // if (rs.next()) {
-        // nameLabel.setText("Name: " + name);
-        // usernameLabel.setText("Username: " + username);
-        // emailLabel.setText("Email: " + email);
-        // } else {
-        // showError("profile not found.");
-        // }
-        // }
+        
 
         try {
             nameLabel.setText("Name: " + safe(name));
