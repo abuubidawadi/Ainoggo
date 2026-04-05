@@ -276,7 +276,7 @@ public void initialize() {
             }
         }
 
-        sql.append("ORDER BY id DESC");
+        sql.append("ORDER BY id ASC");
 
         try (Connection con = database.connectDB();
                 PreparedStatement ps = con.prepareStatement(sql.toString())) {
