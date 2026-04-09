@@ -2,7 +2,6 @@
     -fx-font-family: "Segoe UI", "Arial", sans-serif;
 }
 
-/* PAGE */
 .page-root {
     -fx-background-color: #121212;
 }
@@ -13,7 +12,7 @@
     -fx-border-width: 0 0 1 0;
 }
 
-/* HERO */
+
 
 .auth-body {
     -fx-alignment: center;
@@ -43,7 +42,7 @@
     -fx-background-image: url("images/register_bg.jpg");
 }
 
-/* ---------------- HERO TEXT ---------------- */
+
 
 .hero-text-box {
     -fx-alignment: center;
@@ -64,7 +63,7 @@
     -fx-text-alignment: center;
 }
 
-/* ---------------- FLOATING FORM WRAPPERS ---------------- */
+
 
 .floating-form-wrapper {
     -fx-padding: 40 70 40 70;
@@ -81,7 +80,6 @@
     -fx-alignment: center;
 }
 
-/* FORM CARD */
 .form-card {
     -fx-background-color: rgba(28, 28, 28, 0.95);
     -fx-background-radius: 18;
@@ -100,7 +98,6 @@
     -fx-padding: 0 0 12 0;
 }
 
-/* INPUTS */
 .auth-input {
     -fx-background-color: #1f1f1f;
     -fx-border-color: #3a3a3a;
@@ -118,7 +115,7 @@
     -fx-background-insets: 0;
 }
 
-/* BUTTONS */
+
 .login-button {
     -fx-background-color: transparent;
     -fx-text-fill: #e2e5e9;
@@ -165,7 +162,7 @@
     -fx-border-radius: 8;
 }
 
-/* LINKS */
+
 .hyperlink,
 .forgot-password,
 .go-to-other {
@@ -197,7 +194,6 @@
     -fx-text-fill: #000000;
 }
 
-/* CHECKBOX */
 .terms-check {
     -fx-text-fill: #f2f2f2;
     -fx-font-size: 15px;
@@ -214,7 +210,7 @@
     -fx-background-color: #ffffff;
 }
 
-/* ---------------- SCROLLPANE ---------------- */
+
 
 .form-scroll {
     -fx-background-color: transparent;

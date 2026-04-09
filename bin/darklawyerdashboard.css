@@ -12,18 +12,12 @@
     -fx-border-width: 0 0 1 0;
 }
 
-/* .header .logout-btn,
-.header .theme-toggle-btn {
-    -fx-alignment: center-right;
-} */
 
 .theme-toggle-btn {
     -fx-padding-right: 20px; 
 }
 
-/* .logout-btn {
-    -fx-padding-right: 10px; 
-} */
+
 
 .brand-text {
     -fx-font-size: 28px;

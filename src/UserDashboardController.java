@@ -95,16 +95,6 @@ public class UserDashboardController {
         this.loggedEmail = email;
     }
 
-    //@FXML
-    // public void initialize() {
-    //     setupFeeFilter();
-    //     setupSlider();
-
-    //     Platform.runLater(() -> {
-    //         applyTheme();
-    //         loadLawyers(null, getSelectedFeeFilter());
-    //     });
-    // }
     @FXML
 public void initialize() {
     setupFeeFilter();
@@ -437,76 +427,7 @@ public void initialize() {
         return (s == null || s.trim().isEmpty()) ? "-" : s.trim();
     }
 
-    // @FXML
-    // private void showProfile(ActionEvent event) {
-    //     if (loggedUsername == null || loggedUsername.trim().isEmpty()) {
-    //         Alert a = new Alert(Alert.AlertType.ERROR);
-    //         a.setTitle("My Profile");
-    //         a.setHeaderText(null);
-    //         a.setContentText("User not found. Please login again.");
-    //         a.showAndWait();
-    //         return;
-    //     }
-
-    //     StringBuilder sb = new StringBuilder();
-
-    //     sb.append("Full Name: ").append(loggedName == null ? "-" : loggedName).append("\n");
-    //     sb.append("Username: ").append(loggedUsername).append("\n");
-    //     sb.append("Email: ").append(loggedEmail == null ? "-" : loggedEmail).append("\n\n");
-
-    //     sb.append("===== My Appointments =====\n\n");
-
-    //     String sql = "SELECT a.id, a.`date`, a.`time`, a.status, l.name AS lawyer_name, l.specialization, l.law_firm " +
-    //             "FROM appointments a " +
-    //             "JOIN lawyers l ON l.id = a.lawyer_id " +
-    //             "WHERE a.user_username = ? " +
-    //             "ORDER BY a.`date` DESC, a.`time` DESC";
-
-    //     try (Connection con = database.connectDB();
-    //             PreparedStatement ps = con.prepareStatement(sql)) {
-
-    //         ps.setString(1, loggedUsername);
-
-    //         try (ResultSet rs = ps.executeQuery()) {
-    //             int count = 0;
-
-    //             while (rs.next()) {
-    //                 count++;
-
-    //                 sb.append(count).append(") ")
-    //                         .append(rs.getString("date")).append("  ")
-    //                         .append(rs.getString("time")).append(" | Lawyer: ")
-    //                         .append(safe(rs.getString("lawyer_name"))).append(" | ")
-    //                         .append(safe(rs.getString("specialization"))).append(" | ")
-    //                         .append(safe(rs.getString("law_firm"))).append(" | Status: ")
-    //                         .append(safe(rs.getString("status")))
-    //                         .append(" | Appointment ID: ")
-    //                         .append(rs.getInt("id"))
-    //                         .append("\n");
-    //             }
-
-    //             if (count == 0) {
-    //                 sb.append("No appointments found.\n");
-    //             }
-    //         }
-
-    //     } catch (Exception e) {
-    //         e.printStackTrace();
-    //         sb.append("\n[Could not load appointments. Check terminal.]\n");
-    //     }
-
-    //     TextArea area = new TextArea(sb.toString());
-    //     area.setEditable(false);
-    //     area.setWrapText(true);
-    //     area.setPrefWidth(520);
-    //     area.setPrefHeight(380);
-
-    //     Alert a = new Alert(Alert.AlertType.INFORMATION);
-    //     a.setTitle("My Profile");
-    //     a.setHeaderText(null);
-    //     a.getDialogPane().setContent(area);
-    //     a.showAndWait();
-    // }
+   
 
     @FXML
     private void openProfilePage(ActionEvent event) {

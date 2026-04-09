@@ -435,12 +435,7 @@ dialog.setOnShown(e -> {
                 prepare.setBoolean(5, reg_checkbox.isSelected());
                 prepare.executeUpdate();
 
-                // alert = new Alert(Alert.AlertType.INFORMATION);
-                // alert.setTitle("Registration Successful");
-                // alert.setHeaderText(null);
-                // alert.setContentText("You have successfully registered");
-                // alert.showAndWait();
-
+              
                 reg_username.setText("");
                 reg_name.setText("");
                 reg_email.setText("");
@@ -513,27 +508,7 @@ dialog.setOnShown(e -> {
 
                 try {
 
-                    // FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
-                    // Parent root = loader.load();
-
-                    // UserDashboardController controller = loader.getController();
-                    // controller.setLoggedUser(loggedUsername, loggedName, loggedEmail);
-
-                    // Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    // Scene scene = new Scene(root, 1000, 650);
-                    // scene.getStylesheets().clear();
-
-                    // if (ThemeManager.isDarkMode()) {
-                    //     scene.getStylesheets().add(getClass().getResource("darkdashboard.css").toExternalForm());
-                    // } else {
-                    //     scene.getStylesheets().add(getClass().getResource("dashboard.css").toExternalForm());
-                    // }
-
-                    // stage.setScene(scene);
-                    // stage.setResizable(true);
-                    // stage.setTitle("Ainoggo");
-                    // stage.show();
-
+                 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("UserDashboard.fxml"));
                     Parent root = loader.load();
 
@@ -606,14 +581,7 @@ dialog.setOnShown(e -> {
         }
     }
 
-    // public void forgotPassword(ActionEvent event) {
-
-    //     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    //     alert.setTitle("Forgot Password");
-    //     alert.setHeaderText(null);
-    //     alert.setContentText("Forgot password feature is not available yet.");
-    //     alert.showAndWait();
-    // }
+  
     public void forgotPassword(ActionEvent event) {
     openForgotPasswordDialog("users", "User");
 }

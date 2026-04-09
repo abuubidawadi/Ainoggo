@@ -71,7 +71,7 @@
                                 <VBox spacing="6.0">
                                     <Label fx:id="lawyer_name" text="Advocate Robiul Islam" styleClass="profile-name"/>
                                     <Label fx:id="specialization" text="Corporate Law" styleClass="profile-specialization"/>
-                                    <!--<Label fx:id="mail" text="abul2017318138@gmail.com" styleClass="profile-email" wrapText="true"/>-->
+                                   
                                 </VBox>
 
                                 <HBox spacing="14.0">
