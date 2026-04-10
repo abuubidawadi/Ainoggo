@@ -79,7 +79,9 @@ ainoggo
 
 
 String url = "jdbc:mysql://crossover.proxy.rlwy.net:27408/railway?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+
 String username = "root";
+
 String password = "IgcmcGlSPEswVxgRhrNKhMdsUguxcYUh";
 
 
