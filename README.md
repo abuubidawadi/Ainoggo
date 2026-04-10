@@ -43,6 +43,70 @@ A JavaFX-based law and appointment management system.
 * Md. Emamul Haque Pranta(Lecturer,BUET)
 
 ---
+## ⚙️ Installation Guide
+
+Follow these steps to run the project locally:
+
+### 🔹 1. Clone the Repository
+
+
+git clone https://github.com/abuubidawadi/Ainoggo.git
+
+
+### 🔹 2. Open the Project
+
+* Open the project in **IntelliJ IDEA** or **VS Code**
+
+### 🔹 3. Setup Database (MySQL)
+
+1. Open **MySQL Workbench** 
+2. Create a database named:
+
+
+ainoggo
+
+
+3. Create required tables:
+
+* users
+* lawyers
+* appointments
+
+### 🔹 4. Configure Database Connection
+
+* Open your database connection file
+* Update these values:
+
+
+String url = "jdbc:mysql://crossover.proxy.rlwy.net:27408/railway?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+String username = "root";
+String password = "IgcmcGlSPEswVxgRhrNKhMdsUguxcYUh";
+
+
+### 🔹 5. Add Images Folder
+
+* Make sure this folder exists:
+
+
+uploaded_photos/
+
+
+* Put all lawyer images inside this folder
+
+### 🔹 6. Run the Project
+
+* Run the main class (e.g., `App.java`)
+
+
+---
+
+## ✅ Requirements
+
+* Java (JDK 17 or higher)
+* MySQL
+* IntelliJ IDEA / VS Code
+
+
 ▶️  How to Run
 
 1.Clone the repository:
