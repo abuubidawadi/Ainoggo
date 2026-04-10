@@ -1,20 +1,20 @@
-# ⚖️ Ainoggo
+#  Ainoggo
 
 A JavaFX-based law and appointment management system.
 
 ---
 
-## 🚀 Features
+##  Features
 
-* 👨‍⚖️ Lawyer profiles
-* 📅 Appointment booking system
-* 👤 User dashboard
-* 🔐 Login & Registration
-* 📸 Image upload support
+*  Lawyer profiles
+*  Appointment booking system
+*  User dashboard
+*  Login & Registration
+*  Image upload support
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 * Java
 * JavaFX
@@ -23,7 +23,7 @@ A JavaFX-based law and appointment management system.
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 * src/ → Source code
 * lib/ → Libraries
@@ -31,33 +31,33 @@ A JavaFX-based law and appointment management system.
 
 ---
 
-## 👥 Team Members
+##  Team Members
 
 * Most:Moriom Sultana
 * Abu Ubida Wadi
 
 ---
 
-## 🎓 Supervisor
+##  Supervisor
 
 * Md. Emamul Haque Pranta(Lecturer,BUET)
 
 ---
-## ⚙️ Installation Guide
+##  Installation Guide
 
 Follow these steps to run the project locally:
 
-### 🔹 1. Clone the Repository
+###  1. Clone the Repository
 
 
 git clone https://github.com/abuubidawadi/Ainoggo.git
 
 
-### 🔹 2. Open the Project
+###  2. Open the Project
 
 * Open the project in **IntelliJ IDEA** or **VS Code**
 
-### 🔹 3. Setup Database (MySQL)
+###  3. Setup Database (MySQL)
 
 1. Open **MySQL Workbench** 
 2. Create a database named:
@@ -72,7 +72,7 @@ ainoggo
 * lawyers
 * appointments
 
-### 🔹 4. Configure Database Connection
+###  4. Configure Database Connection
 
 * Open your database connection file
 * Update these values:
@@ -85,7 +85,7 @@ String username = "root";
 String password = "IgcmcGlSPEswVxgRhrNKhMdsUguxcYUh";
 
 
-### 🔹 5. Add Images Folder
+###  5. Add Images Folder
 
 * Make sure this folder exists:
 
@@ -95,21 +95,21 @@ uploaded_photos/
 
 * Put all lawyer images inside this folder
 
-### 🔹 6. Run the Project
+###  6. Run the Project
 
 * Run the main class (e.g., `App.java`)
 
 
 ---
 
-## ✅ Requirements
+##  Requirements
 
 * Java (JDK 17 or higher)
 * MySQL
 * IntelliJ IDEA / VS Code
 
 
-## 📸  Some Screenshots
+##   Some Screenshots
 
 ### Login Page
 ![Login](uploaded_photos/login.png)
@@ -123,6 +123,6 @@ uploaded_photos/
 ### LawyerDashboard
 ![LawyerDashboard](uploaded_photos/lawyerdashboard.png)
 
-## 🎥 Demo Video
+##  Demo Video
 
 [Watch Demo](https://youtu.be/3wfJSzklKco?si=kgcBmQGBS9f3HNfI)
